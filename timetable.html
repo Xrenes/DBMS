@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Student Portal - View your class timetable and schedule">
+  <title>Timetable | Student Portal</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+</head>
+<body>
+  <div class="app-container">
+    <div class="sidebar-overlay"></div>
+    
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">SP</div>
+        <div>
+          <div class="sidebar-title">Student Portal</div>
+          <div class="sidebar-subtitle">University ERP</div>
+        </div>
+      </div>
+      
+      <nav class="sidebar-nav">
+        <div class="nav-section">
+          <div class="nav-section-title">Main</div>
+          <a href="index.html" class="nav-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+            <span>Dashboard</span>
+          </a>
+        </div>
+        
+        <div class="nav-section">
+          <div class="nav-section-title">Academic</div>
+          <a href="results.html" class="nav-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+            <span>Results & Transcript</span>
+          </a>
+          <a href="live-results.html" class="nav-item" data-page="live-results.html">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 10"></polyline></svg>
+            <span>Live Result</span>
+          </a>
+          <a href="cgpa.html" class="nav-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line></svg>
+            <span>CGPA Calculator</span>
+          </a>
+          <a href="attendance.html" class="nav-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+            <span>Attendance</span>
+          </a>
+          <a href="timetable.html" class="nav-item active">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            <span>Timetable</span>
+          </a>
+          <a href="exams.html" class="nav-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+            <span>Exams</span>
+          </a>
+        </div>
+        
+        <div class="nav-section">
+          <div class="nav-section-title">Services</div>
+          <a href="finance.html" class="nav-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+            <span>Finance</span>
+          </a>
+          <a href="hostel.html" class="nav-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+            <span>Hostel</span>
+          </a>
+          <a href="transport.html" class="nav-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+            <span>Transport</span>
+          </a>
+        </div>
+        
+        <div class="nav-section">
+          <div class="nav-section-title">Account</div>
+          <a href="profile.html" class="nav-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            <span>Profile</span>
+          </a>
+        </div>
+      </nav>
+      
+      <div class="sidebar-footer">
+        <div class="sidebar-user">
+          <div class="sidebar-avatar">IH</div>
+          <div class="sidebar-user-info">
+            <div class="sidebar-user-name">Iftekhar Hossain</div>
+            <div class="sidebar-user-role">B.Sc. CSE</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+    
+    <!-- Main Content -->
+    <main class="main-content">
+      <header class="header">
+        <div class="header-left">
+          <button class="menu-toggle" aria-label="Toggle menu">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+          </button>
+          <div class="breadcrumb">
+            <a href="index.html">Dashboard</a>
+            <span class="breadcrumb-separator">/</span>
+            <span>Timetable</span>
+          </div>
+        </div>
+        <div class="header-right">
+          <div class="header-avatar">IH</div>
+        </div>
+      </header>
+      
+      <div class="content">
+        <!-- Page Header -->
+        <div class="section-header">
+          <div>
+            <h1 class="page-title">Class Timetable</h1>
+            <p class="text-secondary mt-1">View your weekly class schedule</p>
+          </div>
+          <div class="section-actions">
+            <button class="btn btn-secondary" onclick="exportTimetable()">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              Export
+            </button>
+            <button class="btn btn-primary" onclick="scrollToNextClass()">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              Next Class
+            </button>
+          </div>
+        </div>
+        
+        <!-- Today's Classes Quick View -->
+        <div class="card mb-4">
+          <div class="card-header">
+            <h3 class="card-title">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" style="margin-right: 8px;"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              Today's Schedule - <span id="current-day">Monday</span>
+            </h3>
+            <span class="badge badge-primary" id="classes-today">5 Classes</span>
+          </div>
+          <div class="card-body">
+            <div class="flex gap-3 flex-wrap" id="today-classes">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+        </div>
+        
+        <!-- Weekly Timetable Grid -->
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Weekly Schedule</h3>
+          </div>
+          <div class="card-body" style="overflow-x: auto;">
+            <div class="timetable-grid" id="timetable-grid">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+        </div>
+        
+        <!-- Class Details Modal -->
+        <div class="modal-overlay" id="class-modal">
+          <div class="modal" style="max-width: 400px;">
+            <div class="modal-header">
+              <h3 class="modal-title" id="modal-class-name">Class Details</h3>
+              <button class="modal-close" onclick="closeClassModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+              <div class="space-y-3">
+                <div class="flex items-center gap-3">
+                  <div class="p-2 rounded-lg" style="background: var(--primary-light);">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                  </div>
+                  <div>
+                    <div class="text-sm text-secondary">Time</div>
+                    <div class="font-semibold" id="modal-time">09:00 - 10:00</div>
+                  </div>
+                </div>
+                
+                <div class="flex items-center gap-3">
+                  <div class="p-2 rounded-lg" style="background: #dcfce7;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                  </div>
+                  <div>
+                    <div class="text-sm text-secondary">Faculty</div>
+                    <div class="font-semibold" id="modal-faculty">Dr. Smith</div>
+                  </div>
+                </div>
+                
+                <div class="flex items-center gap-3">
+                  <div class="p-2 rounded-lg" style="background: #fef3c7;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                  </div>
+                  <div>
+                    <div class="text-sm text-secondary">Room</div>
+                    <div class="font-semibold" id="modal-room">CS Lab 301</div>
+                  </div>
+                </div>
+                
+                <div class="flex items-center gap-3">
+                  <div class="p-2 rounded-lg" style="background: #f3e8ff;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9333ea" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+                  </div>
+                  <div>
+                    <div class="text-sm text-secondary">Type</div>
+                    <div class="font-semibold" id="modal-type">Lecture</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-secondary" onclick="closeClassModal()">Close</button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Subject Legend -->
+        <div class="card mt-4">
+          <div class="card-header">
+            <h3 class="card-title">Subject Legend</h3>
+          </div>
+          <div class="card-body">
+            <div class="flex flex-wrap gap-3" id="subject-legend">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  
+  <script src="assets/data/student-data.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/ai-assistant.js"></script>
+  
+  <script>
+    const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    const timeSlots = ['09:00', '10:00', '11:00', '12:00', '14:00', '15:00', '16:00', '17:00'];
+    
+    const subjectColors = {
+      'DBMS': '#2563eb',
+      'Operating Systems': '#16a34a',
+      'Computer Networks': '#9333ea',
+      'Software Engineering': '#d97706',
+      'Machine Learning': '#dc2626',
+      'Professional Ethics': '#0891b2',
+      'Lab': '#6366f1'
+    };
+    
+    // Initialize page
+    document.addEventListener('DOMContentLoaded', function() {
+      loadTodayClasses();
+      renderTimetableGrid();
+      renderLegend();
+    });
+    
+    // Get current day
+    function getCurrentDay() {
+      const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+      const today = new Date().getDay();
+      return today === 0 ? 'Monday' : dayNames[today]; // Default to Monday if Sunday
+    }
+    
+    // Load today's classes
+    function loadTodayClasses() {
+      const currentDay = getCurrentDay();
+      document.getElementById('current-day').textContent = currentDay;
+      
+      const todaySchedule = studentData.timetable[currentDay] || [];
+      document.getElementById('classes-today').textContent = todaySchedule.length + ' Classes';
+      
+      const container = document.getElementById('today-classes');
+      
+      if (todaySchedule.length === 0) {
+        container.innerHTML = '<div class="text-secondary">No classes scheduled for today</div>';
+        return;
+      }
+      
+      container.innerHTML = todaySchedule.map((cls, index) => {
+        const color = subjectColors[cls.subject] || '#64748b';
+        const isNext = index === 0; // Simplified - first class is "next"
+        
+        return `
+          <div class="p-3 rounded-lg cursor-pointer" 
+               style="background: ${color}15; border-left: 4px solid ${color}; min-width: 200px; ${isNext ? 'box-shadow: 0 0 0 2px ' + color : ''}"
+               onclick="showClassDetails('${cls.subject}', '${cls.time}', '${cls.faculty}', '${cls.room}', '${cls.type}')">
+            <div class="font-semibold" style="color: ${color};">${cls.subject}</div>
+            <div class="text-sm text-secondary mt-1">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: inline; vertical-align: middle;"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              ${cls.time}
+            </div>
+            <div class="text-sm text-secondary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: inline; vertical-align: middle;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              ${cls.room}
+            </div>
+            ${isNext ? '<span class="badge badge-primary mt-2">Next Class</span>' : ''}
+          </div>
+        `;
+      }).join('');
+    }
+    
+    // Render timetable grid
+    function renderTimetableGrid() {
+      const grid = document.getElementById('timetable-grid');
+      
+      let html = '<div class="timetable-row timetable-header">';
+      html += '<div class="timetable-cell time-cell"></div>';
+      days.forEach(day => {
+        html += `<div class="timetable-cell day-cell">${day}</div>`;
+      });
+      html += '</div>';
+      
+      timeSlots.forEach(time => {
+        html += '<div class="timetable-row">';
+        html += `<div class="timetable-cell time-cell">${time}</div>`;
+        
+        days.forEach(day => {
+          const cls = findClass(day, time);
+          if (cls) {
+            const color = subjectColors[cls.subject] || '#64748b';
+            html += `
+              <div class="timetable-cell class-cell" 
+                   style="background: ${color}15; border-left: 3px solid ${color};"
+                   onclick="showClassDetails('${cls.subject}', '${cls.time}', '${cls.faculty}', '${cls.room}', '${cls.type}')">
+                <div class="class-name" style="color: ${color};">${cls.subject}</div>
+                <div class="class-room">${cls.room}</div>
+              </div>
+            `;
+          } else {
+            html += '<div class="timetable-cell empty-cell">-</div>';
+          }
+        });
+        
+        html += '</div>';
+      });
+      
+      grid.innerHTML = html;
+    }
+    
+    // Find class for given day and time
+    function findClass(day, time) {
+      const schedule = studentData.timetable[day] || [];
+      return schedule.find(cls => cls.time.startsWith(time));
+    }
+    
+    // Render legend
+    function renderLegend() {
+      const legend = document.getElementById('subject-legend');
+      legend.innerHTML = Object.entries(subjectColors).map(([subject, color]) => `
+        <div class="flex items-center gap-2 p-2 rounded-lg" style="background: ${color}15;">
+          <div style="width: 12px; height: 12px; background: ${color}; border-radius: 3px;"></div>
+          <span class="text-sm font-medium">${subject}</span>
+        </div>
+      `).join('');
+    }
+    
+    // Show class details modal
+    function showClassDetails(subject, time, faculty, room, type) {
+      document.getElementById('modal-class-name').textContent = subject;
+      document.getElementById('modal-time').textContent = time;
+      document.getElementById('modal-faculty').textContent = faculty;
+      document.getElementById('modal-room').textContent = room;
+      document.getElementById('modal-type').textContent = type;
+      document.getElementById('class-modal').classList.add('active');
+    }
+    
+    // Close class modal
+    function closeClassModal() {
+      document.getElementById('class-modal').classList.remove('active');
+    }
+    
+    // Scroll to next class
+    function scrollToNextClass() {
+      const nextClass = StudentPortal.getNextClass();
+      if (nextClass) {
+        showClassDetails(nextClass.subject, nextClass.time, nextClass.faculty, nextClass.room, nextClass.type);
+        PortalUtils.showToast(`Next class: ${nextClass.subject} at ${nextClass.time}`, 'info');
+      } else {
+        PortalUtils.showToast('No more classes today!', 'success');
+      }
+    }
+    
+    // Export timetable
+    function exportTimetable() {
+      let csv = 'Day,Time,Subject,Room,Faculty,Type\n';
+      
+      days.forEach(day => {
+        const schedule = studentData.timetable[day] || [];
+        schedule.forEach(cls => {
+          csv += `${day},${cls.time},${cls.subject},${cls.room},${cls.faculty},${cls.type}\n`;
+        });
+      });
+      
+      const blob = new Blob([csv], { type: 'text/csv' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'timetable.csv';
+      a.click();
+      URL.revokeObjectURL(url);
+      
+      PortalUtils.showToast('Timetable exported successfully', 'success');
+    }
+  </script>
+  
+  <style>
+    .timetable-grid {
+      display: grid;
+      gap: 2px;
+      min-width: 900px;
+    }
+    
+    .timetable-row {
+      display: grid;
+      grid-template-columns: 80px repeat(6, 1fr);
+      gap: 2px;
+    }
+    
+    .timetable-cell {
+      padding: 0.75rem;
+      text-align: center;
+      border-radius: 4px;
+      font-size: 0.875rem;
+    }
+    
+    .timetable-header .timetable-cell {
+      background: var(--sidebar-bg);
+      color: white;
+      font-weight: 600;
+    }
+    
+    .time-cell {
+      background: var(--bg-page) !important;
+      color: var(--text-secondary) !important;
+      font-weight: 500 !important;
+    }
+    
+    .class-cell {
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    
+    .class-cell:hover {
+      transform: scale(1.02);
+    }
+    
+    .class-name {
+      font-weight: 600;
+      font-size: 0.8rem;
+    }
+    
+    .class-room {
+      font-size: 0.7rem;
+      color: var(--text-secondary);
+      margin-top: 4px;
+    }
+    
+    .empty-cell {
+      background: var(--bg-page);
+      color: var(--text-secondary);
+    }
+    
+    .space-y-3 > * + * {
+      margin-top: 0.75rem;
+    }
+  </style>
+</body>
+</html>

@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Student Portal Dashboard - View your academic progress, attendance, and more">
+  <title>Dashboard | Student Portal</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar Overlay (Mobile) -->
+    <div class="sidebar-overlay"></div>
+    
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">SP</div>
+        <div>
+          <div class="sidebar-title">Student Portal</div>
+          <div class="sidebar-subtitle">University ERP</div>
+        </div>
+      </div>
+      
+      <nav class="sidebar-nav">
+        <div class="nav-section">
+          <div class="nav-section-title">Main</div>
+          <a href="index.html" class="nav-item active" data-page="index.html">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="7" height="7"></rect>
+              <rect x="14" y="3" width="7" height="7"></rect>
+              <rect x="14" y="14" width="7" height="7"></rect>
+              <rect x="3" y="14" width="7" height="7"></rect>
+            </svg>
+            <span>Dashboard</span>
+          </a>
+        </div>
+        
+        <div class="nav-section">
+          <div class="nav-section-title">Academic</div>
+          <a href="results.html" class="nav-item" data-page="results.html">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+            </svg>
+            <span>Results & Transcript</span>
+          </a>
+          <a href="live-results.html" class="nav-item" data-page="live-results.html">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 10"></polyline>
+            </svg>
+            <span>Live Result</span>
+          </a>
+          <a href="cgpa.html" class="nav-item" data-page="cgpa.html">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="4" y1="21" x2="4" y2="14"></line>
+              <line x1="4" y1="10" x2="4" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="12"></line>
+              <line x1="12" y1="8" x2="12" y2="3"></line>
+              <line x1="20" y1="21" x2="20" y2="16"></line>
+              <line x1="20" y1="12" x2="20" y2="3"></line>
+              <line x1="1" y1="14" x2="7" y2="14"></line>
+              <line x1="9" y1="8" x2="15" y2="8"></line>
+              <line x1="17" y1="16" x2="23" y2="16"></line>
+            </svg>
+            <span>CGPA Calculator</span>
+          </a>
+          <a href="attendance.html" class="nav-item" data-page="attendance.html">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+              <path d="M9 16l2 2 4-4"></path>
+            </svg>
+            <span>Attendance</span>
+          </a>
+          <a href="timetable.html" class="nav-item" data-page="timetable.html">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            <span>Timetable</span>
+          </a>
+          <a href="exams.html" class="nav-item" data-page="exams.html">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+            </svg>
+            <span>Exams</span>
+          </a>
+        </div>
+        
+        <div class="nav-section">
+          <div class="nav-section-title">Services</div>
+          <a href="finance.html" class="nav-item" data-page="finance.html">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="1" x2="12" y2="23"></line>
+              <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+            </svg>
+            <span>Finance</span>
+            <span class="nav-badge">Due</span>
+          </a>
+          <a href="hostel.html" class="nav-item" data-page="hostel.html">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+              <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+            <span>Hostel</span>
+          </a>
+          <a href="transport.html" class="nav-item" data-page="transport.html">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M8 6v6"></path>
+              <path d="M16 6v6"></path>
+              <path d="M2 12h20"></path>
+              <path d="M4 6h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z"></path>
+              <circle cx="6.5" cy="17.5" r="1.5"></circle>
+              <circle cx="17.5" cy="17.5" r="1.5"></circle>
+            </svg>
+            <span>Transport</span>
+          </a>
+        </div>
+        
+        <div class="nav-section">
+          <div class="nav-section-title">Account</div>
+          <a href="profile.html" class="nav-item" data-page="profile.html">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            <span>Profile</span>
+          </a>
+          <a href="#" class="nav-item" onclick="handleLogout()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+              <polyline points="16 17 21 12 16 7"></polyline>
+              <line x1="21" y1="12" x2="9" y2="12"></line>
+            </svg>
+            <span>Logout</span>
+          </a>
+        </div>
+      </nav>
+      
+      <div class="sidebar-footer">
+        <div class="sidebar-user">
+          <div class="sidebar-avatar">IH</div>
+          <div class="sidebar-user-info">
+            <div class="sidebar-user-name">Iftekhar Hossain</div>
+            <div class="sidebar-user-role">B.Sc. CSE</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+    
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Header -->
+      <header class="header">
+        <div class="header-left">
+          <button class="menu-toggle" aria-label="Toggle menu">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+          <h1 class="page-title">Dashboard</h1>
+        </div>
+        
+        <div class="header-search">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" placeholder="Search...">
+        </div>
+        
+        <div class="header-right">
+          <button class="header-icon-btn" aria-label="Notifications">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+              <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+            </svg>
+            <span class="notification-badge"></span>
+          </button>
+          
+          <div class="dropdown">
+            <div class="header-user dropdown-toggle">
+              <div class="header-avatar">IH</div>
+              <div class="header-user-info">
+                <div class="header-user-name">Iftekhar Hossain</div>
+                <div class="header-user-role">Semester 7</div>
+              </div>
+            </div>
+            <div class="dropdown-menu right">
+              <a href="profile.html" class="dropdown-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+                View Profile
+              </a>
+              <a href="cgpa.html" class="dropdown-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="3"></circle>
+                  <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                </svg>
+                Settings
+              </a>
+              <div class="dropdown-divider"></div>
+              <a href="#" class="dropdown-item" onclick="handleLogout()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                  <polyline points="16 17 21 12 16 7"></polyline>
+                  <line x1="21" y1="12" x2="9" y2="12"></line>
+                </svg>
+                Logout
+              </a>
+            </div>
+          </div>
+        </div>
+      </header>
+      
+      <!-- Content Area -->
+      <div class="content">
+        <!-- Welcome Message -->
+        <div class="mb-4">
+          <h2 class="text-xl font-semibold" id="welcome-message">Good Morning, Rahul!</h2>
+          <p class="text-secondary mt-1">Here's an overview of your academic progress</p>
+        </div>
+        
+        <!-- Metric Cards -->
+        <div class="metrics-grid">
+          <!-- CGPA Card -->
+          <div class="metric-card">
+            <div class="metric-header">
+              <div>
+                <div class="metric-label">Current CGPA</div>
+                <div class="metric-value" id="metric-cgpa">3.68</div>
+              </div>
+              <div class="metric-icon primary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                </svg>
+              </div>
+            </div>
+            <div class="metric-footer">
+              <span class="metric-change positive">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="18 15 12 9 6 15"></polyline>
+                </svg>
+                +0.05
+              </span>
+              <canvas id="cgpa-sparkline" class="metric-sparkline"></canvas>
+            </div>
+          </div>
+          
+          <!-- SGPA Card -->
+          <div class="metric-card">
+            <div class="metric-header">
+              <div>
+                <div class="metric-label">Latest SGPA</div>
+                <div class="metric-value" id="metric-sgpa">3.75</div>
+              </div>
+              <div class="metric-icon success">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+              </div>
+            </div>
+            <div class="metric-footer">
+              <span class="metric-change positive">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="18 15 12 9 6 15"></polyline>
+                </svg>
+                +0.08
+              </span>
+              <canvas id="sgpa-sparkline" class="metric-sparkline"></canvas>
+            </div>
+          </div>
+          
+          <!-- Attendance Card -->
+          <div class="metric-card">
+            <div class="metric-header">
+              <div>
+                <div class="metric-label">Attendance</div>
+                <div class="metric-value" id="metric-attendance">87%</div>
+              </div>
+              <div class="metric-icon warning">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+              </div>
+            </div>
+            <div class="metric-footer">
+              <span class="metric-change negative">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+                -2%
+              </span>
+              <canvas id="attendance-sparkline" class="metric-sparkline"></canvas>
+            </div>
+          </div>
+          
+          <!-- Balance Card -->
+          <div class="metric-card">
+            <div class="metric-header">
+              <div>
+                <div class="metric-label">Outstanding Balance</div>
+                <div class="metric-value" id="metric-balance">৳25,000</div>
+              </div>
+              <div class="metric-icon danger">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="12" y1="1" x2="12" y2="23"></line>
+                  <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                </svg>
+              </div>
+            </div>
+            <div class="metric-footer">
+              <span class="badge badge-warning">Due Apr 1</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Financial Summary Section -->
+        <div class="section-header mt-4">
+          <h3 class="text-lg font-semibold">Financial Summary</h3>
+        </div>
+        <div class="metrics-grid">
+          <!-- Total Payable -->
+          <div class="metric-card">
+            <div class="metric-header">
+              <div>
+                <div class="metric-label">Total Payable</div>
+                <div class="metric-value" id="finance-payable">৳85,000</div>
+              </div>
+              <div class="metric-icon" style="background: #dbeafe;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+                  <line x1="1" y1="10" x2="23" y2="10"></line>
+                </svg>
+              </div>
+            </div>
+            <div class="metric-footer">
+              <span class="text-sm text-secondary">This Semester</span>
+            </div>
+          </div>
+          
+          <!-- Total Paid -->
+          <div class="metric-card">
+            <div class="metric-header">
+              <div>
+                <div class="metric-label">Total Paid</div>
+                <div class="metric-value" id="finance-paid">৳60,000</div>
+              </div>
+              <div class="metric-icon" style="background: #dcfce7;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+              </div>
+            </div>
+            <div class="metric-footer">
+              <span class="badge badge-success">70% Complete</span>
+            </div>
+          </div>
+          
+          <!-- Total Due -->
+          <div class="metric-card">
+            <div class="metric-header">
+              <div>
+                <div class="metric-label">Total Due</div>
+                <div class="metric-value" id="finance-due">৳25,000</div>
+              </div>
+              <div class="metric-icon" style="background: #fef3c7;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="8" x2="12" y2="12"></line>
+                  <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                </svg>
+              </div>
+            </div>
+            <div class="metric-footer">
+              <span class="text-sm text-secondary">Due Apr 01, 2026</span>
+            </div>
+          </div>
+          
+          <!-- Total Other (Scholarship) -->
+          <div class="metric-card">
+            <div class="metric-header">
+              <div>
+                <div class="metric-label">Total Other (Waiver)</div>
+                <div class="metric-value" id="finance-other">৳15,000</div>
+              </div>
+              <div class="metric-icon" style="background: #f3e8ff;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#9333ea" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="8" r="7"></circle>
+                  <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                </svg>
+              </div>
+            </div>
+            <div class="metric-footer">
+              <span class="badge badge-primary">Merit Scholarship</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Charts Section -->
+        <div class="charts-grid">
+          <!-- Today's Routine Panel -->
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <h3 class="card-title">Today's Routine – <span id="today-day-name">Friday</span></h3>
+                <p class="card-subtitle">Your class schedule for today</p>
+              </div>
+              <a href="timetable.html" class="btn btn-ghost btn-sm">Full Timetable</a>
+            </div>
+            <div class="card-body" id="today-routine-content">
+              <div class="empty-state" id="today-routine-empty" style="padding: 40px 20px; text-align: center;">
+                <div class="metric-icon warning" style="width: 60px; height: 60px; margin: 0 auto 16px;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="8" x2="12" y2="12"></line>
+                    <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                  </svg>
+                </div>
+                <p class="text-secondary">No routine available for today.</p>
+                <p class="text-sm text-secondary mt-1">Enjoy your day off!</p>
+              </div>
+              <div id="today-routine-list" style="display: none;">
+                <!-- Populated by JS -->
+              </div>
+            </div>
+          </div>
+          
+          <!-- Semester-wise CGPA Performance Chart -->
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <h3 class="card-title">Semester Wise Result</h3>
+                <p class="card-subtitle">Semester-wise CGPA Performance</p>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="badge badge-primary">CGPA</span>
+                <a href="results.html" class="btn btn-ghost btn-sm">View Details</a>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="chart-container" style="height: 280px;">
+                <canvas id="semester-cgpa-chart"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Additional Charts Section -->
+        <div class="charts-grid">
+          <!-- SGPA Trend Chart -->
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <h3 class="card-title">SGPA Trend</h3>
+                <p class="card-subtitle">Performance across semesters</p>
+              </div>
+              <a href="results.html" class="btn btn-ghost btn-sm">View Details</a>
+            </div>
+            <div class="card-body">
+              <div class="chart-container" style="height: 280px;">
+                <canvas id="sgpa-trend-chart"></canvas>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Credits Distribution Chart -->
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <h3 class="card-title">Credits Distribution</h3>
+                <p class="card-subtitle">Major vs Minor credits per semester</p>
+              </div>
+              <a href="cgpa.html" class="btn btn-ghost btn-sm">Calculator</a>
+            </div>
+            <div class="card-body">
+              <div class="chart-container" style="height: 280px;">
+                <canvas id="credits-chart"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Bottom Row -->
+        <div class="charts-grid">
+          <!-- Attendance by Subject -->
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <h3 class="card-title">Subject-wise Attendance</h3>
+                <p class="card-subtitle">Current semester</p>
+              </div>
+              <a href="attendance.html" class="btn btn-ghost btn-sm">View All</a>
+            </div>
+            <div class="card-body">
+              <div class="chart-container" style="height: 280px;">
+                <canvas id="attendance-chart"></canvas>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Quick Actions & Info -->
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Quick Actions</h3>
+            </div>
+            <div class="card-body">
+              <!-- Next Class -->
+              <div class="flex items-center gap-3 p-3 rounded" style="background: var(--primary-light); margin-bottom: 16px;">
+                <div class="metric-icon primary" style="width: 40px; height: 40px;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                </div>
+                <div class="flex-1">
+                  <div class="text-sm font-medium text-primary">Next Class</div>
+                  <div class="text-sm" id="next-class-info">Loading...</div>
+                </div>
+                <a href="timetable.html" class="btn btn-primary btn-sm">View Timetable</a>
+              </div>
+              
+              <!-- Action Buttons Grid -->
+              <div class="grid grid-cols-2 gap-3">
+                <a href="results.html" class="btn btn-secondary" style="padding: 16px;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                  </svg>
+                  View Results
+                </a>
+                <a href="cgpa.html" class="btn btn-secondary" style="padding: 16px;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="4" y1="21" x2="4" y2="14"></line>
+                    <line x1="4" y1="10" x2="4" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="12"></line>
+                    <line x1="12" y1="8" x2="12" y2="3"></line>
+                  </svg>
+                  CGPA Calc
+                </a>
+                <a href="finance.html" class="btn btn-secondary" style="padding: 16px;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="12" y1="1" x2="12" y2="23"></line>
+                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                  </svg>
+                  Pay Fees
+                </a>
+                <a href="exams.html" class="btn btn-secondary" style="padding: 16px;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                  </svg>
+                  Exams
+                </a>
+              </div>
+              
+              <!-- Upcoming Exam Alert -->
+              <div class="alert alert-info mt-4" id="exam-alert" style="display: none;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="16" x2="12" y2="12"></line>
+                  <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>
+                <div class="alert-content">
+                  <div class="alert-title">Upcoming Exam</div>
+                  <div id="exam-alert-text">Advanced DBMS Mid-Term in 16 days</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  
+  <!-- Scripts -->
+  <script src="assets/data/student-data.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/charts.js"></script>
+  <script src="assets/js/ai-assistant.js"></script>
+  
+  <script>
+    // Initialize dashboard
+    document.addEventListener('DOMContentLoaded', function() {
+      // Set welcome message based on time
+      const hour = new Date().getHours();
+      let greeting = 'Good Morning';
+      if (hour >= 12 && hour < 17) greeting = 'Good Afternoon';
+      else if (hour >= 17) greeting = 'Good Evening';
+      
+      document.getElementById('welcome-message').textContent = 
+        `${greeting}, ${studentData.profile.firstName}!`;
+      
+      // Initialize charts
+      PortalCharts.initDashboardCharts();
+      
+      // Update next class info
+      const nextClass = StudentPortal.getNextClass();
+      document.getElementById('next-class-info').textContent = 
+        nextClass.message || `${nextClass.subject} at ${nextClass.time} in ${nextClass.room}`;
+      
+      // Show exam alert if upcoming exam within 30 days
+      const upcomingExam = studentData.exams.upcoming[0];
+      if (upcomingExam) {
+        const daysLeft = PortalUtils.daysUntil(upcomingExam.date);
+        if (daysLeft <= 30) {
+          document.getElementById('exam-alert').style.display = 'flex';
+          document.getElementById('exam-alert-text').textContent = 
+            `${upcomingExam.name} ${upcomingExam.type} in ${daysLeft} days`;
+        }
+      }
+      
+      // Initialize Today's Routine
+      initTodayRoutine();
+      
+      // Initialize Semester CGPA Chart
+      initSemesterCGPAChart();
+    });
+    
+    // Today's Routine Logic
+    function initTodayRoutine() {
+      const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+      const bdDays = ['Sat', 'Sun', 'Mon', 'Tue', 'Wed', 'Thu']; // Bangladesh week
+      const today = new Date();
+      const dayName = days[today.getDay()];
+      
+      document.getElementById('today-day-name').textContent = dayName;
+      
+      // Map JS day (0=Sun) to BD schedule (0=Sat)
+      const jsDay = today.getDay(); // 0=Sun, 1=Mon, ..., 6=Sat
+      let bdDayIndex = -1;
+      if (jsDay === 6) bdDayIndex = 0; // Saturday -> Sat
+      else if (jsDay >= 0 && jsDay <= 4) bdDayIndex = jsDay + 1; // Sun-Thu -> Sun-Thu
+      // Friday (jsDay=5) -> -1 (holiday)
+      
+      const emptyState = document.getElementById('today-routine-empty');
+      const routineList = document.getElementById('today-routine-list');
+      
+      if (bdDayIndex === -1 || !studentData.timetable.schedule[bdDayIndex]) {
+        // Friday or no schedule
+        emptyState.style.display = 'block';
+        routineList.style.display = 'none';
+        return;
+      }
+      
+      const schedule = studentData.timetable.schedule[bdDayIndex];
+      const slots = studentData.timetable.slots;
+      const classes = [];
+      
+      schedule.forEach((cls, index) => {
+        if (cls) {
+          classes.push({
+            time: slots[index],
+            subject: cls.subject,
+            name: cls.name,
+            room: cls.room,
+            faculty: cls.faculty,
+            type: cls.type
+          });
+        }
+      });
+      
+      if (classes.length === 0) {
+        emptyState.style.display = 'block';
+        routineList.style.display = 'none';
+        return;
+      }
+      
+      emptyState.style.display = 'none';
+      routineList.style.display = 'block';
+      
+      routineList.innerHTML = classes.map(cls => `
+        <div class="routine-item flex items-center gap-3 p-3 rounded mb-2" style="background: var(--bg-page); border: 1px solid var(--border-color); flex-wrap: wrap;">
+          <div class="text-center" style="min-width: 60px; flex-shrink: 0;">
+            <div class="text-sm font-semibold text-primary">${cls.time}</div>
+            <span class="badge badge-${cls.type === 'lab' ? 'warning' : cls.type === 'project' ? 'primary' : 'info'}" style="font-size: 10px; margin-top: 4px;">${cls.type.toUpperCase()}</span>
+          </div>
+          <div class="flex-1" style="min-width: 150px;">
+            <div class="font-medium" style="font-size: 0.875rem;">${cls.subject} - ${cls.name}</div>
+            <div class="text-sm text-secondary">${cls.room} | ${cls.faculty}</div>
+          </div>
+        </div>
+      `).join('');
+    }
+    
+    // Semester CGPA Bar Chart
+    function initSemesterCGPAChart() {
+      const ctx = document.getElementById('semester-cgpa-chart');
+      if (!ctx) return;
+      
+      const semesters = studentData.semesters;
+      const labels = semesters.map(s => s.session);
+      const data = semesters.map(s => s.sgpa);
+      
+      // Responsive font size
+      const isMobile = window.innerWidth < 640;
+      const fontSize = isMobile ? 9 : 11;
+      const maxRotation = isMobile ? 90 : 45;
+      
+      new Chart(ctx.getContext('2d'), {
+        type: 'bar',
+        data: {
+          labels: labels,
+          datasets: [{
+            label: 'CGPA',
+            data: data,
+            backgroundColor: '#2563eb',
+            borderRadius: isMobile ? 4 : 6,
+            barPercentage: isMobile ? 0.8 : 0.6
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              callbacks: {
+                label: (ctx) => `CGPA: ${ctx.raw.toFixed(2)}`
+              }
+            }
+          },
+          scales: {
+            x: {
+              grid: { display: false },
+              ticks: { 
+                font: { size: fontSize },
+                maxRotation: maxRotation,
+                minRotation: maxRotation
+              }
+            },
+            y: {
+              min: 0,
+              max: 4,
+              ticks: {
+                stepSize: 0.5,
+                font: { size: fontSize },
+                callback: (value) => value.toFixed(1)
+              },
+              grid: {
+                color: '#e5e7eb',
+                drawBorder: false
+              }
+            }
+          }
+        },
+        plugins: [{
+          id: 'barValueLabels',
+          afterDatasetsDraw(chart) {
+            const ctx = chart.ctx;
+            const labelFontSize = window.innerWidth < 640 ? 9 : 11;
+            chart.data.datasets.forEach((dataset, i) => {
+              const meta = chart.getDatasetMeta(i);
+              meta.data.forEach((bar, index) => {
+                const value = dataset.data[index];
+                ctx.save();
+                ctx.fillStyle = '#fff';
+                ctx.font = `bold ${labelFontSize}px Inter, sans-serif`;
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'bottom';
+                ctx.fillText(value.toFixed(2), bar.x, bar.y + 14);
+                ctx.restore();
+              });
+            });
+          }
+        }]
+      });
+    }
+    
+    // Logout handler
+    function handleLogout() {
+      PortalUtils.confirmAction(
+        'Are you sure you want to logout?',
+        () => {
+          // In a real app, this would clear session and redirect
+          PortalUtils.showToast('Logged out successfully', 'success');
+          setTimeout(() => window.location.href = 'index.html', 1000);
+        }
+      );
+    }
+  </script>
+</body>
+</html>

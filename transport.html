@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Student Portal - Manage transport services">
+  <title>Transport | Student Portal</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+</head>
+<body>
+  <div class="app-container">
+    <div class="sidebar-overlay"></div>
+    
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">SP</div>
+        <div>
+          <div class="sidebar-title">Student Portal</div>
+          <div class="sidebar-subtitle">University ERP</div>
+        </div>
+      </div>
+      
+      <nav class="sidebar-nav">
+        <div class="nav-section">
+          <div class="nav-section-title">Main</div>
+          <a href="index.html" class="nav-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+            <span>Dashboard</span>
+          </a>
+        </div>
+        
+        <div class="nav-section">
+          <div class="nav-section-title">Academic</div>
+          <a href="results.html" class="nav-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+            <span>Results & Transcript</span>
+          </a>
+          <a href="live-results.html" class="nav-item" data-page="live-results.html">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 10"></polyline></svg>
+            <span>Live Result</span>
+          </a>
+          <a href="cgpa.html" class="nav-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line></svg>
+            <span>CGPA Calculator</span>
+          </a>
+          <a href="attendance.html" class="nav-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+            <span>Attendance</span>
+          </a>
+          <a href="timetable.html" class="nav-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            <span>Timetable</span>
+          </a>
+          <a href="exams.html" class="nav-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+            <span>Exams</span>
+          </a>
+        </div>
+        
+        <div class="nav-section">
+          <div class="nav-section-title">Services</div>
+          <a href="finance.html" class="nav-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+            <span>Finance</span>
+          </a>
+          <a href="hostel.html" class="nav-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+            <span>Hostel</span>
+          </a>
+          <a href="transport.html" class="nav-item active">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+            <span>Transport</span>
+          </a>
+        </div>
+        
+        <div class="nav-section">
+          <div class="nav-section-title">Account</div>
+          <a href="profile.html" class="nav-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            <span>Profile</span>
+          </a>
+        </div>
+      </nav>
+      
+      <div class="sidebar-footer">
+        <div class="sidebar-user">
+          <div class="sidebar-avatar">IH</div>
+          <div class="sidebar-user-info">
+            <div class="sidebar-user-name">Iftekhar Hossain</div>
+            <div class="sidebar-user-role">B.Sc. CSE</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+    
+    <!-- Main Content -->
+    <main class="main-content">
+      <header class="header">
+        <div class="header-left">
+          <button class="menu-toggle" aria-label="Toggle menu">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+          </button>
+          <div class="breadcrumb">
+            <a href="index.html">Dashboard</a>
+            <span class="breadcrumb-separator">/</span>
+            <span>Transport</span>
+          </div>
+        </div>
+        <div class="header-right">
+          <div class="header-avatar">IH</div>
+        </div>
+      </header>
+      
+      <div class="content">
+        <!-- Page Header -->
+        <div class="section-header">
+          <div>
+            <h1 class="page-title">Transport Services</h1>
+            <p class="text-secondary mt-1">View your bus route and schedule</p>
+          </div>
+          <div class="section-actions">
+            <button class="btn btn-primary" onclick="openRouteChangeModal()">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"></polyline><path d="M3 11V9a4 4 0 0 1 4-4h14"></path><polyline points="7 23 3 19 7 15"></polyline><path d="M21 13v2a4 4 0 0 1-4 4H3"></path></svg>
+              Request Route Change
+            </button>
+          </div>
+        </div>
+        
+        <!-- Current Route Card -->
+        <div class="card mb-4" style="background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%); color: white;">
+          <div class="card-body">
+            <div class="flex items-center gap-4 flex-wrap">
+              <div class="p-4 rounded-xl" style="background: rgba(255,255,255,0.2);">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+              </div>
+              <div class="flex-grow">
+                <div class="text-sm" style="opacity: 0.8;">Your Bus Route</div>
+                <div class="text-3xl font-bold" id="route-number">Route 7A</div>
+                <div class="flex gap-4 mt-2 flex-wrap" style="opacity: 0.9;">
+                  <span>Bus No: <strong id="bus-number">KA-01-AB-1234</strong></span>
+                  <span>Stop: <strong id="stop-name">Koramangala 4th Block</strong></span>
+                </div>
+              </div>
+              <div class="text-right">
+                <div class="text-sm" style="opacity: 0.8;">Pass Status</div>
+                <span class="badge" style="background: rgba(255,255,255,0.2); color: white;" id="pass-status">Active</span>
+                <div class="text-sm mt-2" style="opacity: 0.8;">Valid till: <span id="pass-validity">Jun 30, 2025</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Timing & Route Details -->
+        <div class="charts-grid mb-4">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Bus Timings</h3>
+            </div>
+            <div class="card-body">
+              <div class="timing-grid">
+                <div class="timing-item">
+                  <div class="timing-icon morning">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                  </div>
+                  <div>
+                    <div class="text-sm text-secondary">Morning Pickup</div>
+                    <div class="text-xl font-bold" id="morning-time">7:30 AM</div>
+                    <div class="text-sm text-secondary">From your stop</div>
+                  </div>
+                </div>
+                
+                <div class="timing-item">
+                  <div class="timing-icon arrival">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                  </div>
+                  <div>
+                    <div class="text-sm text-secondary">Campus Arrival</div>
+                    <div class="text-xl font-bold" id="arrival-time">8:15 AM</div>
+                    <div class="text-sm text-secondary">At main gate</div>
+                  </div>
+                </div>
+                
+                <div class="timing-item">
+                  <div class="timing-icon evening">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                  </div>
+                  <div>
+                    <div class="text-sm text-secondary">Evening Departure</div>
+                    <div class="text-xl font-bold" id="evening-time">5:00 PM</div>
+                    <div class="text-sm text-secondary">From campus</div>
+                  </div>
+                </div>
+                
+                <div class="timing-item">
+                  <div class="timing-icon drop">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                  </div>
+                  <div>
+                    <div class="text-sm text-secondary">Drop at Stop</div>
+                    <div class="text-xl font-bold" id="drop-time">5:45 PM</div>
+                    <div class="text-sm text-secondary">Estimated</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Route Map</h3>
+            </div>
+            <div class="card-body">
+              <div class="route-map-placeholder">
+                <div class="map-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon><line x1="8" y1="2" x2="8" y2="18"></line><line x1="16" y1="6" x2="16" y2="22"></line></svg>
+                </div>
+                <p>Interactive map will be available soon</p>
+                <div class="route-stops">
+                  <div class="route-stop">
+                    <span class="stop-marker">1</span>
+                    <span>Koramangala 4th Block</span>
+                  </div>
+                  <div class="route-stop">
+                    <span class="stop-marker">2</span>
+                    <span>HSR Layout</span>
+                  </div>
+                  <div class="route-stop">
+                    <span class="stop-marker">3</span>
+                    <span>BTM Layout</span>
+                  </div>
+                  <div class="route-stop">
+                    <span class="stop-marker">4</span>
+                    <span>Electronic City</span>
+                  </div>
+                  <div class="route-stop campus">
+                    <span class="stop-marker">🎓</span>
+                    <span>University Campus</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Fee Summary -->
+        <div class="card mb-4">
+          <div class="card-header">
+            <h3 class="card-title">Transport Fee Summary</h3>
+          </div>
+          <div class="card-body">
+            <div class="metrics-grid">
+              <div class="text-center p-4 rounded-lg" style="background: var(--bg-page);">
+                <div class="text-sm text-secondary">Annual Fee</div>
+                <div class="text-2xl font-bold text-primary" id="annual-fee">৳24,000</div>
+              </div>
+              <div class="text-center p-4 rounded-lg" style="background: var(--bg-page);">
+                <div class="text-sm text-secondary">Paid</div>
+                <div class="text-2xl font-bold text-success" id="paid-fee">৳24,000</div>
+              </div>
+              <div class="text-center p-4 rounded-lg" style="background: var(--bg-page);">
+                <div class="text-sm text-secondary">Distance</div>
+                <div class="text-2xl font-bold" id="distance">15 km</div>
+              </div>
+              <div class="text-center p-4 rounded-lg" style="background: var(--bg-page);">
+                <div class="text-sm text-secondary">Zone</div>
+                <div class="text-xl font-bold" id="zone">Zone B</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Driver & Bus Details -->
+        <div class="charts-grid">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Driver Details</h3>
+            </div>
+            <div class="card-body">
+              <div class="flex items-center gap-4 p-4 rounded-lg" style="background: var(--bg-page);">
+                <div class="avatar-lg">RN</div>
+                <div>
+                  <div class="font-bold" id="driver-name">Ramesh Naidu</div>
+                  <div class="text-sm text-secondary">Experience: 12 years</div>
+                  <div class="text-sm text-secondary">License: KA-DL-12345678</div>
+                </div>
+              </div>
+              <div class="mt-4">
+                <div class="flex items-center gap-3 p-3 rounded-lg" style="background: #dcfce7;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                  <div>
+                    <div class="text-sm text-secondary">Emergency Contact</div>
+                    <div class="font-semibold" id="driver-phone">+91 98765 12345</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Bus Information</h3>
+            </div>
+            <div class="card-body">
+              <div class="detail-grid">
+                <div class="detail-item">
+                  <div class="detail-label">Bus Number</div>
+                  <div class="detail-value" id="detail-bus">KA-01-AB-1234</div>
+                </div>
+                <div class="detail-item">
+                  <div class="detail-label">Capacity</div>
+                  <div class="detail-value">52 Seats</div>
+                </div>
+                <div class="detail-item">
+                  <div class="detail-label">Type</div>
+                  <div class="detail-value">AC Bus</div>
+                </div>
+                <div class="detail-item">
+                  <div class="detail-label">GPS Enabled</div>
+                  <div class="detail-value">Yes</div>
+                </div>
+              </div>
+              
+              <div class="flex flex-wrap gap-2 mt-4">
+                <span class="badge badge-success">AC</span>
+                <span class="badge badge-info">GPS Tracking</span>
+                <span class="badge badge-info">CCTV</span>
+                <span class="badge badge-info">First Aid Kit</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  
+  <!-- Route Change Modal -->
+  <div class="modal-overlay" id="route-change-modal">
+    <div class="modal" style="max-width: 500px;">
+      <div class="modal-header">
+        <h3 class="modal-title">Request Route Change</h3>
+        <button class="modal-close" onclick="closeRouteChangeModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label class="form-label">Current Route</label>
+          <input type="text" class="form-input" value="Route 7A - Koramangala" readonly>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">New Pickup Location</label>
+          <input type="text" class="form-input" id="new-location" placeholder="Enter your new pickup location">
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">Preferred Route</label>
+          <select class="form-select" id="preferred-route">
+            <option value="">Select a route</option>
+            <option value="5A">Route 5A - Indiranagar</option>
+            <option value="6B">Route 6B - Whitefield</option>
+            <option value="8C">Route 8C - Marathahalli</option>
+            <option value="9A">Route 9A - JP Nagar</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">Reason for Change</label>
+          <textarea class="form-input" id="change-reason" rows="3" placeholder="Explain why you need a route change..."></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeRouteChangeModal()">Cancel</button>
+        <button class="btn btn-primary" onclick="submitRouteChange()">Submit Request</button>
+      </div>
+    </div>
+  </div>
+  
+  <script src="assets/data/student-data.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/ai-assistant.js"></script>
+  
+  <script>
+    // Initialize page
+    document.addEventListener('DOMContentLoaded', function() {
+      loadTransportData();
+    });
+    
+    // Load transport data
+    function loadTransportData() {
+      const transport = studentData.transport;
+      
+      // Update route card
+      document.getElementById('route-number').textContent = 'Route ' + transport.route;
+      document.getElementById('bus-number').textContent = transport.busNumber;
+      document.getElementById('stop-name').textContent = transport.stop;
+      document.getElementById('pass-validity').textContent = transport.passValidity;
+      
+      // Update timings
+      document.getElementById('morning-time').textContent = transport.timing.morning;
+      document.getElementById('arrival-time').textContent = transport.timing.arrival;
+      document.getElementById('evening-time').textContent = transport.timing.evening;
+      document.getElementById('drop-time').textContent = transport.timing.drop;
+      
+      // Update fee summary
+      document.getElementById('annual-fee').textContent = StudentPortal.formatCurrency(transport.fee.annual);
+      document.getElementById('paid-fee').textContent = StudentPortal.formatCurrency(transport.fee.paid);
+      document.getElementById('distance').textContent = transport.distance;
+      document.getElementById('zone').textContent = transport.zone;
+      
+      // Update driver details
+      document.getElementById('driver-name').textContent = transport.driver.name;
+      document.getElementById('driver-phone').textContent = transport.driver.phone;
+      document.querySelector('.avatar-lg').textContent = transport.driver.name.split(' ').map(n => n[0]).join('');
+      
+      document.getElementById('detail-bus').textContent = transport.busNumber;
+    }
+    
+    // Route change modal functions
+    function openRouteChangeModal() {
+      document.getElementById('route-change-modal').classList.add('active');
+    }
+    
+    function closeRouteChangeModal() {
+      document.getElementById('route-change-modal').classList.remove('active');
+    }
+    
+    function submitRouteChange() {
+      const location = document.getElementById('new-location').value;
+      const reason = document.getElementById('change-reason').value;
+      
+      if (!location.trim() || !reason.trim()) {
+        PortalUtils.showToast('Please fill all required fields', 'error');
+        return;
+      }
+      
+      closeRouteChangeModal();
+      PortalUtils.showToast('Route change request submitted! You will be notified once reviewed.', 'success');
+      
+      // Clear form
+      document.getElementById('new-location').value = '';
+      document.getElementById('change-reason').value = '';
+    }
+  </script>
+  
+  <style>
+    .timing-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+    
+    .timing-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem;
+      background: var(--bg-page);
+      border-radius: 12px;
+    }
+    
+    .timing-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .timing-icon.morning {
+      background: #fef3c7;
+      color: #d97706;
+    }
+    
+    .timing-icon.arrival {
+      background: #dcfce7;
+      color: #16a34a;
+    }
+    
+    .timing-icon.evening {
+      background: #dbeafe;
+      color: #2563eb;
+    }
+    
+    .timing-icon.drop {
+      background: #f3e8ff;
+      color: #9333ea;
+    }
+    
+    .route-map-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+      background: var(--bg-page);
+      border-radius: 12px;
+      text-align: center;
+    }
+    
+    .map-icon {
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+    
+    .route-map-placeholder p {
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+    }
+    
+    .route-stops {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      width: 100%;
+      max-width: 250px;
+    }
+    
+    .route-stop {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.5rem;
+      background: white;
+      border-radius: 8px;
+      font-size: 0.875rem;
+    }
+    
+    .route-stop.campus {
+      background: var(--primary-light);
+      font-weight: 600;
+    }
+    
+    .stop-marker {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    
+    .detail-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+    
+    .detail-item {
+      padding: 0.75rem;
+      background: var(--bg-page);
+      border-radius: 8px;
+    }
+    
+    .detail-label {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.25rem;
+    }
+    
+    .detail-value {
+      font-weight: 600;
+    }
+    
+    .avatar-lg {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 1.25rem;
+    }
+    
+    @media (max-width: 768px) {
+      .timing-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</body>
+</html>
