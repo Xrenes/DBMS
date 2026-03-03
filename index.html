@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -73,9 +73,6 @@
               <line x1="12" y1="8" x2="12" y2="3"></line>
               <line x1="20" y1="21" x2="20" y2="16"></line>
               <line x1="20" y1="12" x2="20" y2="3"></line>
-              <line x1="1" y1="14" x2="7" y2="14"></line>
-              <line x1="9" y1="8" x2="15" y2="8"></line>
-              <line x1="17" y1="16" x2="23" y2="16"></line>
             </svg>
             <span>CGPA Calculator</span>
           </a>
@@ -85,23 +82,8 @@
               <line x1="16" y1="2" x2="16" y2="6"></line>
               <line x1="8" y1="2" x2="8" y2="6"></line>
               <line x1="3" y1="10" x2="21" y2="10"></line>
-              <path d="M9 16l2 2 4-4"></path>
             </svg>
             <span>Attendance</span>
-          </a>
-          <a href="timetable.html" class="nav-item" data-page="timetable.html">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10"></circle>
-              <polyline points="12 6 12 12 16 14"></polyline>
-            </svg>
-            <span>Timetable</span>
-          </a>
-          <a href="exams.html" class="nav-item" data-page="exams.html">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
-            </svg>
-            <span>Exams</span>
           </a>
         </div>
         
@@ -207,29 +189,10 @@
               </div>
             </div>
             <div class="dropdown-menu right">
-              <a href="profile.html" class="dropdown-item">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                  <circle cx="12" cy="7" r="4"></circle>
-                </svg>
-                View Profile
-              </a>
-              <a href="cgpa.html" class="dropdown-item">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="3"></circle>
-                  <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
-                </svg>
-                Settings
-              </a>
+              <a href="profile.html" class="dropdown-item">View Profile</a>
+              <a href="cgpa.html" class="dropdown-item">Settings</a>
               <div class="dropdown-divider"></div>
-              <a href="#" class="dropdown-item" onclick="handleLogout()">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
-                  <polyline points="16 17 21 12 16 7"></polyline>
-                  <line x1="21" y1="12" x2="9" y2="12"></line>
-                </svg>
-                Logout
-              </a>
+              <a href="#" class="dropdown-item" onclick="handleLogout()">Logout</a>
             </div>
           </div>
         </div>
@@ -237,15 +200,9 @@
       
       <!-- Content Area -->
       <div class="content">
-        <!-- Welcome Message -->
-        <div class="mb-4">
-          <h2 class="text-xl font-semibold" id="welcome-message">Good Morning, Rahul!</h2>
-          <p class="text-secondary mt-1">Here's an overview of your academic progress</p>
-        </div>
-        
-        <!-- Metric Cards -->
+        <!-- Row 1: Top Summary Cards (4 cards) -->
         <div class="metrics-grid">
-          <!-- CGPA Card -->
+          <!-- Current CGPA Card -->
           <div class="metric-card">
             <div class="metric-header">
               <div>
@@ -265,40 +222,15 @@
                 </svg>
                 +0.05
               </span>
-              <canvas id="cgpa-sparkline" class="metric-sparkline"></canvas>
+              <span class="text-sm text-secondary">from last semester</span>
             </div>
           </div>
           
-          <!-- SGPA Card -->
+          <!-- Total Attendance Card -->
           <div class="metric-card">
             <div class="metric-header">
               <div>
-                <div class="metric-label">Latest SGPA</div>
-                <div class="metric-value" id="metric-sgpa">3.75</div>
-              </div>
-              <div class="metric-icon success">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                </svg>
-              </div>
-            </div>
-            <div class="metric-footer">
-              <span class="metric-change positive">
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="18 15 12 9 6 15"></polyline>
-                </svg>
-                +0.08
-              </span>
-              <canvas id="sgpa-sparkline" class="metric-sparkline"></canvas>
-            </div>
-          </div>
-          
-          <!-- Attendance Card -->
-          <div class="metric-card">
-            <div class="metric-header">
-              <div>
-                <div class="metric-label">Attendance</div>
+                <div class="metric-label">Total Attendance</div>
                 <div class="metric-value" id="metric-attendance">87%</div>
               </div>
               <div class="metric-icon warning">
@@ -317,281 +249,134 @@
                 </svg>
                 -2%
               </span>
-              <canvas id="attendance-sparkline" class="metric-sparkline"></canvas>
+              <span class="text-sm text-secondary">this semester</span>
             </div>
           </div>
           
-          <!-- Balance Card -->
+          <!-- Next Class Card (with Room) -->
           <div class="metric-card">
             <div class="metric-header">
               <div>
-                <div class="metric-label">Outstanding Balance</div>
-                <div class="metric-value" id="metric-balance">৳25,000</div>
+                <div class="metric-label">Next Class</div>
+                <div class="metric-value" id="metric-next-class" style="font-size: 1.1rem;">CSE701 - Artificial Intelligence</div>
               </div>
-              <div class="metric-icon danger">
+              <div class="metric-icon success">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <line x1="12" y1="1" x2="12" y2="23"></line>
-                  <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
                 </svg>
               </div>
             </div>
             <div class="metric-footer">
-              <span class="badge badge-warning">Due Apr 1</span>
+              <span class="text-sm font-medium" id="next-class-time">9:00 AM</span>
+              <span class="text-sm text-secondary" id="next-class-room">• Room 501</span>
             </div>
           </div>
-        </div>
-        
-        <!-- Financial Summary Section -->
-        <div class="section-header mt-4">
-          <h3 class="text-lg font-semibold">Financial Summary</h3>
-        </div>
-        <div class="metrics-grid">
-          <!-- Total Payable -->
-          <div class="metric-card">
+          
+          <!-- Quick Info Card (Cycle: Balance / Bus / Meal) -->
+          <div class="metric-card" id="quick-info-card" style="cursor: pointer;" onclick="cycleQuickInfo()">
             <div class="metric-header">
               <div>
-                <div class="metric-label">Total Payable</div>
-                <div class="metric-value" id="finance-payable">৳85,000</div>
+                <div class="metric-label" id="quick-info-label">Card Balance</div>
+                <div class="metric-value" id="quick-info-value">৳1,250</div>
               </div>
-              <div class="metric-icon" style="background: #dbeafe;">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <div class="metric-icon" id="quick-info-icon" style="background: #dbeafe;">
+                <svg id="quick-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
                   <line x1="1" y1="10" x2="23" y2="10"></line>
                 </svg>
               </div>
             </div>
             <div class="metric-footer">
-              <span class="text-sm text-secondary">This Semester</span>
+              <span class="text-sm text-secondary" id="quick-info-sub">Tap to cycle info</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Row 2: Finance-style Cards (4 cards) -->
+        <div class="metrics-grid mt-4">
+          <!-- Outstanding Balance -->
+          <div class="metric-card" style="background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%); color: white;">
+            <div class="metric-content">
+              <div class="metric-label" style="color: rgba(255,255,255,0.8);">Outstanding Balance</div>
+              <div class="metric-value">৳25,000</div>
+              <div class="metric-change" style="color: rgba(255,255,255,0.8);">Due Apr 1</div>
+            </div>
+            <div class="metric-icon" style="background: rgba(255,255,255,0.2);">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+            </div>
+          </div>
+          
+          <!-- Total Fees (Semester) -->
+          <div class="metric-card">
+            <div class="metric-content">
+              <div class="metric-label">Total Fees (Semester)</div>
+              <div class="metric-value">৳85,000</div>
+              <div class="metric-change">This Semester</div>
+            </div>
+            <div class="metric-icon" style="background: var(--primary-light);">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
             </div>
           </div>
           
           <!-- Total Paid -->
           <div class="metric-card">
-            <div class="metric-header">
-              <div>
-                <div class="metric-label">Total Paid</div>
-                <div class="metric-value" id="finance-paid">৳60,000</div>
-              </div>
-              <div class="metric-icon" style="background: #dcfce7;">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                </svg>
-              </div>
+            <div class="metric-content">
+              <div class="metric-label">Total Paid</div>
+              <div class="metric-value text-success">৳60,000</div>
+              <div class="metric-change positive">70% Complete</div>
             </div>
-            <div class="metric-footer">
-              <span class="badge badge-success">70% Complete</span>
+            <div class="metric-icon" style="background: #dcfce7;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
             </div>
           </div>
           
-          <!-- Total Due -->
+          <!-- Scholarship -->
           <div class="metric-card">
-            <div class="metric-header">
-              <div>
-                <div class="metric-label">Total Due</div>
-                <div class="metric-value" id="finance-due">৳25,000</div>
-              </div>
-              <div class="metric-icon" style="background: #fef3c7;">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <line x1="12" y1="8" x2="12" y2="12"></line>
-                  <line x1="12" y1="16" x2="12.01" y2="16"></line>
-                </svg>
-              </div>
+            <div class="metric-content">
+              <div class="metric-label">Scholarship</div>
+              <div class="metric-value text-primary">৳15,000</div>
+              <div class="metric-change">Merit Scholarship</div>
             </div>
-            <div class="metric-footer">
-              <span class="text-sm text-secondary">Due Apr 01, 2026</span>
-            </div>
-          </div>
-          
-          <!-- Total Other (Scholarship) -->
-          <div class="metric-card">
-            <div class="metric-header">
-              <div>
-                <div class="metric-label">Total Other (Waiver)</div>
-                <div class="metric-value" id="finance-other">৳15,000</div>
-              </div>
-              <div class="metric-icon" style="background: #f3e8ff;">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#9333ea" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="8" r="7"></circle>
-                  <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
-                </svg>
-              </div>
-            </div>
-            <div class="metric-footer">
-              <span class="badge badge-primary">Merit Scholarship</span>
+            <div class="metric-icon" style="background: #f3e8ff;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#9333ea" stroke-width="2"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
             </div>
           </div>
         </div>
         
-        <!-- Charts Section -->
-        <div class="charts-grid">
+        <!-- Bottom Section: 2 Panels -->
+        <div class="charts-grid mt-4">
           <!-- Today's Routine Panel -->
           <div class="card">
             <div class="card-header">
               <div>
-                <h3 class="card-title">Today's Routine – <span id="today-day-name">Friday</span></h3>
+                <h3 class="card-title">Today's Routine - <span id="today-day-name">Tuesday</span></h3>
                 <p class="card-subtitle">Your class schedule for today</p>
               </div>
-              <a href="timetable.html" class="btn btn-ghost btn-sm">Full Timetable</a>
+
             </div>
             <div class="card-body" id="today-routine-content">
-              <div class="empty-state" id="today-routine-empty" style="padding: 40px 20px; text-align: center;">
-                <div class="metric-icon warning" style="width: 60px; height: 60px; margin: 0 auto 16px;">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <line x1="12" y1="8" x2="12" y2="12"></line>
-                    <line x1="12" y1="16" x2="12.01" y2="16"></line>
-                  </svg>
-                </div>
+              <div class="empty-state" id="today-routine-empty" style="padding: 40px 20px; text-align: center; display: none;">
                 <p class="text-secondary">No routine available for today.</p>
-                <p class="text-sm text-secondary mt-1">Enjoy your day off!</p>
               </div>
-              <div id="today-routine-list" style="display: none;">
+              <div id="today-routine-list">
                 <!-- Populated by JS -->
               </div>
             </div>
           </div>
           
-          <!-- Semester-wise CGPA Performance Chart -->
+          <!-- Semester Wise Result Panel -->
           <div class="card">
             <div class="card-header">
               <div>
                 <h3 class="card-title">Semester Wise Result</h3>
-                <p class="card-subtitle">Semester-wise CGPA Performance</p>
-              </div>
-              <div class="flex items-center gap-2">
-                <span class="badge badge-primary">CGPA</span>
-                <a href="results.html" class="btn btn-ghost btn-sm">View Details</a>
-              </div>
-            </div>
-            <div class="card-body">
-              <div class="chart-container" style="height: 280px;">
-                <canvas id="semester-cgpa-chart"></canvas>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Additional Charts Section -->
-        <div class="charts-grid">
-          <!-- SGPA Trend Chart -->
-          <div class="card">
-            <div class="card-header">
-              <div>
-                <h3 class="card-title">SGPA Trend</h3>
-                <p class="card-subtitle">Performance across semesters</p>
+                <p class="card-subtitle">CGPA/SGPA Performance</p>
               </div>
               <a href="results.html" class="btn btn-ghost btn-sm">View Details</a>
             </div>
             <div class="card-body">
               <div class="chart-container" style="height: 280px;">
-                <canvas id="sgpa-trend-chart"></canvas>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Credits Distribution Chart -->
-          <div class="card">
-            <div class="card-header">
-              <div>
-                <h3 class="card-title">Credits Distribution</h3>
-                <p class="card-subtitle">Major vs Minor credits per semester</p>
-              </div>
-              <a href="cgpa.html" class="btn btn-ghost btn-sm">Calculator</a>
-            </div>
-            <div class="card-body">
-              <div class="chart-container" style="height: 280px;">
-                <canvas id="credits-chart"></canvas>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Bottom Row -->
-        <div class="charts-grid">
-          <!-- Attendance by Subject -->
-          <div class="card">
-            <div class="card-header">
-              <div>
-                <h3 class="card-title">Subject-wise Attendance</h3>
-                <p class="card-subtitle">Current semester</p>
-              </div>
-              <a href="attendance.html" class="btn btn-ghost btn-sm">View All</a>
-            </div>
-            <div class="card-body">
-              <div class="chart-container" style="height: 280px;">
-                <canvas id="attendance-chart"></canvas>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Quick Actions & Info -->
-          <div class="card">
-            <div class="card-header">
-              <h3 class="card-title">Quick Actions</h3>
-            </div>
-            <div class="card-body">
-              <!-- Next Class -->
-              <div class="flex items-center gap-3 p-3 rounded" style="background: var(--primary-light); margin-bottom: 16px;">
-                <div class="metric-icon primary" style="width: 40px; height: 40px;">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <polyline points="12 6 12 12 16 14"></polyline>
-                  </svg>
-                </div>
-                <div class="flex-1">
-                  <div class="text-sm font-medium text-primary">Next Class</div>
-                  <div class="text-sm" id="next-class-info">Loading...</div>
-                </div>
-                <a href="timetable.html" class="btn btn-primary btn-sm">View Timetable</a>
-              </div>
-              
-              <!-- Action Buttons Grid -->
-              <div class="grid grid-cols-2 gap-3">
-                <a href="results.html" class="btn btn-secondary" style="padding: 16px;">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                    <polyline points="14 2 14 8 20 8"></polyline>
-                  </svg>
-                  View Results
-                </a>
-                <a href="cgpa.html" class="btn btn-secondary" style="padding: 16px;">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="4" y1="21" x2="4" y2="14"></line>
-                    <line x1="4" y1="10" x2="4" y2="3"></line>
-                    <line x1="12" y1="21" x2="12" y2="12"></line>
-                    <line x1="12" y1="8" x2="12" y2="3"></line>
-                  </svg>
-                  CGPA Calc
-                </a>
-                <a href="finance.html" class="btn btn-secondary" style="padding: 16px;">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="12" y1="1" x2="12" y2="23"></line>
-                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-                  </svg>
-                  Pay Fees
-                </a>
-                <a href="exams.html" class="btn btn-secondary" style="padding: 16px;">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-                    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
-                  </svg>
-                  Exams
-                </a>
-              </div>
-              
-              <!-- Upcoming Exam Alert -->
-              <div class="alert alert-info mt-4" id="exam-alert" style="display: none;">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <line x1="12" y1="16" x2="12" y2="12"></line>
-                  <line x1="12" y1="8" x2="12.01" y2="8"></line>
-                </svg>
-                <div class="alert-content">
-                  <div class="alert-title">Upcoming Exam</div>
-                  <div id="exam-alert-text">Advanced DBMS Mid-Term in 16 days</div>
-                </div>
+                <canvas id="semester-cgpa-chart"></canvas>
               </div>
             </div>
           </div>
@@ -607,64 +392,50 @@
   <script src="assets/js/ai-assistant.js"></script>
   
   <script>
-    // Initialize dashboard
     document.addEventListener('DOMContentLoaded', function() {
-      // Set welcome message based on time
-      const hour = new Date().getHours();
-      let greeting = 'Good Morning';
-      if (hour >= 12 && hour < 17) greeting = 'Good Afternoon';
-      else if (hour >= 17) greeting = 'Good Evening';
-      
-      document.getElementById('welcome-message').textContent = 
-        `${greeting}, ${studentData.profile.firstName}!`;
-      
-      // Initialize charts
-      PortalCharts.initDashboardCharts();
-      
-      // Update next class info
-      const nextClass = StudentPortal.getNextClass();
-      document.getElementById('next-class-info').textContent = 
-        nextClass.message || `${nextClass.subject} at ${nextClass.time} in ${nextClass.room}`;
-      
-      // Show exam alert if upcoming exam within 30 days
-      const upcomingExam = studentData.exams.upcoming[0];
-      if (upcomingExam) {
-        const daysLeft = PortalUtils.daysUntil(upcomingExam.date);
-        if (daysLeft <= 30) {
-          document.getElementById('exam-alert').style.display = 'flex';
-          document.getElementById('exam-alert-text').textContent = 
-            `${upcomingExam.name} ${upcomingExam.type} in ${daysLeft} days`;
-        }
+      if (typeof studentData !== 'undefined') {
+        document.getElementById('metric-cgpa').textContent = studentData.academic.cgpa.toFixed(2);
       }
-      
-      // Initialize Today's Routine
       initTodayRoutine();
-      
-      // Initialize Semester CGPA Chart
       initSemesterCGPAChart();
+      updateNextClassInfo();
     });
     
-    // Today's Routine Logic
+    function updateNextClassInfo() {
+      if (typeof StudentPortal !== 'undefined' && StudentPortal.getNextClass) {
+        const nextClass = StudentPortal.getNextClass();
+        if (nextClass && !nextClass.message) {
+          document.getElementById('metric-next-class').textContent = nextClass.subject + ' - ' + (nextClass.name || '');
+          document.getElementById('next-class-time').textContent = nextClass.time;
+          document.getElementById('metric-room').textContent = nextClass.room;
+        } else if (nextClass && nextClass.message) {
+          document.getElementById('metric-next-class').textContent = 'No Class';
+          document.getElementById('next-class-time').textContent = nextClass.message;
+        }
+      }
+    }
+    
     function initTodayRoutine() {
       const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-      const bdDays = ['Sat', 'Sun', 'Mon', 'Tue', 'Wed', 'Thu']; // Bangladesh week
       const today = new Date();
       const dayName = days[today.getDay()];
-      
       document.getElementById('today-day-name').textContent = dayName;
       
-      // Map JS day (0=Sun) to BD schedule (0=Sat)
-      const jsDay = today.getDay(); // 0=Sun, 1=Mon, ..., 6=Sat
+      const jsDay = today.getDay();
       let bdDayIndex = -1;
-      if (jsDay === 6) bdDayIndex = 0; // Saturday -> Sat
-      else if (jsDay >= 0 && jsDay <= 4) bdDayIndex = jsDay + 1; // Sun-Thu -> Sun-Thu
-      // Friday (jsDay=5) -> -1 (holiday)
+      if (jsDay === 6) bdDayIndex = 0;
+      else if (jsDay >= 0 && jsDay <= 4) bdDayIndex = jsDay + 1;
       
       const emptyState = document.getElementById('today-routine-empty');
       const routineList = document.getElementById('today-routine-list');
       
+      if (typeof studentData === 'undefined' || !studentData.timetable) {
+        emptyState.style.display = 'block';
+        routineList.style.display = 'none';
+        return;
+      }
+      
       if (bdDayIndex === -1 || !studentData.timetable.schedule[bdDayIndex]) {
-        // Friday or no schedule
         emptyState.style.display = 'block';
         routineList.style.display = 'none';
         return;
@@ -676,14 +447,7 @@
       
       schedule.forEach((cls, index) => {
         if (cls) {
-          classes.push({
-            time: slots[index],
-            subject: cls.subject,
-            name: cls.name,
-            room: cls.room,
-            faculty: cls.faculty,
-            type: cls.type
-          });
+          classes.push({ time: slots[index], subject: cls.subject, name: cls.name, room: cls.room, faculty: cls.faculty, type: cls.type });
         }
       });
       
@@ -695,97 +459,41 @@
       
       emptyState.style.display = 'none';
       routineList.style.display = 'block';
-      
-      routineList.innerHTML = classes.map(cls => `
-        <div class="routine-item flex items-center gap-3 p-3 rounded mb-2" style="background: var(--bg-page); border: 1px solid var(--border-color); flex-wrap: wrap;">
-          <div class="text-center" style="min-width: 60px; flex-shrink: 0;">
-            <div class="text-sm font-semibold text-primary">${cls.time}</div>
-            <span class="badge badge-${cls.type === 'lab' ? 'warning' : cls.type === 'project' ? 'primary' : 'info'}" style="font-size: 10px; margin-top: 4px;">${cls.type.toUpperCase()}</span>
-          </div>
-          <div class="flex-1" style="min-width: 150px;">
-            <div class="font-medium" style="font-size: 0.875rem;">${cls.subject} - ${cls.name}</div>
-            <div class="text-sm text-secondary">${cls.room} | ${cls.faculty}</div>
-          </div>
-        </div>
-      `).join('');
+      routineList.innerHTML = classes.map(cls => '<div class="routine-item flex items-center gap-3 p-3 rounded mb-2" style="background: var(--bg-page); border: 1px solid var(--border-color);"><div class="text-center" style="min-width: 60px;"><div class="text-sm font-semibold text-primary">' + cls.time + '</div><span class="badge badge-' + (cls.type === 'lab' ? 'warning' : 'info') + '" style="font-size: 10px;">' + cls.type.toUpperCase() + '</span></div><div class="flex-1"><div class="font-medium" style="font-size: 0.875rem;">' + cls.subject + ' - ' + cls.name + '</div><div class="text-sm text-secondary">' + cls.room + ' | ' + cls.faculty + '</div></div></div>').join('');
     }
     
-    // Semester CGPA Bar Chart
     function initSemesterCGPAChart() {
       const ctx = document.getElementById('semester-cgpa-chart');
-      if (!ctx) return;
+      if (!ctx || typeof studentData === 'undefined' || !studentData.semesters) return;
       
       const semesters = studentData.semesters;
       const labels = semesters.map(s => s.session);
       const data = semesters.map(s => s.sgpa);
       
-      // Responsive font size
-      const isMobile = window.innerWidth < 640;
-      const fontSize = isMobile ? 9 : 11;
-      const maxRotation = isMobile ? 90 : 45;
-      
       new Chart(ctx.getContext('2d'), {
         type: 'bar',
-        data: {
-          labels: labels,
-          datasets: [{
-            label: 'CGPA',
-            data: data,
-            backgroundColor: '#2563eb',
-            borderRadius: isMobile ? 4 : 6,
-            barPercentage: isMobile ? 0.8 : 0.6
-          }]
-        },
+        data: { labels: labels, datasets: [{ label: 'CGPA', data: data, backgroundColor: '#2563eb', borderRadius: 6, barPercentage: 0.6 }] },
         options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: { display: false },
-            tooltip: {
-              callbacks: {
-                label: (ctx) => `CGPA: ${ctx.raw.toFixed(2)}`
-              }
-            }
-          },
+          responsive: true, maintainAspectRatio: false,
+          plugins: { legend: { display: false } },
           scales: {
-            x: {
-              grid: { display: false },
-              ticks: { 
-                font: { size: fontSize },
-                maxRotation: maxRotation,
-                minRotation: maxRotation
-              }
-            },
-            y: {
-              min: 0,
-              max: 4,
-              ticks: {
-                stepSize: 0.5,
-                font: { size: fontSize },
-                callback: (value) => value.toFixed(1)
-              },
-              grid: {
-                color: '#e5e7eb',
-                drawBorder: false
-              }
-            }
+            x: { grid: { display: false }, ticks: { font: { size: 10 }, maxRotation: 45, minRotation: 45 } },
+            y: { min: 0, max: 4, ticks: { stepSize: 0.5, font: { size: 10 } }, grid: { color: '#e5e7eb' } }
           }
         },
         plugins: [{
           id: 'barValueLabels',
           afterDatasetsDraw(chart) {
             const ctx = chart.ctx;
-            const labelFontSize = window.innerWidth < 640 ? 9 : 11;
             chart.data.datasets.forEach((dataset, i) => {
               const meta = chart.getDatasetMeta(i);
               meta.data.forEach((bar, index) => {
-                const value = dataset.data[index];
                 ctx.save();
                 ctx.fillStyle = '#fff';
-                ctx.font = `bold ${labelFontSize}px Inter, sans-serif`;
+                ctx.font = 'bold 10px Inter, sans-serif';
                 ctx.textAlign = 'center';
                 ctx.textBaseline = 'bottom';
-                ctx.fillText(value.toFixed(2), bar.x, bar.y + 14);
+                ctx.fillText(dataset.data[index].toFixed(2), bar.x, bar.y + 14);
                 ctx.restore();
               });
             });
@@ -794,16 +502,82 @@
       });
     }
     
-    // Logout handler
+    // Quick Info Card Cycling (Card Balance / Next Bus / Meal Time)
+    let quickInfoMode = 0;
+    const quickInfoModes = [
+      { 
+        label: 'Card Balance', 
+        value: '৳1,250', 
+        sub: 'Tap to cycle info',
+        iconBg: '#dbeafe',
+        iconColor: '#2563eb',
+        iconPath: '<rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line>'
+      },
+      { 
+        label: 'Next Bus (Route R)', 
+        value: getNextBusTime(), 
+        sub: 'DIU Shuttle Service',
+        iconBg: '#fef3c7',
+        iconColor: '#d97706',
+        iconPath: '<rect x="3" y="6" width="18" height="12" rx="2"></rect><circle cx="7" cy="18" r="2"></circle><circle cx="17" cy="18" r="2"></circle><path d="M5 6V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v2"></path>'
+      },
+      { 
+        label: 'Meal Time', 
+        value: getCurrentMeal(), 
+        sub: 'DIU Hall Canteen',
+        iconBg: '#dcfce7',
+        iconColor: '#16a34a',
+        iconPath: '<path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line>'
+      }
+    ];
+    
+    function getNextBusTime() {
+      const now = new Date();
+      const times = [
+        { h: 7, m: 20, label: '7:20 AM' },
+        { h: 9, m: 40, label: '9:40 AM' },
+        { h: 11, m: 50, label: '11:50 AM' },
+        { h: 17, m: 30, label: '5:30 PM (Return)' }
+      ];
+      const currentMinutes = now.getHours() * 60 + now.getMinutes();
+      for (const t of times) {
+        if (t.h * 60 + t.m > currentMinutes) return t.label;
+      }
+      return '7:20 AM (Tomorrow)';
+    }
+    
+    function getCurrentMeal() {
+      const now = new Date();
+      const h = now.getHours();
+      const m = now.getMinutes();
+      const time = h * 60 + m;
+      if (time < 7 * 60 + 30) return 'Breakfast: 7:30 AM';
+      if (time < 9 * 60) return 'Breakfast: Until 9:00 AM';
+      if (time < 13 * 60) return 'Lunch: 1:00 PM';
+      if (time < 14 * 60 + 30) return 'Lunch: Until 2:30 PM';
+      if (time < 20 * 60) return 'Dinner: 8:00 PM';
+      if (time < 21 * 60 + 30) return 'Dinner: Until 9:30 PM';
+      return 'Closed';
+    }
+    
+    function cycleQuickInfo() {
+      quickInfoMode = (quickInfoMode + 1) % quickInfoModes.length;
+      // Update values dynamically
+      quickInfoModes[1].value = getNextBusTime();
+      quickInfoModes[2].value = getCurrentMeal();
+      const mode = quickInfoModes[quickInfoMode];
+      document.getElementById('quick-info-label').textContent = mode.label;
+      document.getElementById('quick-info-value').textContent = mode.value;
+      document.getElementById('quick-info-sub').textContent = mode.sub;
+      document.getElementById('quick-info-icon').style.background = mode.iconBg;
+      document.getElementById('quick-icon-svg').innerHTML = mode.iconPath;
+      document.getElementById('quick-icon-svg').setAttribute('stroke', mode.iconColor);
+    }
+    
     function handleLogout() {
-      PortalUtils.confirmAction(
-        'Are you sure you want to logout?',
-        () => {
-          // In a real app, this would clear session and redirect
-          PortalUtils.showToast('Logged out successfully', 'success');
-          setTimeout(() => window.location.href = 'index.html', 1000);
-        }
-      );
+      if (confirm('Are you sure you want to logout?')) {
+        window.location.href = 'index.html';
+      }
     }
   </script>
 </body>

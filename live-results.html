@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -42,7 +42,7 @@
           <div class="nav-section-title">Academic</div>
           <a href="results.html" class="nav-item">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
-            <span>Results & Transcript</span>
+            <span>Results &amp; Transcript</span>
           </a>
           <a href="live-results.html" class="nav-item active">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 10"></polyline></svg>
@@ -56,14 +56,6 @@
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
             <span>Attendance</span>
           </a>
-          <a href="timetable.html" class="nav-item">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-            <span>Timetable</span>
-          </a>
-          <a href="exams.html" class="nav-item">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
-            <span>Exams</span>
-          </a>
         </div>
         
         <div class="nav-section">
@@ -71,13 +63,14 @@
           <a href="finance.html" class="nav-item">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
             <span>Finance</span>
+            <span class="nav-badge">Due</span>
           </a>
           <a href="hostel.html" class="nav-item">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
             <span>Hostel</span>
           </a>
           <a href="transport.html" class="nav-item">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6v6"></path><path d="M16 6v6"></path><path d="M2 12h20"></path><path d="M4 6h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z"></path><circle cx="6.5" cy="17.5" r="1.5"></circle><circle cx="17.5" cy="17.5" r="1.5"></circle></svg>
             <span>Transport</span>
           </a>
         </div>
@@ -87,6 +80,10 @@
           <a href="profile.html" class="nav-item">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
             <span>Profile</span>
+          </a>
+          <a href="#" class="nav-item" onclick="handleLogout()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+            <span>Logout</span>
           </a>
         </div>
       </nav>
@@ -136,7 +133,7 @@
               <div class="form-group" style="margin-bottom: 0;">
                 <label class="form-label">Semester</label>
                 <select class="form-select" id="semester-select">
-                  <option value="spring2026" selected>Spring 2026</option>
+                  <option value="spring2026" selected>Spring 2026 (Current)</option>
                   <option value="fall2025">Fall 2025</option>
                   <option value="summer2025">Summer 2025</option>
                 </select>
@@ -144,20 +141,20 @@
               <div class="form-group" style="margin-bottom: 0;">
                 <label class="form-label">Course</label>
                 <select class="form-select" id="course-select">
-                  <option value="">All Courses</option>
+                  <!-- Populated by JS, no All Courses option -->
                 </select>
               </div>
             </div>
           </div>
         </div>
         
-        <!-- Summary Cards -->
+        <!-- Summary Cards - Exactly 4 -->
         <div class="metrics-grid mb-4">
           <div class="metric-card">
             <div class="metric-content">
-              <div class="metric-label">Current Total (Weighted)</div>
-              <div class="metric-value" id="current-total">42.5</div>
-              <div class="metric-change" id="published-weight">50% published</div>
+              <div class="metric-label">Total Marks Published</div>
+              <div class="metric-value" id="total-published">70</div>
+              <div class="metric-change" id="published-info">out of 130</div>
             </div>
             <div class="metric-icon" style="background: var(--primary-light);">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
@@ -168,7 +165,7 @@
             <div class="metric-content">
               <div class="metric-label">Percentage (Published)</div>
               <div class="metric-value" id="percentage">85.0%</div>
-              <div class="metric-change positive">Based on published marks</div>
+              <div class="metric-change positive">Based on published</div>
             </div>
             <div class="metric-icon" style="background: #dcfce7;">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
@@ -189,8 +186,8 @@
           <div class="metric-card">
             <div class="metric-content">
               <div class="metric-label">Missing Components</div>
-              <div class="metric-value" id="missing-count">5</div>
-              <div class="metric-change" id="remaining-weight">50% remaining</div>
+              <div class="metric-value" id="missing-count">4</div>
+              <div class="metric-change" id="remaining-info">Pending</div>
             </div>
             <div class="metric-icon" style="background: #fee2e2;">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
@@ -198,39 +195,47 @@
           </div>
         </div>
         
-        <!-- Course-wise Live Results -->
-        <div id="courses-container">
-          <!-- Populated by JS -->
-        </div>
-        
-        <!-- Grade Scale Reference -->
-        <div class="card">
-          <div class="card-header">
-            <h3 class="card-title">Bangladesh Grading Scale (4.0)</h3>
+        <!-- Two-column layout: Table (left) + Pie Chart (right) -->
+        <div class="charts-grid">
+          <!-- Component Table -->
+          <div class="card" style="flex: 2;">
+            <div class="card-header">
+              <h3 class="card-title" id="course-title">Course Components</h3>
+            </div>
+            <div class="table-container">
+              <table class="table table-striped" id="component-table">
+                <thead>
+                  <tr>
+                    <th>Component</th>
+                    <th>Obtained</th>
+                    <th>Marks</th>
+                    <th>Total</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody id="component-tbody">
+                  <!-- Populated by JS -->
+                </tbody>
+              </table>
+            </div>
           </div>
-          <div class="table-container">
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th>Marks Range</th>
-                  <th>Letter Grade</th>
-                  <th>Grade Point</th>
-                  <th>Remark</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr><td>80 - 100</td><td><span class="badge badge-success">A+</span></td><td>4.00</td><td>Outstanding</td></tr>
-                <tr><td>75 - 79</td><td><span class="badge badge-success">A</span></td><td>3.75</td><td>Excellent</td></tr>
-                <tr><td>70 - 74</td><td><span class="badge badge-primary">A-</span></td><td>3.50</td><td>Very Good</td></tr>
-                <tr><td>65 - 69</td><td><span class="badge badge-primary">B+</span></td><td>3.25</td><td>Good</td></tr>
-                <tr><td>60 - 64</td><td><span class="badge badge-info">B</span></td><td>3.00</td><td>Satisfactory</td></tr>
-                <tr><td>55 - 59</td><td><span class="badge badge-info">B-</span></td><td>2.75</td><td>Above Average</td></tr>
-                <tr><td>50 - 54</td><td><span class="badge badge-warning">C+</span></td><td>2.50</td><td>Average</td></tr>
-                <tr><td>45 - 49</td><td><span class="badge badge-warning">C</span></td><td>2.25</td><td>Below Average</td></tr>
-                <tr><td>40 - 44</td><td><span class="badge badge-danger">D</span></td><td>2.00</td><td>Pass</td></tr>
-                <tr><td>00 - 39</td><td><span class="badge badge-danger">F</span></td><td>0.00</td><td>Fail</td></tr>
-              </tbody>
-            </table>
+          
+          <!-- Pie Chart -->
+          <div class="card" style="flex: 1;">
+            <div class="card-header">
+              <h3 class="card-title">Marks Distribution</h3>
+            </div>
+            <div class="card-body">
+              <div class="chart-container" style="height: 280px;">
+                <canvas id="marks-pie-chart"></canvas>
+              </div>
+              <div class="mt-3" style="text-align: center;">
+                <div class="flex justify-center gap-4">
+                  <div><span style="display: inline-block; width: 12px; height: 12px; background: #16a34a; border-radius: 2px; margin-right: 6px;"></span>Published</div>
+                  <div><span style="display: inline-block; width: 12px; height: 12px; background: #e5e7eb; border-radius: 2px; margin-right: 6px;"></span>Remaining</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -242,235 +247,242 @@
   <script src="assets/js/ai-assistant.js"></script>
   
   <script>
-    // Initialize page
+    // Marks structure: Quiz(15) + Assignment(5) + Presentation(8) + Attendance(7) + Midterm(25) + Final(40) = 100
+    const TOTAL_OVERALL_MARKS = 100;
+    const COMPONENT_MARKS = { quiz: 15, assignment: 5, presentation: 8, attendance: 7, midterm: 25, final: 40 };
+    
+    // Attendance percentage (used to calculate attendance total)
+    const ATTENDANCE_PERCENTAGE = 87;
+    
+    let pieChart = null;
+    let selectedCourse = null;
+    
+    // Grade scale
+    function getGradeFromPercentage(percentage) {
+      if (percentage >= 80) return { letter: 'A+', point: 4.00 };
+      if (percentage >= 75) return { letter: 'A', point: 3.75 };
+      if (percentage >= 70) return { letter: 'A-', point: 3.50 };
+      if (percentage >= 65) return { letter: 'B+', point: 3.25 };
+      if (percentage >= 60) return { letter: 'B', point: 3.00 };
+      if (percentage >= 55) return { letter: 'B-', point: 2.75 };
+      if (percentage >= 50) return { letter: 'C+', point: 2.50 };
+      if (percentage >= 45) return { letter: 'C', point: 2.25 };
+      if (percentage >= 40) return { letter: 'D', point: 2.00 };
+      return { letter: 'F', point: 0.00 };
+    }
+    
     document.addEventListener('DOMContentLoaded', function() {
-      populateCourseDropdown();
-      renderAllCourses();
-      updateSummaryCards();
+      // Auto-select current semester (already selected by default)
+      const semesterSelect = document.getElementById('semester-select');
+      for (let i = 0; i < semesterSelect.options.length; i++) {
+        if (semesterSelect.options[i].text.includes('Current')) {
+          semesterSelect.selectedIndex = i;
+          break;
+        }
+      }
       
-      // Event listeners
-      document.getElementById('course-select').addEventListener('change', filterCourses);
+      // Populate course dropdown and auto-select random course
+      populateCourseDropdown();
+      
+      // Add event listener
+      document.getElementById('course-select').addEventListener('change', renderSelectedCourse);
     });
     
-    // Populate course dropdown
     function populateCourseDropdown() {
       const select = document.getElementById('course-select');
-      studentData.liveResults.courses.forEach(course => {
+      select.innerHTML = '';
+      
+      const courses = studentData.liveResults.courses;
+      courses.forEach(course => {
         const option = document.createElement('option');
         option.value = course.code;
-        option.textContent = `${course.code} - ${course.name}`;
+        option.textContent = course.code + ' - ' + course.name;
         select.appendChild(option);
       });
+      
+      // Auto-select random course (not "All Courses" since we don't have that option)
+      if (courses.length > 0) {
+        const randomIndex = Math.floor(Math.random() * courses.length);
+        select.selectedIndex = randomIndex;
+        selectedCourse = courses[randomIndex];
+        renderSelectedCourse();
+      }
     }
     
-    // Get grade info from percentage
-    function getGradeFromPercentage(percentage) {
-      if (percentage >= 80) return { letter: 'A+', point: 4.00, class: 'badge-success' };
-      if (percentage >= 75) return { letter: 'A', point: 3.75, class: 'badge-success' };
-      if (percentage >= 70) return { letter: 'A-', point: 3.50, class: 'badge-primary' };
-      if (percentage >= 65) return { letter: 'B+', point: 3.25, class: 'badge-primary' };
-      if (percentage >= 60) return { letter: 'B', point: 3.00, class: 'badge-info' };
-      if (percentage >= 55) return { letter: 'B-', point: 2.75, class: 'badge-info' };
-      if (percentage >= 50) return { letter: 'C+', point: 2.50, class: 'badge-warning' };
-      if (percentage >= 45) return { letter: 'C', point: 2.25, class: 'badge-warning' };
-      if (percentage >= 40) return { letter: 'D', point: 2.00, class: 'badge-danger' };
-      return { letter: 'F', point: 0.00, class: 'badge-danger' };
-    }
-    
-    // Calculate course result
-    function calculateCourseResult(course) {
-      const published = course.components.filter(c => c.published && c.obtained !== null);
-      let weightedScore = 0;
-      let totalWeight = 0;
+    function renderSelectedCourse() {
+      const courseCode = document.getElementById('course-select').value;
+      selectedCourse = studentData.liveResults.courses.find(c => c.code === courseCode);
       
-      published.forEach(comp => {
-        const score = (comp.obtained / comp.total) * comp.weight;
-        weightedScore += score;
-        totalWeight += comp.weight;
-      });
+      if (!selectedCourse) return;
       
-      const percentage = totalWeight > 0 ? (weightedScore / totalWeight) * 100 : 0;
-      const gradeInfo = getGradeFromPercentage(percentage);
-      const missingComponents = course.components.filter(c => !c.published);
+      document.getElementById('course-title').textContent = selectedCourse.code + ' - ' + selectedCourse.name;
       
-      return {
-        weightedScore: weightedScore.toFixed(2),
-        percentage: percentage.toFixed(1),
-        grade: gradeInfo,
-        publishedWeight: totalWeight,
-        remainingWeight: 100 - totalWeight,
-        missingComponents: missingComponents
-      };
-    }
-    
-    // Update summary cards
-    function updateSummaryCards() {
-      let totalWeighted = 0;
+      // Build component data according to required structure
+      // Required rows: Quiz 1, Quiz 2, Quiz 3, Assignment, Presentation, Attendance, Midterm, Final
+      // Marks: Quiz-15, Assignment-5, Presentation-8, Attendance-7, Midterm-25, Final-40
+      
+      const components = selectedCourse.components;
+      
+      // Find quiz scores
+      const quiz1 = findComponent(components, 'Quiz 1');
+      const quiz2 = findComponent(components, 'Quiz 2');
+      const quiz3 = findComponent(components, 'Quiz 3');
+      const assignment = findComponent(components, 'Assignment 1') || findComponent(components, 'Assignment');
+      const presentation = findComponent(components, 'Presentation');
+      const attendance = findComponent(components, 'Attendance');
+      const midterm = findComponent(components, 'Midterm');
+      const final = findComponent(components, 'Final');
+      
+      // Calculate quiz average for Total column
+      // If a quiz is missing/not published, treat as 0 for average
+      const quizScores = [];
+      if (quiz1 && quiz1.published && quiz1.obtained !== null) quizScores.push(quiz1.obtained);
+      if (quiz2 && quiz2.published && quiz2.obtained !== null) quizScores.push(quiz2.obtained);
+      if (quiz3 && quiz3.published && quiz3.obtained !== null) quizScores.push(quiz3.obtained);
+      
+      // Quiz average (scaled to 15)
+      const quizAvg = quizScores.length > 0 ? (quizScores.reduce((a, b) => a + b, 0) / quizScores.length) : 0;
+      
+      // Attendance Total = (attendance% / 100) * 7
+      const attendanceTotal = (ATTENDANCE_PERCENTAGE / 100) * 7;
+      
+      // Build table rows
+      const rows = [
+        buildRow('Quiz 1', quiz1, 15, quizAvg.toFixed(1)),
+        buildRow('Quiz 2', quiz2, 15, quizAvg.toFixed(1)),
+        buildRow('Quiz 3', quiz3, 15, quizAvg.toFixed(1)),
+        buildRow('Assignment', assignment, 5, getTotal(assignment, 5)),
+        buildRow('Presentation', presentation, 8, getTotal(presentation, 8)),
+        buildRow('Attendance', attendance, 7, attendanceTotal.toFixed(1)),
+        buildRow('Midterm', midterm, 25, getTotal(midterm, 25)),
+        buildRow('Final', final, 40, getTotal(final, 40))
+      ];
+      
+      document.getElementById('component-tbody').innerHTML = rows.join('');
+      
+      // Calculate totals for summary cards - properly scaled to 100-mark system
       let totalPublished = 0;
-      let courseCount = 0;
-      let totalMissing = 0;
-      let totalRemaining = 0;
+      let totalPublishedMax = 0;
+      let missingCount = 0;
       
-      studentData.liveResults.courses.forEach(course => {
-        const result = calculateCourseResult(course);
-        totalWeighted += parseFloat(result.weightedScore);
-        totalPublished += result.publishedWeight;
-        totalMissing += result.missingComponents.length;
-        totalRemaining += result.remainingWeight;
-        courseCount++;
-      });
+      // Quiz: Average of published quizzes, scaled to 15 marks
+      if (quizScores.length > 0) {
+        const quizScaled = (quizAvg / 10) * COMPONENT_MARKS.quiz;  // Scale avg out of 10 to marks out of 15
+        totalPublished += quizScaled;
+        totalPublishedMax += COMPONENT_MARKS.quiz;  // Quiz component is available
+      }
       
-      const avgWeighted = totalWeighted / courseCount;
-      const avgPublished = totalPublished / courseCount;
-      const avgRemaining = totalRemaining / courseCount;
-      const percentage = avgPublished > 0 ? (avgWeighted / avgPublished) * 100 : 0;
-      const gradeInfo = getGradeFromPercentage(percentage);
+      // Count individual missing quizzes for display
+      if (!quiz1 || !quiz1.published || quiz1.obtained === null) missingCount++;
+      if (!quiz2 || !quiz2.published || quiz2.obtained === null) missingCount++;
+      if (!quiz3 || !quiz3.published || quiz3.obtained === null) missingCount++;
       
-      document.getElementById('current-total').textContent = avgWeighted.toFixed(1);
-      document.getElementById('published-weight').textContent = `${avgPublished.toFixed(0)}% published`;
-      document.getElementById('percentage').textContent = `${percentage.toFixed(1)}%`;
-      document.getElementById('estimated-grade').textContent = gradeInfo.letter;
-      document.getElementById('grade-point').textContent = `${gradeInfo.point.toFixed(2)} GP`;
-      document.getElementById('missing-count').textContent = totalMissing;
-      document.getElementById('remaining-weight').textContent = `${avgRemaining.toFixed(0)}% remaining`;
+      // Assignment
+      if (assignment && assignment.published && assignment.obtained !== null) {
+        totalPublished += (assignment.obtained / assignment.total) * COMPONENT_MARKS.assignment;
+        totalPublishedMax += COMPONENT_MARKS.assignment;
+      } else {
+        missingCount++;
+      }
+      
+      // Presentation
+      if (presentation && presentation.published && presentation.obtained !== null) {
+        totalPublished += (presentation.obtained / presentation.total) * COMPONENT_MARKS.presentation;
+        totalPublishedMax += COMPONENT_MARKS.presentation;
+      } else {
+        missingCount++;
+      }
+      
+      // Attendance (always published - use student's attendance percentage)
+      totalPublished += attendanceTotal;
+      totalPublishedMax += COMPONENT_MARKS.attendance;
+      
+      // Midterm
+      if (midterm && midterm.published && midterm.obtained !== null) {
+        totalPublished += (midterm.obtained / midterm.total) * COMPONENT_MARKS.midterm;
+        totalPublishedMax += COMPONENT_MARKS.midterm;
+      } else {
+        missingCount++;
+      }
+      
+      // Final
+      if (final && final.published && final.obtained !== null) {
+        totalPublished += (final.obtained / final.total) * COMPONENT_MARKS.final;
+        totalPublishedMax += COMPONENT_MARKS.final;
+      } else {
+        missingCount++;
+      }
+      
+      // Calculate percentage based on available (published) marks - shows true performance
+      const percentage = totalPublishedMax > 0 ? (totalPublished / totalPublishedMax) * 100 : 0;
+      const grade = getGradeFromPercentage(percentage);
+      
+      document.getElementById('total-published').textContent = totalPublished.toFixed(1);
+      document.getElementById('published-info').textContent = 'out of ' + totalPublishedMax.toFixed(0) + ' (published)';
+      document.getElementById('percentage').textContent = percentage.toFixed(1) + '%';
+      document.getElementById('estimated-grade').textContent = grade.letter;
+      document.getElementById('grade-point').textContent = grade.point.toFixed(2) + ' GP';
+      document.getElementById('missing-count').textContent = missingCount;
+      document.getElementById('remaining-info').textContent = 'components pending';
+      
+      // Update pie chart
+      updatePieChart(totalPublished, totalPublishedMax - totalPublished);
     }
     
-    // Render all courses
-    function renderAllCourses() {
-      const container = document.getElementById('courses-container');
-      container.innerHTML = studentData.liveResults.courses.map(course => renderCourseCard(course)).join('');
+    function findComponent(components, name) {
+      return components.find(c => c.name.toLowerCase().includes(name.toLowerCase()));
     }
     
-    // Render single course card
-    function renderCourseCard(course) {
-      const result = calculateCourseResult(course);
-      
-      const componentsHTML = course.components.map(comp => {
-        const isPublished = comp.published && comp.obtained !== null;
-        const score = isPublished ? ((comp.obtained / comp.total) * comp.weight).toFixed(2) : '-';
-        const percentage = isPublished ? ((comp.obtained / comp.total) * 100).toFixed(0) + '%' : '-';
-        
-        return `
-          <tr>
-            <td><strong>${comp.name}</strong></td>
-            <td>${isPublished ? comp.obtained : '-'}</td>
-            <td>${comp.total}</td>
-            <td>${comp.weight}%</td>
-            <td>${score}</td>
-            <td>
-              <span class="badge ${isPublished ? 'badge-success' : 'badge-warning'}">
-                ${isPublished ? 'Published' : 'Pending'}
-              </span>
-            </td>
-          </tr>
-        `;
-      }).join('');
-      
-      const missingHTML = result.missingComponents.length > 0 
-        ? `<div class="mt-3">
-            <strong class="text-secondary text-sm">Missing Components:</strong>
-            <div class="flex flex-wrap gap-2 mt-1">
-              ${result.missingComponents.map(c => `<span class="badge badge-warning">${c.name}</span>`).join('')}
-            </div>
-          </div>`
-        : '';
-      
-      return `
-        <div class="card mb-4 course-card" data-course="${course.code}">
-          <div class="card-header">
-            <div>
-              <h3 class="card-title">${course.code} - ${course.name}</h3>
-              <p class="text-secondary text-sm mt-1">${course.teacher} | Section ${course.section} | ${course.credits} Credits</p>
-            </div>
-            <div class="text-right">
-              <span class="badge ${result.grade.class}" style="font-size: 1rem; padding: 0.5rem 1rem;">
-                ${result.grade.letter} (${result.grade.point.toFixed(2)})
-              </span>
-              <div class="text-sm text-secondary mt-1">${result.percentage}% (${result.publishedWeight}% published)</div>
-            </div>
-          </div>
-          <div class="table-container">
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th>Component</th>
-                  <th>Obtained</th>
-                  <th>Total</th>
-                  <th>Weight %</th>
-                  <th>Weighted Score</th>
-                  <th>Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                ${componentsHTML}
-              </tbody>
-              <tfoot>
-                <tr style="background: var(--bg-page); font-weight: 600;">
-                  <td colspan="3">Total (Published Components)</td>
-                  <td>${result.publishedWeight}%</td>
-                  <td>${result.weightedScore}</td>
-                  <td>-</td>
-                </tr>
-              </tfoot>
-            </table>
-          </div>
-          <div class="card-body">
-            <!-- Progress Bar -->
-            <div class="progress-container">
-              <div class="flex justify-between mb-1">
-                <span class="text-sm font-medium">Progress</span>
-                <span class="text-sm text-secondary">${result.publishedWeight}% Complete</span>
-              </div>
-              <div class="progress-bar">
-                <div class="progress-fill" style="width: ${result.publishedWeight}%; background: var(--primary);"></div>
-              </div>
-            </div>
-            ${missingHTML}
-          </div>
-        </div>
-      `;
+    function getTotal(component, maxMarks) {
+      if (component && component.published && component.obtained !== null) {
+        return ((component.obtained / component.total) * maxMarks).toFixed(1);
+      }
+      return '-';
     }
     
-    // Filter courses based on selection
-    function filterCourses() {
-      const selectedCourse = document.getElementById('course-select').value;
-      const courseCards = document.querySelectorAll('.course-card');
+    function buildRow(name, component, maxMarks, total) {
+      const obtained = (component && component.published && component.obtained !== null) ? component.obtained : '-';
+      const status = (component && component.published && component.obtained !== null) ? 'Published' : 'Pending';
+      const statusClass = status === 'Published' ? 'badge-success' : 'badge-warning';
       
-      courseCards.forEach(card => {
-        if (!selectedCourse || card.dataset.course === selectedCourse) {
-          card.style.display = 'block';
-        } else {
-          card.style.display = 'none';
+      return '<tr><td><strong>' + name + '</strong></td><td>' + obtained + '</td><td>' + maxMarks + '</td><td>' + total + '</td><td><span class="badge ' + statusClass + '">' + status + '</span></td></tr>';
+    }
+    
+    function updatePieChart(published, remaining) {
+      const ctx = document.getElementById('marks-pie-chart');
+      if (!ctx) return;
+      
+      if (pieChart) {
+        pieChart.destroy();
+      }
+      
+      pieChart = new Chart(ctx.getContext('2d'), {
+        type: 'doughnut',
+        data: {
+          labels: ['Published', 'Remaining'],
+          datasets: [{
+            data: [published, remaining],
+            backgroundColor: ['#16a34a', '#e5e7eb'],
+            borderWidth: 0
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          cutout: '60%',
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              callbacks: {
+                label: function(context) {
+                  return context.label + ': ' + context.raw.toFixed(1) + ' marks';
+                }
+              }
+            }
+          }
         }
       });
     }
   </script>
-  
-  <style>
-    .progress-container {
-      margin-bottom: 0;
-    }
-    
-    .progress-bar {
-      height: 8px;
-      background: var(--border-color);
-      border-radius: 4px;
-      overflow: hidden;
-    }
-    
-    .progress-fill {
-      height: 100%;
-      border-radius: 4px;
-      transition: width 0.3s ease;
-    }
-    
-    .course-card {
-      transition: all 0.2s;
-    }
-    
-    .course-card:hover {
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-  </style>
 </body>
 </html>

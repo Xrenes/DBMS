@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Student Portal - Calculate your CGPA and plan your grades">
+  <meta name="description" content="Student Portal - Calculate your CGPA using UGC Grading System">
   <title>CGPA Calculator | Student Portal</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,8 +12,6 @@
   
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/components.css">
-  
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 </head>
 <body>
   <div class="app-container">
@@ -42,9 +40,9 @@
           <div class="nav-section-title">Academic</div>
           <a href="results.html" class="nav-item">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
-            <span>Results & Transcript</span>
+            <span>Results &amp; Transcript</span>
           </a>
-          <a href="live-results.html" class="nav-item" data-page="live-results.html">
+          <a href="live-results.html" class="nav-item">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 10"></polyline></svg>
             <span>Live Result</span>
           </a>
@@ -56,14 +54,6 @@
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
             <span>Attendance</span>
           </a>
-          <a href="timetable.html" class="nav-item">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-            <span>Timetable</span>
-          </a>
-          <a href="exams.html" class="nav-item">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
-            <span>Exams</span>
-          </a>
         </div>
         
         <div class="nav-section">
@@ -71,13 +61,14 @@
           <a href="finance.html" class="nav-item">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
             <span>Finance</span>
+            <span class="nav-badge">Due</span>
           </a>
           <a href="hostel.html" class="nav-item">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
             <span>Hostel</span>
           </a>
           <a href="transport.html" class="nav-item">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6v6"></path><path d="M16 6v6"></path><path d="M2 12h20"></path><path d="M4 6h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z"></path><circle cx="6.5" cy="17.5" r="1.5"></circle><circle cx="17.5" cy="17.5" r="1.5"></circle></svg>
             <span>Transport</span>
           </a>
         </div>
@@ -87,6 +78,10 @@
           <a href="profile.html" class="nav-item">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
             <span>Profile</span>
+          </a>
+          <a href="#" class="nav-item" onclick="handleLogout()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+            <span>Logout</span>
           </a>
         </div>
       </nav>
@@ -125,27 +120,17 @@
         <div class="section-header">
           <div>
             <h1 class="page-title">CGPA Calculator</h1>
-            <p class="text-secondary mt-1">Calculate and predict your academic performance</p>
-          </div>
-          <div class="section-actions">
-            <button class="btn btn-secondary" onclick="resetCalculator()">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path></svg>
-              Reset
-            </button>
-            <button class="btn btn-primary" onclick="showWhatIfModal()">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
-              What-If Analysis
-            </button>
+            <p class="text-secondary mt-1">Calculate your CGPA using UGC Uniform Grading System</p>
           </div>
         </div>
         
-        <!-- CGPA Summary Cards -->
+        <!-- Summary Cards - Exactly 4 -->
         <div class="metrics-grid mb-4">
           <div class="metric-card">
             <div class="metric-content">
               <div class="metric-label">Total CGPA</div>
-              <div class="metric-value text-primary" id="total-cgpa">8.45</div>
-              <div class="metric-change positive">Based on all courses</div>
+              <div class="metric-value text-primary" id="total-cgpa">0.00</div>
+              <div class="metric-change">Based on all courses</div>
             </div>
             <div class="metric-icon" style="background: var(--primary-light);">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
@@ -155,7 +140,7 @@
           <div class="metric-card">
             <div class="metric-content">
               <div class="metric-label">Major CGPA</div>
-              <div class="metric-value text-success" id="major-cgpa">8.62</div>
+              <div class="metric-value text-success" id="major-cgpa">0.00</div>
               <div class="metric-change">From major courses</div>
             </div>
             <div class="metric-icon" style="background: #dcfce7;">
@@ -166,7 +151,7 @@
           <div class="metric-card">
             <div class="metric-content">
               <div class="metric-label">Minor CGPA</div>
-              <div class="metric-value text-warning" id="minor-cgpa">8.15</div>
+              <div class="metric-value text-warning" id="minor-cgpa">0.00</div>
               <div class="metric-change">From minor courses</div>
             </div>
             <div class="metric-icon" style="background: #fef3c7;">
@@ -177,7 +162,7 @@
           <div class="metric-card">
             <div class="metric-content">
               <div class="metric-label">Total Credits</div>
-              <div class="metric-value" id="total-credits">144</div>
+              <div class="metric-value" id="total-credits">0</div>
               <div class="metric-change">Completed credits</div>
             </div>
             <div class="metric-icon" style="background: #f3e8ff;">
@@ -186,115 +171,72 @@
           </div>
         </div>
         
-        <!-- Calculator Table -->
-        <div class="card mb-4">
-          <div class="card-header">
-            <h3 class="card-title">Grade Input</h3>
-            <button class="btn btn-success btn-sm" onclick="addCourse()">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-              Add Course
-            </button>
-          </div>
-          <div class="table-container">
-            <table class="table" id="calculator-table">
-              <thead>
-                <tr>
-                  <th>Course Code</th>
-                  <th>Course Name</th>
-                  <th>Credits</th>
-                  <th>Grade</th>
-                  <th>Category</th>
-                  <th>Actions</th>
-                </tr>
-              </thead>
-              <tbody id="calculator-tbody">
-                <!-- Populated by JS -->
-              </tbody>
-            </table>
-          </div>
-          <div class="card-footer">
-            <div class="flex items-center justify-between">
-              <span class="text-secondary">Tip: Edit grades to see how they affect your CGPA in real-time</span>
-              <button class="btn btn-primary" onclick="recalculateCGPA()">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>
-                Recalculate
+        <!-- Two-column layout: Grade Input (left) + UGC Table (right) -->
+        <div class="charts-grid">
+          <!-- Grade Input Table (Left - wider) -->
+          <div class="card" style="flex: 2;">
+            <div class="card-header">
+              <h3 class="card-title">Grade Input</h3>
+              <button class="btn btn-success btn-sm" onclick="addCourse()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                Add Course
               </button>
             </div>
-          </div>
-        </div>
-        
-        <!-- Charts Row -->
-        <div class="charts-grid">
-          <div class="card">
-            <div class="card-header">
-              <h3 class="card-title">CGPA Progression</h3>
+            <div class="table-container">
+              <table class="table" id="calculator-table">
+                <thead>
+                  <tr>
+                    <th>Credits</th>
+                    <th>Grade</th>
+                    <th>Category</th>
+                    <th>Course Type</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="calculator-tbody">
+                  <!-- Populated by JS -->
+                </tbody>
+              </table>
             </div>
-            <div class="card-body">
-              <div class="chart-container" style="height: 250px;">
-                <canvas id="cgpa-progression-chart"></canvas>
+            <div class="card-footer">
+              <div class="flex items-center justify-between">
+                <span class="text-secondary">Grades auto-recalculate on change</span>
+                <button class="btn btn-primary" onclick="recalculateCGPA()">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>
+                  Recalculate
+                </button>
               </div>
             </div>
           </div>
           
-          <div class="card">
+          <!-- UGC Grading System Table (Right - narrower) -->
+          <div class="card" style="flex: 1;">
             <div class="card-header">
-              <h3 class="card-title">Credits by Category</h3>
+              <h3 class="card-title">UGC Grading System</h3>
             </div>
-            <div class="card-body">
-              <div class="chart-container" style="height: 250px;">
-                <canvas id="credits-category-chart"></canvas>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Grade Scale Reference -->
-        <div class="card mt-4">
-          <div class="card-header">
-            <h3 class="card-title">Grade Scale Reference</h3>
-          </div>
-          <div class="card-body">
-            <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 1rem;">
-              <div class="text-center p-3" style="background: #dcfce7; border-radius: 8px;">
-                <div class="font-bold text-lg">A+</div>
-                <div class="text-sm text-secondary">10 Points</div>
-                <div class="text-xs">90-100%</div>
-              </div>
-              <div class="text-center p-3" style="background: #dcfce7; border-radius: 8px;">
-                <div class="font-bold text-lg">A</div>
-                <div class="text-sm text-secondary">9 Points</div>
-                <div class="text-xs">80-89%</div>
-              </div>
-              <div class="text-center p-3" style="background: #dbeafe; border-radius: 8px;">
-                <div class="font-bold text-lg">B+</div>
-                <div class="text-sm text-secondary">8 Points</div>
-                <div class="text-xs">70-79%</div>
-              </div>
-              <div class="text-center p-3" style="background: #dbeafe; border-radius: 8px;">
-                <div class="font-bold text-lg">B</div>
-                <div class="text-sm text-secondary">7 Points</div>
-                <div class="text-xs">60-69%</div>
-              </div>
-              <div class="text-center p-3" style="background: #fef3c7; border-radius: 8px;">
-                <div class="font-bold text-lg">C+</div>
-                <div class="text-sm text-secondary">6 Points</div>
-                <div class="text-xs">50-59%</div>
-              </div>
-              <div class="text-center p-3" style="background: #fef3c7; border-radius: 8px;">
-                <div class="font-bold text-lg">C</div>
-                <div class="text-sm text-secondary">5 Points</div>
-                <div class="text-xs">40-49%</div>
-              </div>
-              <div class="text-center p-3" style="background: #fee2e2; border-radius: 8px;">
-                <div class="font-bold text-lg">D</div>
-                <div class="text-sm text-secondary">4 Points</div>
-                <div class="text-xs">35-39%</div>
-              </div>
-              <div class="text-center p-3" style="background: #fee2e2; border-radius: 8px;">
-                <div class="font-bold text-lg">F</div>
-                <div class="text-sm text-secondary">0 Points</div>
-                <div class="text-xs">&lt;35%</div>
-              </div>
+            <div class="table-container">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Marks (%)</th>
+                    <th>Grade</th>
+                    <th>GP</th>
+                    <th>Remarks</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>80-100</td><td><strong>A+</strong></td><td>4.00</td><td>Outstanding</td></tr>
+                  <tr><td>75-79</td><td><strong>A</strong></td><td>3.75</td><td>Excellent</td></tr>
+                  <tr><td>70-74</td><td><strong>A-</strong></td><td>3.50</td><td>Very Good</td></tr>
+                  <tr><td>65-69</td><td><strong>B+</strong></td><td>3.25</td><td>Good</td></tr>
+                  <tr><td>60-64</td><td><strong>B</strong></td><td>3.00</td><td>Satisfactory</td></tr>
+                  <tr><td>55-59</td><td><strong>B-</strong></td><td>2.75</td><td>Above Average</td></tr>
+                  <tr><td>50-54</td><td><strong>C+</strong></td><td>2.50</td><td>Average</td></tr>
+                  <tr><td>45-49</td><td><strong>C</strong></td><td>2.25</td><td>Below Average</td></tr>
+                  <tr><td>40-44</td><td><strong>D</strong></td><td>2.00</td><td>Pass</td></tr>
+                  <tr><td>0-39</td><td><strong>F</strong></td><td>0.00</td><td>Fail</td></tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
@@ -302,269 +244,143 @@
     </main>
   </div>
   
-  <!-- What-If Modal -->
-  <div class="modal-overlay" id="whatif-modal">
-    <div class="modal" style="max-width: 500px;">
-      <div class="modal-header">
-        <h3 class="modal-title">What-If Analysis</h3>
-        <button class="modal-close" onclick="closeWhatIfModal()">&times;</button>
-      </div>
-      <div class="modal-body">
-        <p class="text-secondary mb-4">Enter your expected grades for upcoming semesters to predict your final CGPA.</p>
-        
-        <div class="form-group">
-          <label class="form-label">Current CGPA</label>
-          <input type="text" class="form-input" id="current-cgpa-input" value="8.45" readonly>
-        </div>
-        
-        <div class="form-group">
-          <label class="form-label">Target CGPA</label>
-          <input type="number" class="form-input" id="target-cgpa" step="0.01" min="0" max="10" placeholder="e.g., 9.0">
-        </div>
-        
-        <div class="form-group">
-          <label class="form-label">Remaining Credits</label>
-          <input type="number" class="form-input" id="remaining-credits" value="48" placeholder="Credits left to complete">
-        </div>
-        
-        <div class="form-group">
-          <label class="form-label">Expected SGPA (Next Semester)</label>
-          <input type="number" class="form-input" id="expected-sgpa" step="0.01" min="0" max="10" placeholder="e.g., 8.5">
-        </div>
-        
-        <div id="whatif-result" class="p-4 rounded-lg mt-4" style="background: var(--bg-page); display: none;">
-          <div class="text-sm text-secondary">Projected CGPA</div>
-          <div class="text-2xl font-bold text-primary" id="projected-cgpa">-</div>
-          <div class="text-sm mt-2" id="whatif-message"></div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-secondary" onclick="closeWhatIfModal()">Cancel</button>
-        <button class="btn btn-primary" onclick="calculateWhatIf()">Calculate</button>
-      </div>
-    </div>
-  </div>
-  
   <script src="assets/data/student-data.js"></script>
   <script src="assets/js/main.js"></script>
-  <script src="assets/js/charts.js"></script>
-  <script src="assets/js/cgpa-calc.js"></script>
   <script src="assets/js/ai-assistant.js"></script>
   
   <script>
+    // UGC Grade to Point mapping
+    const UGC_GRADE_TO_POINT = {
+      'A+': 4.00, 'A': 3.75, 'A-': 3.50,
+      'B+': 3.25, 'B': 3.00, 'B-': 2.75,
+      'C+': 2.50, 'C': 2.25, 'D': 2.00, 'F': 0.00
+    };
+    
     let calculatorData = [];
     
-    // Initialize calculator page
+    // Initialize
     document.addEventListener('DOMContentLoaded', function() {
-      loadHistoricalGrades();
-      updateSummaryCards();
-      initCharts();
+      loadInitialData();
+      recalculateCGPA();
     });
     
-    // Load historical grades from student data
-    function loadHistoricalGrades() {
+    function loadInitialData() {
       calculatorData = [];
-      studentData.semesters.forEach(sem => {
-        sem.courses.forEach(course => {
-          calculatorData.push({
-            code: course.code,
-            name: course.name,
-            credits: course.credits,
-            grade: course.grade,
-            category: course.category,
-            semester: sem.id
+      // Load from student data
+      if (typeof studentData !== 'undefined') {
+        studentData.semesters.forEach(sem => {
+          sem.courses.forEach(course => {
+            calculatorData.push({
+              credits: course.credits,
+              grade: course.grade,
+              category: course.category,
+              courseType: course.name.toLowerCase().includes('lab') ? 'Lab' : 'Theory'
+            });
           });
         });
-      });
+      }
       renderTable();
     }
     
-    // Render the calculator table
     function renderTable() {
       const tbody = document.getElementById('calculator-tbody');
-      tbody.innerHTML = calculatorData.map((course, index) => `
-        <tr data-index="${index}">
-          <td><input type="text" class="form-input" value="${course.code}" onchange="updateCourse(${index}, 'code', this.value)" style="width: 100px;"></td>
-          <td><input type="text" class="form-input" value="${course.name}" onchange="updateCourse(${index}, 'name', this.value)"></td>
-          <td>
-            <select class="form-select" onchange="updateCourse(${index}, 'credits', parseInt(this.value))" style="width: 80px;">
-              ${[1,2,3,4,5].map(c => `<option value="${c}" ${course.credits === c ? 'selected' : ''}>${c}</option>`).join('')}
-            </select>
-          </td>
-          <td>
-            <select class="form-select grade-select" onchange="updateCourse(${index}, 'grade', this.value)" style="width: 80px;">
-              ${['A+', 'A', 'B+', 'B', 'C+', 'C', 'D', 'F'].map(g => `<option value="${g}" ${course.grade === g ? 'selected' : ''}>${g}</option>`).join('')}
-            </select>
-          </td>
-          <td>
-            <select class="form-select" onchange="updateCourse(${index}, 'category', this.value)" style="width: 100px;">
-              <option value="Major" ${course.category === 'Major' ? 'selected' : ''}>Major</option>
-              <option value="Minor" ${course.category === 'Minor' ? 'selected' : ''}>Minor</option>
-            </select>
-          </td>
-          <td>
-            <button class="btn btn-danger btn-sm" onclick="removeCourse(${index})" title="Remove course">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
-            </button>
-          </td>
-        </tr>
-      `).join('');
+      tbody.innerHTML = calculatorData.map((row, index) => {
+        const creditOptions = [1,2,3,4,5,6].map(c => 
+          `<option value="${c}" ${row.credits === c ? 'selected' : ''}>${c}</option>`
+        ).join('');
+        
+        const gradeOptions = ['A+', 'A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'D', 'F'].map(g => 
+          `<option value="${g}" ${row.grade === g ? 'selected' : ''}>${g}</option>`
+        ).join('');
+        
+        return `
+          <tr data-index="${index}">
+            <td>
+              <select class="form-select" onchange="updateRow(${index}, 'credits', parseInt(this.value))" style="width: 80px;">
+                ${creditOptions}
+              </select>
+            </td>
+            <td>
+              <select class="form-select" onchange="updateRow(${index}, 'grade', this.value)" style="width: 80px;">
+                ${gradeOptions}
+              </select>
+            </td>
+            <td>
+              <select class="form-select" onchange="updateRow(${index}, 'category', this.value)" style="width: 100px;">
+                <option value="Major" ${row.category === 'Major' ? 'selected' : ''}>Major</option>
+                <option value="Minor" ${row.category === 'Minor' ? 'selected' : ''}>Minor</option>
+              </select>
+            </td>
+            <td>
+              <select class="form-select" onchange="updateRow(${index}, 'courseType', this.value)" style="width: 100px;">
+                <option value="Theory" ${row.courseType === 'Theory' ? 'selected' : ''}>Theory</option>
+                <option value="Lab" ${row.courseType === 'Lab' ? 'selected' : ''}>Lab</option>
+              </select>
+            </td>
+            <td>
+              <button class="btn btn-ghost btn-icon" onclick="removeRow(${index})" title="Remove">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+              </button>
+            </td>
+          </tr>
+        `;
+      }).join('');
     }
     
-    // Grade to points mapping
-    const gradePoints = {
-      'A+': 10, 'A': 9, 'B+': 8, 'B': 7, 'C+': 6, 'C': 5, 'D': 4, 'F': 0
-    };
-    
-    // Update a course property
-    function updateCourse(index, field, value) {
+    function updateRow(index, field, value) {
       calculatorData[index][field] = value;
-      updateSummaryCards();
+      recalculateCGPA();
     }
     
-    // Add a new course
     function addCourse() {
       calculatorData.push({
-        code: 'NEW001',
-        name: 'New Course',
         credits: 3,
         grade: 'A',
         category: 'Major',
-        semester: 7
+        courseType: 'Theory'
       });
       renderTable();
-      updateSummaryCards();
-      PortalUtils.showToast('New course added', 'success');
+      recalculateCGPA();
     }
     
-    // Remove a course
-    function removeCourse(index) {
+    function removeRow(index) {
       calculatorData.splice(index, 1);
       renderTable();
-      updateSummaryCards();
-      PortalUtils.showToast('Course removed', 'info');
+      recalculateCGPA();
     }
     
-    // Recalculate CGPA
     function recalculateCGPA() {
-      updateSummaryCards();
-      PortalUtils.showToast('CGPA recalculated', 'success');
-    }
-    
-    // Update summary cards
-    function updateSummaryCards() {
-      let totalPoints = 0;
       let totalCredits = 0;
-      let majorPoints = 0;
+      let totalQualityPoints = 0;
       let majorCredits = 0;
-      let minorPoints = 0;
+      let majorQualityPoints = 0;
       let minorCredits = 0;
+      let minorQualityPoints = 0;
       
-      calculatorData.forEach(course => {
-        const points = gradePoints[course.grade] * course.credits;
-        totalPoints += points;
-        totalCredits += course.credits;
+      calculatorData.forEach(row => {
+        const gp = UGC_GRADE_TO_POINT[row.grade] || 0;
+        const qp = row.credits * gp;
         
-        if (course.category === 'Major') {
-          majorPoints += points;
-          majorCredits += course.credits;
+        totalCredits += row.credits;
+        totalQualityPoints += qp;
+        
+        if (row.category === 'Major') {
+          majorCredits += row.credits;
+          majorQualityPoints += qp;
         } else {
-          minorPoints += points;
-          minorCredits += course.credits;
+          minorCredits += row.credits;
+          minorQualityPoints += qp;
         }
       });
       
-      const totalCGPA = totalCredits > 0 ? (totalPoints / totalCredits).toFixed(2) : '0.00';
-      const majorCGPA = majorCredits > 0 ? (majorPoints / majorCredits).toFixed(2) : '0.00';
-      const minorCGPA = minorCredits > 0 ? (minorPoints / minorCredits).toFixed(2) : '0.00';
+      const totalCGPA = totalCredits > 0 ? (totalQualityPoints / totalCredits).toFixed(2) : '0.00';
+      const majorCGPA = majorCredits > 0 ? (majorQualityPoints / majorCredits).toFixed(2) : '0.00';
+      const minorCGPA = minorCredits > 0 ? (minorQualityPoints / minorCredits).toFixed(2) : '0.00';
       
       document.getElementById('total-cgpa').textContent = totalCGPA;
       document.getElementById('major-cgpa').textContent = majorCGPA;
       document.getElementById('minor-cgpa').textContent = minorCGPA;
       document.getElementById('total-credits').textContent = totalCredits;
-      document.getElementById('current-cgpa-input').value = totalCGPA;
-    }
-    
-    // Reset calculator
-    function resetCalculator() {
-      loadHistoricalGrades();
-      updateSummaryCards();
-      PortalUtils.showToast('Calculator reset to original grades', 'info');
-    }
-    
-    // Initialize charts
-    function initCharts() {
-      // CGPA Progression
-      PortalCharts.createSGPATrendChart('cgpa-progression-chart');
-      
-      // Credits by Category
-      const categoryCtx = document.getElementById('credits-category-chart').getContext('2d');
-      new Chart(categoryCtx, {
-        type: 'doughnut',
-        data: {
-          labels: ['Major Credits', 'Minor Credits'],
-          datasets: [{
-            data: [studentData.academic.majorCredits, studentData.academic.minorCredits],
-            backgroundColor: ['#2563eb', '#f59e0b'],
-            borderWidth: 0
-          }]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: {
-              position: 'bottom'
-            }
-          }
-        }
-      });
-    }
-    
-    // What-If Modal functions
-    function showWhatIfModal() {
-      document.getElementById('whatif-modal').classList.add('active');
-      document.getElementById('whatif-result').style.display = 'none';
-    }
-    
-    function closeWhatIfModal() {
-      document.getElementById('whatif-modal').classList.remove('active');
-    }
-    
-    function calculateWhatIf() {
-      const currentCGPA = parseFloat(document.getElementById('current-cgpa-input').value);
-      const currentCredits = parseInt(document.getElementById('total-credits').textContent);
-      const remainingCredits = parseInt(document.getElementById('remaining-credits').value) || 0;
-      const expectedSGPA = parseFloat(document.getElementById('expected-sgpa').value) || 0;
-      const targetCGPA = parseFloat(document.getElementById('target-cgpa').value) || 0;
-      
-      // Calculate projected CGPA
-      const totalNewCredits = currentCredits + remainingCredits;
-      const currentPoints = currentCGPA * currentCredits;
-      const newPoints = expectedSGPA * remainingCredits;
-      const projectedCGPA = ((currentPoints + newPoints) / totalNewCredits).toFixed(2);
-      
-      // Calculate required SGPA to reach target
-      const requiredSGPA = targetCGPA > 0 
-        ? ((targetCGPA * totalNewCredits - currentPoints) / remainingCredits).toFixed(2)
-        : null;
-      
-      // Display results
-      document.getElementById('projected-cgpa').textContent = projectedCGPA;
-      
-      let message = `With ${remainingCredits} more credits at ${expectedSGPA} SGPA, your CGPA would be ${projectedCGPA}.`;
-      if (requiredSGPA && targetCGPA > 0) {
-        if (requiredSGPA > 10) {
-          message += ` To reach ${targetCGPA} CGPA, you would need an impossible SGPA above 10.`;
-        } else if (requiredSGPA < 0) {
-          message += ` Your current CGPA already exceeds your target!`;
-        } else {
-          message += ` To reach ${targetCGPA} CGPA, you need to maintain ${requiredSGPA} SGPA.`;
-        }
-      }
-      
-      document.getElementById('whatif-message').textContent = message;
-      document.getElementById('whatif-result').style.display = 'block';
     }
   </script>
 </body>

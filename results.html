@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -12,8 +12,6 @@
   
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/components.css">
-  
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 </head>
 <body>
   <div class="app-container">
@@ -32,7 +30,7 @@
       <nav class="sidebar-nav">
         <div class="nav-section">
           <div class="nav-section-title">Main</div>
-          <a href="index.html" class="nav-item" data-page="index.html">
+          <a href="index.html" class="nav-item">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
             <span>Dashboard</span>
           </a>
@@ -40,53 +38,50 @@
         
         <div class="nav-section">
           <div class="nav-section-title">Academic</div>
-          <a href="results.html" class="nav-item active" data-page="results.html">
+          <a href="results.html" class="nav-item active">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
-            <span>Results & Transcript</span>
+            <span>Results &amp; Transcript</span>
           </a>
-          <a href="live-results.html" class="nav-item" data-page="live-results.html">
+          <a href="live-results.html" class="nav-item">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 10"></polyline></svg>
             <span>Live Result</span>
           </a>
-          <a href="cgpa.html" class="nav-item" data-page="cgpa.html">
+          <a href="cgpa.html" class="nav-item">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line></svg>
             <span>CGPA Calculator</span>
           </a>
-          <a href="attendance.html" class="nav-item" data-page="attendance.html">
+          <a href="attendance.html" class="nav-item">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
             <span>Attendance</span>
-          </a>
-          <a href="timetable.html" class="nav-item" data-page="timetable.html">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-            <span>Timetable</span>
-          </a>
-          <a href="exams.html" class="nav-item" data-page="exams.html">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
-            <span>Exams</span>
           </a>
         </div>
         
         <div class="nav-section">
           <div class="nav-section-title">Services</div>
-          <a href="finance.html" class="nav-item" data-page="finance.html">
+          <a href="finance.html" class="nav-item">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
             <span>Finance</span>
+            <span class="nav-badge">Due</span>
           </a>
-          <a href="hostel.html" class="nav-item" data-page="hostel.html">
+          <a href="hostel.html" class="nav-item">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
             <span>Hostel</span>
           </a>
-          <a href="transport.html" class="nav-item" data-page="transport.html">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+          <a href="transport.html" class="nav-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6v6"></path><path d="M16 6v6"></path><path d="M2 12h20"></path><path d="M4 6h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z"></path><circle cx="6.5" cy="17.5" r="1.5"></circle><circle cx="17.5" cy="17.5" r="1.5"></circle></svg>
             <span>Transport</span>
           </a>
         </div>
         
         <div class="nav-section">
           <div class="nav-section-title">Account</div>
-          <a href="profile.html" class="nav-item" data-page="profile.html">
+          <a href="profile.html" class="nav-item">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
             <span>Profile</span>
+          </a>
+          <a href="#" class="nav-item" onclick="handleLogout()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+            <span>Logout</span>
           </a>
         </div>
       </nav>
@@ -127,12 +122,6 @@
             <h1 class="page-title">Academic Results</h1>
             <p class="text-secondary mt-1">View your grades and performance across semesters</p>
           </div>
-          <div class="section-actions">
-            <button class="btn btn-primary" onclick="AIAssistant.toggle()">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
-              Explain Performance
-            </button>
-          </div>
         </div>
         
         <!-- Semester Selector & Summary -->
@@ -161,7 +150,7 @@
                   <div class="text-sm" style="opacity: 0.8;">Semester GPA</div>
                   <div class="text-3xl font-bold" id="sgpa-display">3.75</div>
                   <div class="text-sm mt-1" style="opacity: 0.8;">
-                    <span id="credits-display">24</span> Credits • <span id="courses-display">7</span> Courses
+                    <span id="credits-display">24</span> Credits - <span id="courses-display">7</span> Courses
                   </div>
                 </div>
                 <div style="text-align: right;">
@@ -173,7 +162,7 @@
           </div>
         </div>
         
-        <!-- Results Table -->
+        <!-- Course Results Table -->
         <div class="card mb-4">
           <div class="card-header">
             <h3 class="card-title">Course Results</h3>
@@ -188,10 +177,10 @@
                 <tr>
                   <th>Course Code</th>
                   <th>Course Name</th>
-                  <th>Credits</th>
+                  <th>Grade Point</th>
                   <th>Grade</th>
-                  <th>Grade Points</th>
-                  <th>Category</th>
+                  <th>Credits</th>
+                  <th>Teacher Initial</th>
                 </tr>
               </thead>
               <tbody id="results-tbody">
@@ -201,33 +190,8 @@
           </div>
         </div>
         
-        <!-- Performance Charts -->
-        <div class="charts-grid">
-          <div class="card">
-            <div class="card-header">
-              <h3 class="card-title">SGPA Progression</h3>
-            </div>
-            <div class="card-body">
-              <div class="chart-container" style="height: 250px;">
-                <canvas id="sgpa-progression-chart"></canvas>
-              </div>
-            </div>
-          </div>
-          
-          <div class="card">
-            <div class="card-header">
-              <h3 class="card-title">Grade Distribution</h3>
-            </div>
-            <div class="card-body">
-              <div class="chart-container" style="height: 250px;">
-                <canvas id="grade-dist-chart"></canvas>
-              </div>
-            </div>
-          </div>
-        </div>
-        
         <!-- All Semesters Overview -->
-        <div class="card mt-4">
+        <div class="card">
           <div class="card-header">
             <h3 class="card-title">All Semesters Overview</h3>
           </div>
@@ -236,7 +200,6 @@
               <thead>
                 <tr>
                   <th>Semester</th>
-                  <th>Year</th>
                   <th>SGPA</th>
                   <th>Major Credits</th>
                   <th>Minor Credits</th>
@@ -268,80 +231,65 @@
   
   <script src="assets/data/student-data.js"></script>
   <script src="assets/js/main.js"></script>
-  <script src="assets/js/charts.js"></script>
   <script src="assets/js/ai-assistant.js"></script>
   
   <script>
-    // Initialize results page
+    // Teacher initials mapping
+    const teacherInitials = {
+      'CSE101': 'SAH', 'CSE102': 'MNI', 'MAT101': 'KAR', 'PHY101': 'MSH', 'EEE101': 'RKB', 'ENG101': 'FJA', 'BAN101': 'ASK', 'GED101': 'MSR',
+      'CSE201': 'SAH', 'CSE202': 'MNI', 'MAT201': 'KAR', 'PHY201': 'MSH', 'EEE201': 'RKB', 'ENG201': 'FJA', 'SOC201': 'ASK', 'GED201': 'MSR',
+      'CSE301': 'MMR', 'CSE302': 'TBH', 'CSE303': 'SRN', 'CSE304': 'MNI', 'CSE305': 'SAH', 'MAT301': 'KAR', 'CSE306': 'MMR', 'ECO301': 'ASK', 'ACC301': 'MSR',
+      'CSE401': 'MMR', 'CSE402': 'TBH', 'CSE403': 'MNI', 'CSE404': 'KAR', 'CSE405': 'SRN', 'MAT401': 'KAR', 'CSE406': 'MMR', 'MGT401': 'ASK', 'PSY401': 'FJA',
+      'CSE501': 'MMR', 'CSE502': 'TBH', 'CSE503': 'SRN', 'CSE504': 'MNI', 'CSE505': 'SAH', 'CSE506': 'TBH', 'MGT501': 'ASK', 'MKT501': 'MSR',
+      'CSE601': 'MMR', 'CSE602': 'TBH', 'CSE603': 'MMR', 'CSE604': 'SRN', 'CSE605': 'MNI', 'CSE606': 'SAH', 'MGT601': 'ASK', 'FIN601': 'MSR'
+    };
+    
+    // Session formatting
+    function formatSemesterSession(session) {
+      // Convert "Spring 2021" to "Spring 21"
+      const parts = session.split(' ');
+      if (parts.length === 2) {
+        return parts[0] + ' ' + parts[1].slice(-2);
+      }
+      return session;
+    }
+    
     document.addEventListener('DOMContentLoaded', function() {
       loadSemesterResults();
       loadAllSemestersOverview();
-      initCharts();
     });
     
-    // Load results for selected semester
     function loadSemesterResults() {
       const semesterId = parseInt(document.getElementById('semester-select').value);
       const semester = studentData.semesters.find(s => s.id === semesterId);
       
       if (!semester) return;
       
-      // Update summary
-      document.getElementById('sgpa-display').textContent = semester.sgpa;
+      document.getElementById('sgpa-display').textContent = semester.sgpa.toFixed(2);
       document.getElementById('credits-display').textContent = semester.totalCredits;
       document.getElementById('courses-display').textContent = semester.courses.length;
       document.getElementById('grade-display').textContent = getGradeLetter(semester.sgpa);
       
-      // Populate table
       const tbody = document.getElementById('results-tbody');
-      tbody.innerHTML = semester.courses.map(course => `
-        <tr>
-          <td><strong>${course.code}</strong></td>
-          <td>${course.name}</td>
-          <td>${course.credits}</td>
-          <td>
-            <span class="badge ${getGradeBadgeClass(course.grade)}">${course.grade}</span>
-          </td>
-          <td>${course.points}</td>
-          <td>
-            <span class="badge ${course.category === 'Major' ? 'badge-primary' : 'badge-info'}">${course.category}</span>
-          </td>
-        </tr>
-      `).join('');
+      tbody.innerHTML = semester.courses.map(course => {
+        const initial = teacherInitials[course.code] || 'TBA';
+        const gradePoint = course.point !== undefined ? course.point.toFixed(2) : '3.50';
+        return '<tr><td><strong>' + course.code + '</strong></td><td>' + course.name + '</td><td>' + gradePoint + '</td><td><span class="badge ' + getGradeBadgeClass(course.grade) + '">' + course.grade + '</span></td><td>' + course.credits + '</td><td>' + initial + '</td></tr>';
+      }).join('');
     }
     
-    // Load all semesters overview
     function loadAllSemestersOverview() {
       const tbody = document.getElementById('all-semesters-tbody');
-      tbody.innerHTML = studentData.semesters.map(sem => `
-        <tr>
-          <td><strong>Semester ${sem.id}</strong></td>
-          <td>${sem.year}</td>
-          <td><span class="font-semibold">${sem.sgpa} / 4.0</span></td>
-          <td>${sem.majorCredits}</td>
-          <td>${sem.minorCredits}</td>
-          <td>${sem.totalCredits}</td>
-          <td><span class="badge badge-success">Completed</span></td>
-        </tr>
-      `).join('');
+      tbody.innerHTML = studentData.semesters.map(sem => {
+        const formattedSession = formatSemesterSession(sem.session);
+        return '<tr><td><strong>' + formattedSession + '</strong></td><td><span class="font-semibold">' + sem.sgpa.toFixed(2) + ' / 4.0</span></td><td>' + sem.majorCredits + '</td><td>' + sem.minorCredits + '</td><td>' + sem.totalCredits + '</td><td><span class="badge badge-success">Completed</span></td></tr>';
+      }).join('');
       
-      // Update cumulative stats
-      document.getElementById('cumulative-cgpa').textContent = studentData.academic.cgpa;
+      document.getElementById('cumulative-cgpa').textContent = studentData.academic.cgpa.toFixed(2);
       document.getElementById('total-credits').textContent = studentData.academic.totalCredits;
     }
     
-    // Initialize charts
-    function initCharts() {
-      // SGPA Progression
-      PortalCharts.createSGPATrendChart('sgpa-progression-chart');
-      
-      // Grade Distribution
-      PortalCharts.createGradeDistributionChart('grade-dist-chart');
-    }
-    
-    // Helper functions
     function getGradeLetter(sgpa) {
-      // Bangladesh 4.0 Grading Scale
       if (sgpa >= 3.85) return 'A+';
       if (sgpa >= 3.65) return 'A';
       if (sgpa >= 3.40) return 'A-';
@@ -361,25 +309,25 @@
       return 'badge-danger';
     }
     
-    // Export results
     function exportResults() {
       const semesterId = document.getElementById('semester-select').value;
       const semester = studentData.semesters.find(s => s.id === parseInt(semesterId));
       
-      let csv = 'Course Code,Course Name,Credits,Grade,Grade Points,Category\n';
+      let csv = 'Course Code,Course Name,Grade Point,Grade,Credits,Teacher Initial\n';
       semester.courses.forEach(course => {
-        csv += `${course.code},${course.name},${course.credits},${course.grade},${course.points},${course.category}\n`;
+        const initial = teacherInitials[course.code] || 'TBA';
+        csv += course.code + ',' + course.name + ',' + (course.point || 3.50) + ',' + course.grade + ',' + course.credits + ',' + initial + '\n';
       });
       
       const blob = new Blob([csv], { type: 'text/csv' });
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = `results-semester-${semesterId}.csv`;
+      a.download = 'results-semester-' + semesterId + '.csv';
       a.click();
       URL.revokeObjectURL(url);
       
-      PortalUtils.showToast('Results exported successfully', 'success');
+      if (typeof PortalUtils !== 'undefined') PortalUtils.showToast('Results exported successfully', 'success');
     }
   </script>
 </body>
