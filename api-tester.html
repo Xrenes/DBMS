@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API Tester - Student Portal</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      padding: 30px;
+    }
+    h1 { color: #333; margin-bottom: 10px; }
+    .subtitle { color: #666; margin-bottom: 30px; }
+    .endpoint-group {
+      background: #f8f9fa;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-left: 4px solid #667eea;
+    }
+    h2 { 
+      color: #667eea; 
+      margin-bottom: 15px;
+      font-size: 18px;
+    }
+    .test-btn {
+      background: #667eea;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      margin: 5px;
+      transition: all 0.3s;
+    }
+    .test-btn:hover {
+      background: #5568d3;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+    }
+    .test-btn.post { background: #28a745; }
+    .test-btn.post:hover { background: #218838; }
+    .test-btn.put { background: #ffc107; color: #333; }
+    .test-btn.put:hover { background: #e0a800; }
+    .result {
+      background: white;
+      border: 1px solid #dee2e6;
+      border-radius: 6px;
+      padding: 15px;
+      margin-top: 10px;
+      max-height: 400px;
+      overflow-y: auto;
+      display: none;
+    }
+    .result.show { display: block; }
+    .result pre {
+      margin: 0;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      font-family: 'Consolas', monospace;
+      font-size: 13px;
+      color: #333;
+    }
+    .success { border-left: 4px solid #28a745; }
+    .error { border-left: 4px solid #dc3545; }
+    .sql-query {
+      background: #2d2d2d;
+      color: #f8f8f2;
+      padding: 15px;
+      border-radius: 6px;
+      margin-top: 10px;
+      font-family: 'Consolas', monospace;
+      font-size: 13px;
+      overflow-x: auto;
+    }
+    .badge {
+      display: inline-block;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 600;
+      margin-left: 8px;
+    }
+    .badge-get { background: #e3f2fd; color: #1976d2; }
+    .badge-post { background: #e8f5e9; color: #388e3c; }
+    .badge-put { background: #fff3e0; color: #f57c00; }
+    .status {
+      padding: 20px;
+      background: #e7f3ff;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+    .status-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+    }
+    .status-indicator {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+      margin-right: 8px;
+    }
+    .status-indicator.online { background: #28a745; }
+    .status-indicator.offline { background: #dc3545; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🧪 Student Portal API Tester</h1>
+    <p class="subtitle">Test API endpoints and verify database changes in MySQL Workbench</p>
+    
+    <div class="status">
+      <div class="status-item">
+        <span><span class="status-indicator online"></span>Backend API</span>
+        <strong>http://localhost:3000/api</strong>
+      </div>
+      <div class="status-item">
+        <span><span class="status-indicator online"></span>Database</span>
+        <strong>student_portal (XAMPP MySQL)</strong>
+      </div>
+      <div class="status-item" id="auth-status">
+        <span><span class="status-indicator offline"></span>Authentication</span>
+        <strong>Not logged in</strong>
+      </div>
+    </div>
+
+    <!-- Login Section -->
+    <div class="endpoint-group" id="login-section">
+      <h2>🔐 Login First (Required for most endpoints)</h2>
+      
+      <div style="margin-bottom: 15px; padding: 12px; background: #e7f3ff; border-radius: 6px; border-left: 4px solid #2196F3;">
+        <strong>🔒 Role-Based Access Control:</strong>
+        <ul style="margin: 8px 0 0 20px; font-size: 13px;">
+          <li><strong>Student:</strong> Dashboard, Profile, Results, Attendance, Finance (own data)</li>
+          <li><strong>Faculty:</strong> Student + Course Management, Attendance Marking</li>
+          <li><strong>Admin:</strong> Full Access + User Management, Audit Logs, System Config</li>
+        </ul>
+      </div>
+
+      <div style="display: flex; gap: 10px; margin-bottom: 15px; flex-wrap: wrap;">
+        <button class="test-btn" onclick="quickLogin('student')" style="background: #2196F3;">Login as Student</button>
+        <button class="test-btn" onclick="quickLogin('admin')" style="background: #9C27B0;">Login as Admin</button>
+        <button class="test-btn" onclick="quickLogin('faculty')" style="background: #FF9800;">Login as Faculty</button>
+      </div>
+
+      <div style="display: flex; gap: 10px; flex-wrap: wrap; align-items: end;">
+        <div>
+          <label style="display: block; margin-bottom: 5px; font-size: 13px; color: #666;">Email:</label>
+          <input type="text" id="username" value="admin@diu.edu.bd" style="padding: 8px; border: 1px solid #ddd; border-radius: 4px; width: 220px;">
+        </div>
+        <div>
+          <label style="display: block; margin-bottom: 5px; font-size: 13px; color: #666;">Password:</label>
+          <input type="password" id="password" value="password123" style="padding: 8px; border: 1px solid #ddd; border-radius: 4px; width: 150px;">
+        </div>
+        <button class="test-btn post" onclick="login()">Login</button>
+        <button class="test-btn" onclick="logout()" style="background: #dc3545;">Logout</button>
+      </div>
+      <div id="result-login" class="result"></div>
+      <div style="margin-top: 10px; padding: 10px; background: #fff3cd; border-radius: 6px; font-size: 13px;">
+        <strong>📋 Available Accounts:</strong><br>
+        <code>admin@diu.edu.bd</code> (Admin) | 
+        <code>iftekhar.hossain@diu.edu.bd</code> (Student) | 
+        <code>dr.akter@diu.edu.bd</code> (Faculty) | 
+        Password: <code>password123</code> for all
+      </div>
+    </div>
+
+    <!-- Health Check -->
+    <div class="endpoint-group">
+      <h2>🏥 Health Check <span class="badge badge-get">GET</span> <span class="badge" style="background: #4CAF50; color: white;">PUBLIC</span></h2>
+      <button class="test-btn" onclick="testAPI('/health', 'health', 'SELECT VERSION(), NOW();')">
+        Test Health Check
+      </button>
+      <div id="result-health" class="result"></div>
+    </div>
+
+    <!-- Academic Data -->
+    <div class="endpoint-group">
+      <h2>📚 Academic - Grade Scale <span class="badge badge-get">GET</span> <span class="badge" style="background: #4CAF50; color: white;">ALL USERS</span></h2>
+      <button class="test-btn" onclick="testAPI('/academic/grade-scale', 'grade', 'SELECT * FROM grade_scale ORDER BY min_marks DESC;')">
+        Get Grade Scale
+      </button>
+      <div id="result-grade" class="result"></div>
+    </div>
+
+    <!-- Departments -->
+    <div class="endpoint-group">
+      <h2>🏛️ Academic - Departments <span class="badge badge-get">GET</span> <span class="badge" style="background: #4CAF50; color: white;">ALL USERS</span></h2>
+      <button class="test-btn" onclick="testAPI('/academic/departments', 'dept', 'SELECT * FROM departments;')">
+        Get Departments
+      </button>
+      <div id="result-dept" class="result"></div>
+    </div>
+
+    <!-- Courses -->
+    <div class="endpoint-group">
+      <h2>📖 Academic - Courses <span class="badge badge-get">GET</span> <span class="badge" style="background: #4CAF50; color: white;">ALL USERS</span></h2>
+      <button class="test-btn" onclick="testAPI('/academic/courses', 'courses', 'SELECT c.*, d.dept_name FROM courses c JOIN departments d ON c.dept_id = d.dept_id;')">
+        Get All Courses
+      </button>
+      <div id="result-courses" class="result"></div>
+    </div>
+
+    <!-- Students -->
+    <div class="endpoint-group">
+      <h2>👨‍🎓 View Students <span class="badge badge-get">GET</span> <span class="badge" style="background: #9C27B0; color: white;">ADMIN/FACULTY</span></h2>
+      <button class="test-btn" onclick="testAPI('/admin/students', 'students', 'SELECT s.*, u.full_name, u.email FROM students s JOIN users u ON s.user_id = u.user_id;')">
+        Get All Students
+      </button>
+      <div id="result-students" class="result"></div>
+    </div>
+
+    <!-- Audit Logs -->
+    <div class="endpoint-group">
+      <h2>📋 Audit Logs <span class="badge badge-get">GET</span> <span class="badge" style="background: #9C27B0; color: white;">ADMIN ONLY</span></h2>
+      <button class="test-btn" onclick="testAPI('/admin/audit-logs', 'audit', 'SELECT * FROM audit_logs ORDER BY created_at DESC LIMIT 20;')">
+        View Recent Audit Logs
+      </button>
+      <div id="result-audit" class="result"></div>
+    </div>
+
+    <!-- System Config -->
+    <div class="endpoint-group">
+      <h2>⚙️ System Configuration <span class="badge badge-get">GET</span> <span class="badge" style="background: #9C27B0; color: white;">ADMIN ONLY</span></h2>
+      <button class="test-btn" onclick="testAPI('/admin/config', 'config', 'SELECT * FROM system_config;')">
+        Get System Config
+      </button>
+      <div id="result-config" class="result"></div>
+    </div>
+
+    <!-- Ledger Verification -->
+    <div class="endpoint-group">
+      <h2>🔗 Blockchain Ledger Integrity <span class="badge badge-get">GET</span> <span class="badge" style="background: #9C27B0; color: white;">ADMIN ONLY</span></h2>
+      <button class="test-btn" onclick="testAPI('/admin/ledger/verify', 'ledger', 'SELECT event_id, event_type, prev_hash, curr_hash FROM ledger_events ORDER BY event_id;')">
+        Verify Ledger Chain
+      </button>
+      <div id="result-ledger" class="result"></div>
+    </div>
+
+  </div>
+
+  <script>
+    const API_BASE = 'http://localhost:3000/api';
+    let authToken = localStorage.getItem('authToken') || null;
+
+    // Update auth status on load
+    window.addEventListener('DOMContentLoaded', () => {
+      updateAuthStatus();
+    });
+
+    function updateAuthStatus() {
+      const authStatus = document.getElementById('auth-status');
+      if (authToken) {
+        authStatus.innerHTML = '<span><span class="status-indicator online"></span>Authentication</span><strong>Logged in ✓</strong>';
+      } else {
+        authStatus.innerHTML = '<span><span class="status-indicator offline"></span>Authentication</span><strong>Not logged in</strong>';
+      }
+    }
+
+    function quickLogin(role) {
+      const credentials = {
+        student: { email: 'iftekhar.hossain@diu.edu.bd', name: 'Student' },
+        admin: { email: 'admin@diu.edu.bd', name: 'Admin' },
+        faculty: { email: 'dr.akter@diu.edu.bd', name: 'Faculty' }
+      };
+      
+      const cred = credentials[role];
+      document.getElementById('username').value = cred.email;
+      document.getElementById('password').value = 'password123';
+      
+      // Auto login
+      login();
+    }
+
+    async function login() {
+      const email = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      const resultDiv = document.getElementById('result-login');
+      
+      resultDiv.className = 'result show';
+      resultDiv.innerHTML = '<p>⏳ Logging in...</p>';
+
+      try {
+        const response = await fetch(`${API_BASE}/auth/login`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, password })
+        });
+
+        const data = await response.json();
+
+        if (response.ok && data.success && data.data.token) {
+          authToken = data.data.token;
+          localStorage.setItem('authToken', authToken);
+          
+          const userRoles = data.data.user.roles || 'Unknown';
+          const userName = data.data.user.full_name || data.data.user.email;
+          
+          resultDiv.className = 'result show success';
+          resultDiv.innerHTML = `
+            <strong>✅ Login Successful!</strong><br>
+            <div style="margin: 10px 0; padding: 10px; background: #e8f5e9; border-radius: 4px;">
+              <strong>User:</strong> ${userName}<br>
+              <strong>Email:</strong> ${data.data.user.email}<br>
+              <strong>Roles:</strong> <span style="background: #4CAF50; color: white; padding: 2px 8px; border-radius: 3px; font-size: 12px;">${userRoles}</span>
+            </div>
+            <pre style="font-size: 11px; color: #666;">${JSON.stringify(data, null, 2)}</pre>
+            <p style="margin-top: 10px; color: #28a745;">✓ Token saved! You can now test endpoints based on your role.</p>
+          `;
+          updateAuthStatus();
+        } else {
+          throw new Error(data.message || 'Login failed');
+        }
+      } catch (error) {
+        resultDiv.className = 'result show error';
+        resultDiv.innerHTML = `
+          <strong>❌ Login Failed</strong><br>
+          <pre>${error.message}</pre>
+          <p style="margin-top: 10px;">Make sure the backend server is running and credentials are correct.</p>
+        `;
+      }
+    }
+
+    function logout() {
+      authToken = null;
+      localStorage.removeItem('authToken');
+      document.getElementById('result-login').innerHTML = '';
+      updateAuthStatus();
+      alert('Logged out successfully!');
+    }
+
+    async function testAPI(endpoint, resultId, sqlQuery) {
+      const resultDiv = document.getElementById(`result-${resultId}`);
+      resultDiv.className = 'result show';
+      resultDiv.innerHTML = '<p>⏳ Loading...</p>';
+
+      try {
+        const headers = { 'Content-Type': 'application/json' };
+        if (authToken) {
+          headers['Authorization'] = `Bearer ${authToken}`;
+        }
+
+        const response = await fetch(`${API_BASE}${endpoint}`, { headers });
+        const data = await response.json();
+
+        if (response.status === 401) {
+          resultDiv.className = 'result show error';
+          resultDiv.innerHTML = `
+            <strong>🔒 Authentication Required</strong><br>
+            <pre>${JSON.stringify(data, null, 2)}</pre>
+            <p style="margin-top: 10px; color: #dc3545;">Please login first using the form above.</p>
+          `;
+          return;
+        }
+
+        if (response.status === 403) {
+          resultDiv.className = 'result show error';
+          resultDiv.innerHTML = `
+            <strong>⛔ Access Forbidden - Insufficient Permissions</strong><br>
+            <pre>${JSON.stringify(data, null, 2)}</pre>
+            <p style="margin-top: 10px; color: #dc3545;">
+              <strong>This endpoint requires higher privileges.</strong><br>
+              Try logging in as <strong>Admin</strong> or <strong>Faculty</strong> using the quick login buttons above.
+            </p>
+          `;
+          return;
+        }
+
+        let html = '<div class="' + (response.ok ? 'success' : 'error') + '">';
+        html += '<strong>HTTP ' + response.status + '</strong><br>';
+        html += '<pre>' + JSON.stringify(data, null, 2) + '</pre>';
+        html += '</div>';
+
+        if (sqlQuery) {
+          html += '<div style="margin-top: 15px;"><strong>🔍 Verify in MySQL Workbench:</strong></div>';
+          html += '<div class="sql-query">' + sqlQuery + '</div>';
+        }
+
+        resultDiv.innerHTML = html;
+      } catch (error) {
+        resultDiv.className = 'result show error';
+        resultDiv.innerHTML = `
+          <strong>❌ Error</strong><br>
+          <pre>${error.message}</pre>
+          <p style="margin-top: 10px; color: #dc3545;">
+            <strong>Make sure:</strong><br>
+            1. Backend server is running (node server.js)<br>
+            2. XAMPP MySQL is running<br>
+            3. Database 'student_portal' exists
+          </p>
+        `;
+      }
+    }
+  </script>
+</body>
+</html>

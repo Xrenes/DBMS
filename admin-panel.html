@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Query Builder — Student Portal Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ===== Variables ===== */
+:root{
+  --bg:#f7f8fa;--card:#fff;--dark:#1e293b;--darker:#0f172a;
+  --primary:#2563eb;--primary-h:#1d4ed8;--primary-l:#dbeafe;
+  --success:#10b981;--danger:#ef4444;--warning:#f59e0b;--info:#3b82f6;
+  --txt:#1f2937;--txt2:#6b7280;--txt3:#9ca3af;--white:#fff;
+  --bdr:#e5e7eb;--bdr2:#d1d5db;
+  --r1:4px;--r2:8px;--r3:12px;
+  --shadow:0 1px 3px rgba(0,0,0,.08);--shadow2:0 4px 12px rgba(0,0,0,.12);
+  --mono:'JetBrains Mono',monospace;
+  --side-w:260px;--drawer-w:360px;
+}
+
+/* ===== Reset ===== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px}
+body{font-family:'Inter',system-ui,sans-serif;font-size:.875rem;line-height:1.5;color:var(--txt);background:var(--bg);min-height:100vh;overflow:hidden;-webkit-font-smoothing:antialiased}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+input,select,textarea{font-family:inherit;font-size:inherit}
+a{text-decoration:none;color:inherit}
+
+/* ===== Layout ===== */
+.app{display:grid;grid-template-columns:var(--side-w) 1fr 0;height:100vh;overflow:hidden;transition:grid-template-columns .28s ease}
+.app.drawer-open{grid-template-columns:var(--side-w) 1fr var(--drawer-w)}
+
+/* ===== LEFT SIDEBAR — Data Catalog ===== */
+.sidebar{background:var(--dark);color:var(--white);display:flex;flex-direction:column;overflow:hidden;border-right:1px solid rgba(255,255,255,.07)}
+.sidebar-head{padding:18px 20px;border-bottom:1px solid rgba(255,255,255,.08)}
+.sidebar-head h2{font-size:1rem;font-weight:700;display:flex;align-items:center;gap:8px}
+.sidebar-head h2 svg{opacity:.7}
+.sidebar-head p{font-size:.72rem;color:rgba(255,255,255,.45);margin-top:2px}
+.sidebar-search{padding:10px 14px}
+.sidebar-search input{width:100%;padding:7px 11px;border-radius:var(--r2);border:1px solid rgba(255,255,255,.13);background:rgba(255,255,255,.07);color:#fff;font-size:.78rem;outline:none}
+.sidebar-search input::placeholder{color:rgba(255,255,255,.35)}
+.sidebar-search input:focus{border-color:var(--primary)}
+
+.catalog{flex:1;overflow-y:auto;padding:4px 8px}
+.catalog::-webkit-scrollbar{width:4px}
+.catalog::-webkit-scrollbar-thumb{background:rgba(255,255,255,.18);border-radius:4px}
+
+/* Category */
+.cat{margin-bottom:2px}
+.cat-head{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:var(--r2);cursor:pointer;font-size:.78rem;font-weight:600;color:rgba(255,255,255,.75);transition:.15s}
+.cat-head:hover{background:rgba(255,255,255,.06);color:#fff}
+.cat-head .arrow{font-size:.6rem;transition:transform .2s;flex-shrink:0;opacity:.5}
+.cat-head.open .arrow{transform:rotate(90deg)}
+.cat-head .cnt{margin-left:auto;font-size:.65rem;color:rgba(255,255,255,.35);font-weight:500}
+.cat-body{display:none;padding:0 0 4px 12px}
+.cat-body.show{display:block}
+
+/* Table item */
+.tbl-item{display:flex;align-items:center;gap:8px;padding:6px 10px;border-radius:var(--r1);cursor:pointer;font-size:.78rem;color:rgba(255,255,255,.65);transition:.12s}
+.tbl-item:hover{background:rgba(255,255,255,.06);color:#fff}
+.tbl-item.active{background:var(--primary);color:#fff}
+.tbl-item .badge-icon{width:22px;height:22px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:.6rem;font-weight:700;flex-shrink:0}
+.tbl-item .badge-icon.T{background:rgba(59,130,246,.18);color:#60a5fa}
+.tbl-item .badge-icon.V{background:rgba(16,185,129,.18);color:#34d399}
+.tbl-item .rows{margin-left:auto;font-size:.6rem;opacity:.45}
+
+.sidebar-foot{padding:10px 16px;border-top:1px solid rgba(255,255,255,.08);font-size:.7rem;color:rgba(255,255,255,.35);display:flex;justify-content:space-between}
+.sidebar-foot a{color:rgba(255,255,255,.5);display:flex;align-items:center;gap:4px;transition:.15s}
+.sidebar-foot a:hover{color:#fff}
+
+/* ===== CENTER PANEL ===== */
+.center{display:flex;flex-direction:column;overflow:hidden;position:relative;min-width:0;flex:1}
+
+/* Top bar */
+.topbar{display:flex;align-items:center;gap:14px;padding:10px 20px;background:var(--card);border-bottom:1px solid var(--bdr);min-height:50px;flex-wrap:wrap}
+.topbar-name{font-weight:700;font-size:1rem;max-width:260px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.topbar-status{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--success);font-weight:500}
+.topbar-status .dot{width:7px;height:7px;border-radius:50%;background:var(--success)}
+.topbar-sep{width:1px;height:22px;background:var(--bdr)}
+.topbar-spacer{flex:1}
+.topbar-btn{display:inline-flex;align-items:center;gap:5px;padding:6px 14px;border-radius:var(--r2);font-size:.78rem;font-weight:600;border:1px solid var(--bdr);color:var(--txt2);background:#fff;transition:.12s}
+.topbar-btn:hover{background:var(--bg);color:var(--txt)}
+.topbar-btn.primary{background:var(--primary);color:#fff;border-color:var(--primary)}
+.topbar-btn.primary:hover{background:var(--primary-h)}
+.topbar-btn svg{width:15px;height:15px}
+.topbar-toggle{width:32px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:var(--r1);border:1px solid var(--bdr);color:var(--txt3);transition:.15s}
+.topbar-toggle:hover{background:var(--bg);color:var(--txt)}
+
+/* Source label */
+.source-label{padding:6px 20px;background:#f8fafc;border-bottom:1px solid var(--bdr);font-size:.78rem;color:var(--txt2);display:flex;align-items:center;gap:6px}
+.source-label strong{color:var(--txt);font-weight:600}
+
+/* SQL Preview */
+.sql-bar{background:var(--darker);overflow:hidden;transition:max-height .3s;max-height:0}
+.sql-bar.open{max-height:350px}
+.sql-head{display:flex;align-items:center;justify-content:space-between;padding:7px 18px}
+.sql-head span{font-size:.68rem;text-transform:uppercase;letter-spacing:.8px;color:#94a3b8;font-weight:600}
+.sql-head button{color:#94a3b8;font-size:.72rem;display:flex;align-items:center;gap:4px}
+.sql-head button:hover{color:#fff}
+.sql-code{padding:0 18px 10px;font-family:var(--mono);font-size:.8rem;line-height:1.6;color:#e2e8f0;white-space:pre-wrap;word-break:break-all;max-height:280px;overflow-y:auto}
+.sql-code .kw{color:#93c5fd;font-weight:600}
+.sql-code .fn{color:#fbbf24}
+.sql-code .str{color:#86efac}
+.sql-code .num{color:#f9a8d4}
+.sql-code .tbl-hl{color:#c4b5fd}
+
+/* Data Grid */
+.grid-wrap{flex:1;overflow:auto;position:relative;min-height:0}
+.data-grid{width:100%;border-collapse:collapse;font-size:.88rem}
+.data-grid thead{position:sticky;top:0;z-index:5}
+.data-grid th{background:#f8fafc;border-bottom:2px solid var(--bdr);border-right:1px solid var(--bdr);padding:10px 14px;text-align:left;font-weight:700;font-size:.82rem;color:var(--txt);white-space:nowrap;cursor:pointer;user-select:none;position:relative}
+.data-grid th:hover{background:#eef2ff;color:var(--primary)}
+.data-grid th .col-meta{display:flex;align-items:center;gap:5px;margin-top:2px}
+.data-grid th .dtype{font-size:.68rem;font-weight:500;color:var(--txt3);text-transform:lowercase}
+.data-grid th .pk-badge,.data-grid th .fk-badge{display:inline-flex;align-items:center;gap:2px;font-size:.6rem;font-weight:700;padding:1px 5px;border-radius:3px;text-transform:uppercase;letter-spacing:.3px}
+.data-grid th .pk-badge{background:#fef3c7;color:#92400e;border:1px solid #fcd34d}
+.data-grid th .fk-badge{background:#dbeafe;color:#1e40af;border:1px solid #93c5fd;cursor:help}
+.data-grid th .sort-arrow{opacity:.3;font-size:.65rem;margin-left:3px}
+.data-grid th .col-menu{position:absolute;right:6px;top:8px;opacity:0;padding:2px 4px;border-radius:3px;font-size:.7rem;color:var(--txt3)}
+.data-grid th:hover .col-menu{opacity:1}
+.data-grid th .col-menu:hover{background:var(--bdr)}
+
+.data-grid td{padding:9px 14px;border-bottom:1px solid var(--bdr);border-right:1px solid #f1f5f9;white-space:nowrap;max-width:340px;overflow:hidden;text-overflow:ellipsis;font-variant-numeric:tabular-nums;font-weight:500}
+.data-grid tr:hover td{background:#f0f4ff}
+.data-grid tr:nth-child(even) td{background:#f9fafb}
+.data-grid tr:nth-child(even):hover td{background:#eef2ff}
+.data-grid .null{color:var(--txt3);font-style:italic;font-weight:400}
+.data-grid .pk-cell{color:#92400e;font-weight:700;background:#fffbeb}
+.data-grid .fk-cell{color:#1e40af;font-weight:600;cursor:pointer;text-decoration:underline dotted}
+.data-grid .row-num{color:var(--txt3);font-size:.76rem;font-weight:600;text-align:center;min-width:42px;background:#f8fafc;border-right:2px solid var(--bdr)}
+
+/* Status Bar */
+.statusbar{display:flex;align-items:center;gap:14px;padding:8px 20px;background:var(--card);border-top:1px solid var(--bdr);font-size:.78rem;color:var(--txt2);font-weight:500}
+.statusbar .dot{width:6px;height:6px;border-radius:50%;background:var(--success)}
+.statusbar .sep{width:1px;height:14px;background:var(--bdr)}
+.page-ctrl{display:flex;align-items:center;gap:6px;margin-left:auto}
+.page-ctrl button{padding:3px 10px;border:1px solid var(--bdr);border-radius:var(--r1);font-size:.76rem;font-weight:500;color:var(--txt2);background:#fff}
+.page-ctrl button:hover:not(:disabled){background:var(--bg);color:var(--txt)}
+.page-ctrl button:disabled{opacity:.35;cursor:default}
+
+/* Empty + Loading */
+.empty-state{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 40px;color:var(--txt3);flex:1;text-align:center}
+.empty-state svg{width:56px;height:56px;opacity:.3;margin-bottom:14px}
+.empty-state h3{font-size:1.05rem;color:var(--txt2);margin-bottom:6px}
+.empty-state p{font-size:.82rem;max-width:380px}
+.spinner{width:28px;height:28px;border:3px solid var(--bdr);border-top-color:var(--primary);border-radius:50%;animation:spin .7s linear infinite;margin-bottom:10px}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ===== RIGHT DRAWER ===== */
+.drawer{background:var(--card);border-left:1px solid var(--bdr);display:flex;flex-direction:column;overflow:hidden;transition:all .28s ease;min-width:0}
+.app:not(.drawer-open) .drawer{width:0;min-width:0;opacity:0;pointer-events:none;border:none;padding:0}
+
+.drawer-section{padding:16px 18px;border-bottom:1px solid var(--bdr)}
+.drawer-section label{display:block;font-size:.7rem;font-weight:600;color:var(--txt3);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
+.drawer-section .title-input{width:100%;padding:7px 10px;border:1px solid var(--bdr);border-radius:var(--r2);font-size:.85rem;font-weight:600;color:var(--txt);outline:none}
+.drawer-section .title-input:focus{border-color:var(--primary)}
+.drawer-btns{display:flex;gap:6px;margin-top:10px}
+.drawer-btns button{flex:1;padding:7px;border:1px solid var(--bdr);border-radius:var(--r2);font-size:.74rem;font-weight:600;color:var(--txt2);background:#fff;transition:.12s}
+.drawer-btns button:hover{background:var(--bg);color:var(--txt)}
+.drawer-btns button.primary{background:var(--primary);color:#fff;border-color:var(--primary)}
+.drawer-btns button.primary:hover{background:var(--primary-h)}
+
+/* Operations Stack */
+.ops-header{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border-bottom:1px solid var(--bdr)}
+.ops-header h4{font-size:.82rem;font-weight:700}
+.add-op-btn{display:flex;align-items:center;gap:4px;padding:5px 12px;border:1px dashed var(--primary);border-radius:var(--r2);font-size:.74rem;font-weight:600;color:var(--primary);transition:.12s}
+.add-op-btn:hover{background:var(--primary-l)}
+
+.ops-list{flex:1;overflow-y:auto;padding:8px 16px 8px 18px}
+.ops-list::-webkit-scrollbar{width:4px}
+.ops-list::-webkit-scrollbar-thumb{background:var(--bdr);border-radius:4px}
+#opsEmpty{padding:30px 16px;text-align:center;color:var(--txt3);font-size:.78rem}
+
+.op-card{display:flex;align-items:flex-start;gap:10px;padding:10px 12px 10px 14px;border:1px solid var(--bdr);border-radius:var(--r2);margin-bottom:6px;background:#fff;transition:.12s;position:relative;overflow:visible}
+.op-card:hover{border-color:var(--primary-l);box-shadow:var(--shadow)}
+.op-card .op-icon{width:30px;height:30px;border-radius:var(--r1);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.7rem;font-weight:700}
+.op-card .op-icon.src{background:#dbeafe;color:#2563eb}
+.op-card .op-icon.proj{background:#d1fae5;color:#059669}
+.op-card .op-icon.filt{background:#fef3c7;color:#d97706}
+.op-card .op-icon.join{background:#ede9fe;color:#7c3aed}
+.op-card .op-icon.grp{background:#fce7f3;color:#db2777}
+.op-card .op-icon.comp{background:#ccfbf1;color:#0d9488}
+.op-card .op-icon.app{background:#e0e7ff;color:#4f46e5}
+.op-card .op-icon.sort{background:#dbeafe;color:#2563eb}
+.op-card .op-icon.lim{background:#f3f4f6;color:#6b7280}
+.op-card .op-text{flex:1;min-width:0}
+.op-card .op-type{font-size:.74rem;font-weight:700;color:var(--txt)}
+.op-card .op-desc{font-size:.68rem;color:var(--txt2);margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.op-card .op-actions{display:flex;gap:2px;flex-shrink:0}
+.op-card .op-actions button{width:24px;height:24px;border-radius:var(--r1);display:flex;align-items:center;justify-content:center;opacity:.4;transition:.12s}
+.op-card .op-actions button:hover{opacity:1;background:var(--bg)}
+.op-card .op-actions button svg{width:13px;height:13px}
+.op-card .op-order{position:absolute;left:-12px;top:50%;transform:translateY(-50%);width:18px;height:18px;border-radius:50%;background:var(--primary);color:#fff;font-size:.55rem;font-weight:700;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 2px #fff}
+
+/* Theory section in drawer */
+.theory-head{padding:10px 18px;border-bottom:1px solid var(--bdr);display:flex;align-items:center;justify-content:space-between;cursor:pointer}
+.theory-head h4{font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--txt3)}
+.theory-head .arrow{font-size:.6rem;color:var(--txt3);transition:transform .2s}
+.theory-head.open .arrow{transform:rotate(180deg)}
+.theory-list{display:none;padding:6px 12px}
+.theory-list.show{display:block}
+.theory-item{display:flex;align-items:center;gap:8px;padding:7px 10px;border-radius:var(--r1);cursor:pointer;font-size:.76rem;color:var(--txt2);transition:.12s;border:1px solid transparent}
+.theory-item:hover{background:var(--primary-l);border-color:var(--primary);color:var(--primary)}
+.theory-item .sym{font-weight:700;min-width:20px;text-align:center;font-size:.85rem}
+
+/* ===== MODAL OVERLAY ===== */
+.modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:1000;align-items:center;justify-content:center;backdrop-filter:blur(2px)}
+.modal-bg.show{display:flex}
+.modal{background:var(--card);border-radius:var(--r3);box-shadow:var(--shadow2);max-height:85vh;display:flex;flex-direction:column;animation:modalIn .2s ease-out}
+@keyframes modalIn{from{opacity:0;transform:scale(.96) translateY(8px)}to{opacity:1;transform:scale(1) translateY(0)}}
+.modal-head{padding:18px 22px;border-bottom:1px solid var(--bdr);display:flex;align-items:center;justify-content:space-between}
+.modal-head h3{font-size:1rem;font-weight:700}
+.modal-close{width:30px;height:30px;border-radius:var(--r1);display:flex;align-items:center;justify-content:center;color:var(--txt3);font-size:1.2rem}
+.modal-close:hover{background:var(--bg);color:var(--txt)}
+.modal-body{padding:18px 22px;overflow-y:auto;flex:1}
+.modal-foot{padding:14px 22px;border-top:1px solid var(--bdr);display:flex;justify-content:flex-end;gap:8px}
+.modal-foot .btn{padding:8px 20px;border-radius:var(--r2);font-size:.8rem;font-weight:600}
+.btn-cancel{border:1px solid var(--bdr);color:var(--txt2);background:#fff}
+.btn-cancel:hover{background:var(--bg)}
+.btn-confirm{background:var(--primary);color:#fff;border:none}
+.btn-confirm:hover{background:var(--primary-h)}
+
+/* Operation Picker Grid */
+.op-picker{width:660px}
+.op-picker-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.op-pick-item{display:flex;align-items:flex-start;gap:12px;padding:14px 16px;border:1px solid var(--bdr);border-radius:var(--r2);cursor:pointer;transition:.12s}
+.op-pick-item:hover{border-color:var(--primary);background:var(--primary-l)}
+.op-pick-item .pick-icon{width:34px;height:34px;border-radius:var(--r2);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.75rem;font-weight:700}
+.op-pick-item .pick-label{font-weight:600;font-size:.82rem;color:var(--txt)}
+.op-pick-item .pick-desc{font-size:.7rem;color:var(--txt2);margin-top:1px}
+.op-pick-item .pick-theory{font-size:.62rem;color:var(--primary);font-weight:600;margin-top:2px}
+
+/* Config modals */
+.config-modal{width:580px}
+.config-modal.wide{width:660px}
+.form-group{margin-bottom:14px}
+.form-label{display:block;font-size:.74rem;font-weight:600;color:var(--txt2);margin-bottom:5px}
+.form-select,.form-input{width:100%;padding:8px 11px;border:1px solid var(--bdr);border-radius:var(--r2);font-size:.82rem;color:var(--txt);background:#fff;outline:none;transition:border-color .15s}
+.form-select:focus,.form-input:focus{border-color:var(--primary)}
+.form-select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center;padding-right:28px}
+.check-list{max-height:220px;overflow-y:auto;border:1px solid var(--bdr);border-radius:var(--r2);padding:6px}
+.check-item{display:flex;align-items:center;gap:8px;padding:5px 8px;border-radius:var(--r1);cursor:pointer;font-size:.8rem}
+.check-item:hover{background:var(--bg)}
+.check-item input{accent-color:var(--primary)}
+.check-item .cname{font-weight:500}
+.check-item .ctype{font-size:.65rem;padding:1px 5px;border-radius:3px;background:var(--bg);color:var(--txt3);margin-left:auto}
+.check-item .cbadge{font-size:.58rem;font-weight:700;padding:1px 4px;border-radius:2px}
+.check-item .cbadge.pk{background:#fef3c7;color:#92400e}
+.check-item .cbadge.fk{background:#dbeafe;color:#1e40af}
+
+/* Join visual */
+.join-visual{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:center;margin-bottom:14px}
+.join-box{background:var(--bg);border:1px solid var(--bdr);border-radius:var(--r2);padding:14px;text-align:center}
+.join-box .jname{font-weight:700;font-size:.88rem}
+.join-box .jhint{font-size:.68rem;color:var(--txt3);margin-top:2px}
+.join-types{display:flex;flex-direction:column;gap:4px}
+.jt-btn{padding:6px 12px;border:2px solid var(--bdr);border-radius:var(--r2);font-size:.72rem;font-weight:600;transition:.12s;text-align:center}
+.jt-btn:hover{border-color:var(--primary);color:var(--primary)}
+.jt-btn.sel{background:var(--primary);color:#fff;border-color:var(--primary)}
+.join-suggest{margin-top:8px;font-size:.72rem;color:var(--txt3)}
+.join-suggest button{font-size:.72rem;color:var(--primary);text-decoration:underline;margin:2px 4px}
+
+/* Expression builder */
+.expr-area{width:100%;min-height:80px;padding:10px;font-family:var(--mono);font-size:.8rem;line-height:1.5;border:1px solid var(--bdr);border-radius:var(--r2);resize:vertical;outline:none}
+.expr-area:focus{border-color:var(--primary)}
+.expr-help{display:flex;gap:4px;flex-wrap:wrap;margin-top:6px}
+.expr-help button{padding:3px 8px;border:1px solid var(--bdr);border-radius:var(--r1);font-size:.68rem;font-family:var(--mono);color:var(--txt2)}
+.expr-help button:hover{background:var(--primary-l);border-color:var(--primary);color:var(--primary)}
+
+/* Toast */
+.toast-box{position:fixed;bottom:20px;right:20px;z-index:3000;display:flex;flex-direction:column;gap:6px}
+.toast{padding:10px 18px;border-radius:var(--r2);font-size:.8rem;font-weight:500;color:#fff;box-shadow:var(--shadow2);animation:toastIn .25s ease-out}
+.toast.ok{background:var(--success)}
+.toast.err{background:var(--danger)}
+.toast.inf{background:var(--info)}
+@keyframes toastIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+/* Responsive */
+@media(max-width:1100px){:root{--side-w:220px;--drawer-w:300px}}
+@media(max-width:800px){.app{grid-template-columns:1fr !important}.sidebar,.drawer{display:none}}
+</style>
+</head>
+<body>
+
+<!-- ===== APP SHELL ===== -->
+<div class="app drawer-open" id="app">
+
+<!-- LEFT SIDEBAR -->
+<aside class="sidebar">
+  <div class="sidebar-head">
+    <h2>
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+      Data Catalog
+    </h2>
+    <p>student_portal &middot; MySQL 8.x</p>
+  </div>
+  <div class="sidebar-search">
+    <input type="text" id="catSearch" placeholder="Search tables & views…" oninput="filterCatalog()">
+  </div>
+  <div class="catalog" id="catalog"><!-- JS --></div>
+  <div class="sidebar-foot">
+    <span id="objCount">Loading...</span>
+    <a href="index.html">
+      <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Portal
+    </a>
+  </div>
+</aside>
+
+<!-- CENTER -->
+<main class="center">
+  <!-- Top Bar -->
+  <div class="topbar">
+    <span class="topbar-name" id="topTitle">Select a Table</span>
+    <span class="topbar-status" id="topStatus" style="display:none">
+      <span class="dot"></span>
+      <span id="topStatusText"></span>
+    </span>
+    <div class="topbar-sep"></div>
+    <button class="topbar-btn" onclick="toggleSql()" title="View generated SQL">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>View SQL
+    </button>
+    <button class="topbar-btn primary" onclick="execQuery()" title="Execute query">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>Execute
+    </button>
+    <button class="topbar-btn" onclick="runExplain()" title="Explain execution plan">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>Explain
+    </button>
+    <button class="topbar-btn" onclick="exportCsv()" title="Download CSV">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>Export
+    </button>
+    <div class="topbar-spacer"></div>
+    <button class="topbar-toggle" onclick="toggleDrawer()" title="Toggle details panel" id="drawerToggle">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
+  </div>
+
+  <!-- Source label -->
+  <div class="source-label" id="sourceLabel" style="display:none">
+    Source: <strong id="sourceName"></strong>
+  </div>
+
+  <!-- SQL Preview -->
+  <div class="sql-bar" id="sqlBar">
+    <div class="sql-head">
+      <span>Generated SQL</span>
+      <button onclick="copySql()">
+        <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+        Copy
+      </button>
+    </div>
+    <div class="sql-code" id="sqlCode">-- Select a table to begin</div>
+  </div>
+
+  <!-- Data Grid / Empty -->
+  <div class="grid-wrap" id="gridWrap">
+    <div class="empty-state" id="emptyState">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+      <h3>Select a Source</h3>
+      <p>Pick a table or view from the Data Catalog, then add operations to build your query.</p>
+    </div>
+    <div class="empty-state" id="loadingState" style="display:none">
+      <div class="spinner"></div>
+      <h3>Executing…</h3>
+      <p id="loadingMsg">Running query on student_portal</p>
+    </div>
+    <table class="data-grid" id="dataGrid" style="display:none">
+      <thead id="gridHead"></thead>
+      <tbody id="gridBody"></tbody>
+    </table>
+  </div>
+
+  <!-- Status Bar -->
+  <div class="statusbar">
+    <span class="dot" id="stDot"></span>
+    <span id="stText">Ready</span>
+    <span class="sep"></span>
+    <span id="stTime">-</span>
+    <div class="page-ctrl">
+      <button onclick="prevPage()" id="prevBtn" disabled>&laquo; Prev</button>
+      <span id="pageInfo">-</span>
+      <button onclick="nextPage()" id="nextBtn" disabled>Next &raquo;</button>
+    </div>
+  </div>
+</main>
+
+<!-- RIGHT DRAWER -->
+<aside class="drawer" id="drawer">
+  <!-- Details -->
+  <div class="drawer-section">
+    <label>Query Title</label>
+    <input class="title-input" id="qTitle" value="Untitled Query" placeholder="Query title…">
+    <div class="drawer-btns">
+      <button onclick="saveQuery()" class="primary">Save</button>
+      <button onclick="saveQueryAs()">Save As…</button>
+    </div>
+  </div>
+
+  <!-- Operations -->
+  <div class="ops-header">
+    <h4>Operations</h4>
+    <button class="add-op-btn" onclick="openOpPicker()">
+      <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+      Add Operation
+    </button>
+  </div>
+  <div class="ops-list" id="opsList">
+    <!-- JS-rendered op cards go here -->
+  </div>
+  <div class="empty-state" style="padding:30px 10px" id="opsEmpty">
+    <p style="font-size:.76rem">No operations yet. Click "+ Add Operation" or select a table from the catalog.</p>
+  </div>
+
+  <!-- Theory shortcuts -->
+  <div class="theory-head" id="theoryHead" onclick="this.classList.toggle('open');document.getElementById('theoryList').classList.toggle('show')">
+    <h4>DBMS Theory Demos</h4>
+    <span class="arrow">&#9660;</span>
+  </div>
+  <div class="theory-list" id="theoryList">
+    <div class="theory-item" onclick="runTheory('3nf')"><span class="sym">3NF</span> Normalization</div>
+    <div class="theory-item" onclick="runTheory('acid')"><span class="sym">&#9876;</span> ACID Transactions</div>
+    <div class="theory-item" onclick="runTheory('referential')"><span class="sym">FK</span> Referential Integrity</div>
+    <div class="theory-item" onclick="runTheory('triggers')"><span class="sym">&#9889;</span> Triggers &amp; Audit</div>
+    <div class="theory-item" onclick="runTheory('views')"><span class="sym">&#128065;</span> Views</div>
+    <div class="theory-item" onclick="runTheory('indexing')"><span class="sym">IDX</span> Indexing &amp; EXPLAIN</div>
+    <div class="theory-item" onclick="runTheory('ledger')"><span class="sym">#</span> Blockchain Ledger</div>
+    <div class="theory-item" onclick="runTheory('rbac')"><span class="sym">&#128274;</span> RBAC Security</div>
+  </div>
+</aside>
+</div><!-- /app -->
+
+<!-- ===== MODALS ===== -->
+
+<!-- Operation Picker -->
+<div class="modal-bg" id="modalOpPicker">
+  <div class="modal op-picker">
+    <div class="modal-head">
+      <h3>Select an operation</h3>
+      <button class="modal-close" onclick="closeModal('modalOpPicker')">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="op-picker-grid">
+        <div class="op-pick-item" onclick="pickOp('select_source')">
+          <div class="pick-icon" style="background:#dbeafe;color:#2563eb"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div>
+          <div><div class="pick-label">Select Source</div><div class="pick-desc">Select a table or query to start</div></div>
+        </div>
+        <div class="op-pick-item" onclick="pickOp('project')">
+          <div class="pick-icon" style="background:#d1fae5;color:#059669"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></div>
+          <div><div class="pick-label">Choose Columns</div><div class="pick-desc">Show or hide columns from the table</div><div class="pick-theory">&pi; Projection</div></div>
+        </div>
+        <div class="op-pick-item" onclick="pickOp('filter')">
+          <div class="pick-icon" style="background:#fef3c7;color:#d97706"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg></div>
+          <div><div class="pick-label">Filter Rows</div><div class="pick-desc">Filter rows based on conditions</div><div class="pick-theory">&sigma; Selection</div></div>
+        </div>
+        <div class="op-pick-item" onclick="pickOp('join')">
+          <div class="pick-icon" style="background:#ede9fe;color:#7c3aed"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="12" r="6"/><circle cx="16" cy="12" r="6"/></svg></div>
+          <div><div class="pick-label">Join Table</div><div class="pick-desc">Join with another table or query</div><div class="pick-theory">⨝ Join / &theta;-Join</div></div>
+        </div>
+        <div class="op-pick-item" onclick="pickOp('append')">
+          <div class="pick-icon" style="background:#e0e7ff;color:#4f46e5"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="8" rx="2"/><rect x="3" y="13" width="18" height="8" rx="2"/></svg></div>
+          <div><div class="pick-label">Append Table</div><div class="pick-desc">Append rows from another table (UNION)</div><div class="pick-theory">&cup; Union</div></div>
+        </div>
+        <div class="op-pick-item" onclick="pickOp('group')">
+          <div class="pick-icon" style="background:#fce7f3;color:#db2777"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></div>
+          <div><div class="pick-label">Group &amp; Summarize</div><div class="pick-desc">Group rows and aggregate with COUNT, SUM…</div><div class="pick-theory">&gamma; Aggregation</div></div>
+        </div>
+        <div class="op-pick-item" onclick="pickOp('computed')">
+          <div class="pick-icon" style="background:#ccfbf1;color:#0d9488"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+          <div><div class="pick-label">Add New Column</div><div class="pick-desc">Create a computed column from expressions</div></div>
+        </div>
+        <div class="op-pick-item" onclick="pickOp('sort')">
+          <div class="pick-icon" style="background:#dbeafe;color:#2563eb"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg></div>
+          <div><div class="pick-label">Sort</div><div class="pick-desc">Order results by column(s)</div></div>
+        </div>
+        <div class="op-pick-item" onclick="pickOp('limit')">
+          <div class="pick-icon" style="background:#f3f4f6;color:#6b7280"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="15" x2="21" y2="15"/></svg></div>
+          <div><div class="pick-label">Limit / Pagination</div><div class="pick-desc">Limit rows returned by the query</div></div>
+        </div>
+        <div class="op-pick-item" onclick="pickOp('custom')">
+          <div class="pick-icon" style="background:#fee2e2;color:#dc2626"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg></div>
+          <div><div class="pick-label">Custom SQL</div><div class="pick-desc">Write raw SELECT query</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Select Source Config -->
+<div class="modal-bg" id="modalSource">
+  <div class="modal config-modal">
+    <div class="modal-head"><h3>Select Source</h3><button class="modal-close" onclick="closeModal('modalSource')">&times;</button></div>
+    <div class="modal-body">
+      <div class="form-group">
+        <label class="form-label">Source Type</label>
+        <select class="form-select" id="cfgSrcType" onchange="loadSrcOptions()">
+          <option value="table">Table</option>
+          <option value="view">View</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Table / View</label>
+        <select class="form-select" id="cfgSrcName"><option value="">-- Choose --</option></select>
+      </div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-cancel" onclick="closeModal('modalSource')">Cancel</button>
+      <button class="btn btn-confirm" onclick="confirmSource()">Confirm</button>
+    </div>
+  </div>
+</div>
+
+<!-- Choose Columns Config -->
+<div class="modal-bg" id="modalProject">
+  <div class="modal config-modal">
+    <div class="modal-head"><h3>Choose Columns <small style="color:var(--primary);font-weight:400;margin-left:6px">&pi; Projection</small></h3><button class="modal-close" onclick="closeModal('modalProject')">&times;</button></div>
+    <div class="modal-body">
+      <div style="display:flex;justify-content:space-between;margin-bottom:8px">
+        <label class="form-label" style="margin:0">Columns to include</label>
+        <div>
+          <button style="font-size:.7rem;color:var(--primary);margin-right:6px" onclick="toggleAllCols(true)">All</button>
+          <button style="font-size:.7rem;color:var(--danger)" onclick="toggleAllCols(false)">None</button>
+        </div>
+      </div>
+      <div class="check-list" id="colCheckList"></div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-cancel" onclick="closeModal('modalProject')">Cancel</button>
+      <button class="btn btn-confirm" onclick="confirmProject()">Apply</button>
+    </div>
+  </div>
+</div>
+
+<!-- Filter Rows Config -->
+<div class="modal-bg" id="modalFilter">
+  <div class="modal config-modal">
+    <div class="modal-head"><h3>Filter Rows <small style="color:var(--primary);font-weight:400;margin-left:6px">&sigma; Selection</small></h3><button class="modal-close" onclick="closeModal('modalFilter')">&times;</button></div>
+    <div class="modal-body">
+      <div id="filterRows"></div>
+      <button style="font-size:.78rem;color:var(--primary);display:flex;align-items:center;gap:4px;margin-top:8px" onclick="addFilterRow()">+ Add Condition</button>
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-cancel" onclick="closeModal('modalFilter')">Cancel</button>
+      <button class="btn btn-confirm" onclick="confirmFilter()">Apply Filters</button>
+    </div>
+  </div>
+</div>
+
+<!-- Join Table Config -->
+<div class="modal-bg" id="modalJoin">
+  <div class="modal config-modal wide">
+    <div class="modal-head"><h3>Join Table <small style="color:var(--primary);font-weight:400;margin-left:6px">⨝ Join</small></h3><button class="modal-close" onclick="closeModal('modalJoin')">&times;</button></div>
+    <div class="modal-body">
+      <div class="join-visual">
+        <div class="join-box"><div class="jname" id="joinLeftName">-</div><div class="jhint">Current source (left)</div></div>
+        <div class="join-types" id="joinTypes">
+          <button class="jt-btn sel" data-t="INNER" onclick="selJoinType(this)">Inner</button>
+          <button class="jt-btn" data-t="LEFT" onclick="selJoinType(this)">Left</button>
+          <button class="jt-btn" data-t="RIGHT" onclick="selJoinType(this)">Right</button>
+          <button class="jt-btn" data-t="FULL" onclick="selJoinType(this)">Full</button>
+        </div>
+        <div class="join-box"><div class="jname" id="joinRightName">Select table</div><div class="jhint">Join table (right)</div></div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Right Table</label>
+        <select class="form-select" id="joinRightTable" onchange="loadJoinCols()"><option value="">-- Choose --</option></select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">ON Condition</label>
+        <div style="display:grid;grid-template-columns:1fr auto 1fr;gap:8px;align-items:center">
+          <select class="form-select" id="joinLeftCol"></select>
+          <span style="font-weight:600;color:var(--txt3)">=</span>
+          <select class="form-select" id="joinRightCol"></select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Select Columns to Add</label>
+        <div class="check-list" id="joinColsAdd" style="max-height:140px"></div>
+      </div>
+      <div class="join-suggest" id="joinSuggestions"></div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-cancel" onclick="closeModal('modalJoin')">Cancel</button>
+      <button class="btn btn-confirm" onclick="confirmJoin()">Confirm</button>
+    </div>
+  </div>
+</div>
+
+<!-- Append Table Config -->
+<div class="modal-bg" id="modalAppend">
+  <div class="modal config-modal">
+    <div class="modal-head"><h3>Append Table <small style="color:var(--primary);font-weight:400;margin-left:6px">&cup; Union</small></h3><button class="modal-close" onclick="closeModal('modalAppend')">&times;</button></div>
+    <div class="modal-body">
+      <div class="form-group"><label class="form-label">Table to UNION</label><select class="form-select" id="appendTable"><option value="">-- Choose --</option></select></div>
+      <div class="form-group"><label class="form-label">Union Type</label><select class="form-select" id="appendType"><option value="UNION">UNION (remove duplicates)</option><option value="UNION ALL">UNION ALL (keep all)</option></select></div>
+      <div style="background:#fef3c7;padding:8px 10px;border-radius:var(--r1);font-size:.72rem;color:#92400e;margin-top:6px">Both queries must have the same number of columns with compatible types.</div>
+    </div>
+    <div class="modal-foot"><button class="btn btn-cancel" onclick="closeModal('modalAppend')">Cancel</button><button class="btn btn-confirm" onclick="confirmAppend()">Confirm</button></div>
+  </div>
+</div>
+
+<!-- Group & Summarize Config -->
+<div class="modal-bg" id="modalGroup">
+  <div class="modal config-modal">
+    <div class="modal-head"><h3>Group &amp; Summarize <small style="color:var(--primary);font-weight:400;margin-left:6px">&gamma; Aggregation</small></h3><button class="modal-close" onclick="closeModal('modalGroup')">&times;</button></div>
+    <div class="modal-body">
+      <div class="form-group"><label class="form-label">GROUP BY columns</label><div class="check-list" id="grpColList"></div></div>
+      <div class="form-group"><label class="form-label">Aggregate Functions</label><div id="aggRows"></div><button style="font-size:.78rem;color:var(--primary);margin-top:6px" onclick="addAggRow()">+ Add Aggregate</button></div>
+      <div class="form-group"><label class="form-label">HAVING (optional)</label><input class="form-input" id="havingInput" placeholder="e.g. COUNT(*) > 5"></div>
+    </div>
+    <div class="modal-foot"><button class="btn btn-cancel" onclick="closeModal('modalGroup')">Cancel</button><button class="btn btn-confirm" onclick="confirmGroup()">Apply</button></div>
+  </div>
+</div>
+
+<!-- Add New Column Config -->
+<div class="modal-bg" id="modalComputed">
+  <div class="modal config-modal">
+    <div class="modal-head"><h3>Add New Column</h3><button class="modal-close" onclick="closeModal('modalComputed')">&times;</button></div>
+    <div class="modal-body">
+      <div class="form-group"><label class="form-label">Column Name (alias)</label><input class="form-input" id="compName" placeholder="e.g. full_address"></div>
+      <div class="form-group"><label class="form-label">Expression</label><textarea class="expr-area" id="compExpr" placeholder="CONCAT(first_name, ' ', last_name)"></textarea>
+        <div class="expr-help">
+          <button onclick="insExpr('CONCAT()')">CONCAT</button>
+          <button onclick="insExpr('IFNULL(, )')">IFNULL</button>
+          <button onclick="insExpr('CASE WHEN  THEN  ELSE  END')">CASE</button>
+          <button onclick="insExpr('ROUND(, 2)')">ROUND</button>
+          <button onclick="insExpr('DATE_FORMAT(, \'%Y-%m-%d\')')">DATE_FORMAT</button>
+          <button onclick="insExpr('COALESCE()')">COALESCE</button>
+        </div>
+      </div>
+    </div>
+    <div class="modal-foot"><button class="btn btn-cancel" onclick="closeModal('modalComputed')">Cancel</button><button class="btn btn-confirm" onclick="confirmComputed()">Add Column</button></div>
+  </div>
+</div>
+
+<!-- Sort Config -->
+<div class="modal-bg" id="modalSort">
+  <div class="modal config-modal">
+    <div class="modal-head"><h3>Sort / Order By</h3><button class="modal-close" onclick="closeModal('modalSort')">&times;</button></div>
+    <div class="modal-body"><div id="sortRows"></div><button style="font-size:.78rem;color:var(--primary);margin-top:6px" onclick="addSortRow()">+ Add Sort Column</button></div>
+    <div class="modal-foot"><button class="btn btn-cancel" onclick="closeModal('modalSort')">Cancel</button><button class="btn btn-confirm" onclick="confirmSort()">Apply</button></div>
+  </div>
+</div>
+
+<!-- Limit Config -->
+<div class="modal-bg" id="modalLimit">
+  <div class="modal config-modal">
+    <div class="modal-head"><h3>Limit / Pagination</h3><button class="modal-close" onclick="closeModal('modalLimit')">&times;</button></div>
+    <div class="modal-body">
+      <div class="form-group"><label class="form-label">Rows per page</label><input class="form-input" type="number" id="limitVal" value="50" min="1" max="10000"></div>
+    </div>
+    <div class="modal-foot"><button class="btn btn-cancel" onclick="closeModal('modalLimit')">Cancel</button><button class="btn btn-confirm" onclick="confirmLimit()">Apply</button></div>
+  </div>
+</div>
+
+<!-- Custom SQL Config -->
+<div class="modal-bg" id="modalCustom">
+  <div class="modal config-modal wide">
+    <div class="modal-head"><h3>Custom SQL Query</h3><button class="modal-close" onclick="closeModal('modalCustom')">&times;</button></div>
+    <div class="modal-body">
+      <div class="form-group"><label class="form-label">Enter SELECT query (read-only)</label><textarea class="expr-area" id="customSqlInput" style="min-height:140px" placeholder="SELECT s.student_code, u.full_name, p.name AS program&#10;FROM students s&#10;JOIN users u ON s.user_id = u.user_id&#10;JOIN programs p ON s.program_id = p.program_id&#10;LIMIT 50;"></textarea></div>
+      <div style="display:flex;gap:4px;flex-wrap:wrap">
+        <span style="font-size:.68rem;color:var(--txt3);width:100%">Templates:</span>
+        <button class="topbar-btn" style="font-size:.7rem;padding:4px 10px" onclick="setTpl('students')">Students + Programs</button>
+        <button class="topbar-btn" style="font-size:.7rem;padding:4px 10px" onclick="setTpl('results')">Results + Grades</button>
+        <button class="topbar-btn" style="font-size:.7rem;padding:4px 10px" onclick="setTpl('attendance')">Attendance</button>
+        <button class="topbar-btn" style="font-size:.7rem;padding:4px 10px" onclick="setTpl('finance')">Finance</button>
+        <button class="topbar-btn" style="font-size:.7rem;padding:4px 10px" onclick="setTpl('enrollment')">Enrollment</button>
+      </div>
+      <div style="background:var(--primary-l);padding:8px;border-radius:var(--r1);font-size:.72rem;color:#1e40af;margin-top:10px">Only SELECT, SHOW, DESCRIBE, and EXPLAIN queries are allowed.</div>
+    </div>
+    <div class="modal-foot"><button class="btn btn-cancel" onclick="closeModal('modalCustom')">Cancel</button><button class="btn btn-confirm" onclick="confirmCustom()">Execute</button></div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="toast-box" id="toastBox"></div>
+
+<script src="assets/js/admin-query-builder.js"></script>
+</body>
+</html>
