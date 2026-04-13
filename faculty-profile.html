@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Faculty Profile | Faculty Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <style>
+    .profile-cover { background: linear-gradient(135deg, #059669 0%, #10b981 50%, #34d399 100%); height: 160px; border-radius: var(--radius-lg) var(--radius-lg) 0 0; position: relative; }
+    .profile-avatar { width: 96px; height: 96px; border-radius: 50%; background: #1e293b; border: 4px solid white; display: flex; align-items: center; justify-content: center; font-size: 2rem; font-weight: 700; color: #10b981; position: absolute; bottom: -48px; left: 32px; box-shadow: 0 4px 16px rgba(0,0,0,0.15); }
+    .profile-card { border-radius: var(--radius-lg); overflow: visible; position: relative; }
+    .profile-info { padding: 64px 32px 32px; }
+    .info-row { display: flex; align-items: flex-start; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--border); }
+    .info-row:last-child { border-bottom: none; }
+    .info-icon { width: 36px; height: 36px; border-radius: 8px; background: #d1fae5; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .info-label { font-size: 0.75rem; color: var(--text-muted); }
+    .info-value { font-size: 0.875rem; font-weight: 500; margin-top: 1px; }
+    .tag { display: inline-block; background: #d1fae5; color: #065f46; border-radius: 9999px; padding: 3px 10px; font-size: 0.75rem; font-weight: 500; margin: 3px; }
+    .stat-box { text-align: center; padding: 16px; background: #f9fafb; border-radius: 10px; }
+    .stat-num { font-size: 1.75rem; font-weight: 700; color: #10b981; }
+    .stat-label { font-size: 0.75rem; color: var(--text-muted); margin-top: 4px; }
+  </style>
+</head>
+<body>
+<div class="app-container">
+  <div class="sidebar-overlay"></div>
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-logo" style="background:#10b981;">FP</div>
+      <div><div class="sidebar-title">Faculty Portal</div><div class="sidebar-subtitle">Teacher Dashboard</div></div>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-section">
+        <div class="nav-section-title">Main</div>
+        <a href="faculty-dashboard.html" class="nav-item"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg><span>Dashboard</span></a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">Teaching</div>
+        <a href="faculty-courses.html" class="nav-item"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg><span>My Courses</span></a>
+        <a href="faculty-routine.html" class="nav-item"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg><span>Class Routine</span></a>
+        <a href="faculty-students.html" class="nav-item"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg><span>Student List</span></a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">Assessment</div>
+        <a href="faculty-result-management.html" class="nav-item"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg><span>Result Management</span></a>
+        <a href="faculty-attendance.html" class="nav-item"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg><span>Attendance</span></a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">HR</div>
+        <a href="faculty-leave.html" class="nav-item"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg><span>Leave Management</span></a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">Account</div>
+        <a href="faculty-profile.html" class="nav-item active"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg><span>Profile</span></a>
+        <a href="login.html" class="nav-item" onclick="localStorage.removeItem('portal_token');sessionStorage.removeItem('portal_token');"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg><span>Logout</span></a>
+      </div>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="sidebar-user">
+        <div class="sidebar-avatar" style="background:#10b981;">HR</div>
+        <div class="sidebar-user-info">
+          <div class="sidebar-user-name">Dr. Md. Hafizur Rahman</div>
+          <div class="sidebar-user-role">Associate Professor</div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <header class="header">
+      <div class="header-left">
+        <button class="menu-toggle" onclick="document.querySelector('.sidebar').classList.toggle('open');document.querySelector('.sidebar-overlay').classList.toggle('active');"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+        <div class="breadcrumb"><a href="faculty-dashboard.html">Dashboard</a><span class="breadcrumb-separator">/</span><span>Profile</span></div>
+      </div>
+      <div class="header-right"><div class="header-avatar" style="background:#10b981;">HR</div></div>
+    </header>
+
+    <div class="content">
+      <div class="section-header">
+        <div>
+          <h1 class="page-title">Faculty Profile</h1>
+          <p class="text-secondary mt-1">View and manage your personal and academic information</p>
+        </div>
+        <button class="btn btn-secondary" onclick="toggleEdit()">Edit Profile</button>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 2fr;gap:1.5rem;">
+
+        <!-- Left: Profile Card -->
+        <div>
+          <div class="card profile-card mb-4" style="padding:0;overflow:hidden;">
+            <div class="profile-cover"></div>
+            <div class="profile-info">
+              <div class="profile-avatar">HR</div>
+              <div style="margin-top: 8px;">
+                <h2 style="font-size:1.2rem;font-weight:700;" id="pf-name">Dr. Md. Hafizur Rahman</h2>
+                <p style="color:#10b981;font-weight:500;font-size:0.875rem;" id="pf-designation">Associate Professor</p>
+                <p style="color:#6b7280;font-size:0.8rem;margin-top:2px;" id="pf-dept">Computer Science & Engineering</p>
+              </div>
+              <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:1.5rem;">
+                <div class="stat-box"><div class="stat-num" id="pf-pub">24</div><div class="stat-label">Publications</div></div>
+                <div class="stat-box"><div class="stat-num" id="pf-h">8</div><div class="stat-label">H-Index</div></div>
+                <div class="stat-box"><div class="stat-num" id="pf-proj">2</div><div class="stat-label">Projects</div></div>
+              </div>
+
+              <!-- 1Card / Digital ID -->
+              <div style="margin-top:1.5rem;background:#1e293b;border-radius:12px;padding:16px;color:white;">
+                <div style="font-size:0.65rem;letter-spacing:1px;opacity:0.6;margin-bottom:8px;">DIU FACULTY ID CARD</div>
+                <div style="font-weight:700;font-size:1rem;">Dr. Md. Hafizur Rahman</div>
+                <div style="font-size:0.8rem;opacity:0.7;margin-top:2px;">FAC-1001</div>
+                <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-top:12px;">
+                  <div>
+                    <div style="font-size:0.7rem;opacity:0.6;">Department</div>
+                    <div style="font-size:0.8rem;">CSE</div>
+                  </div>
+                  <div style="text-align:center;">
+                    <div style="width:48px;height:48px;background:white;border-radius:6px;display:flex;align-items:center;justify-content:center;">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1e293b" stroke-width="1.5"><rect x="3" y="3" width="5" height="5"></rect><rect x="16" y="3" width="5" height="5"></rect><rect x="3" y="16" width="5" height="5"></rect><path d="M21 16h-3a2 2 0 0 0-2 2v3"></path><path d="M21 21v.01"></path><path d="M12 7v3a2 2 0 0 1-2 2H7"></path><path d="M3 12h.01"></path><path d="M12 3h.01"></path><path d="M12 16v.01"></path><path d="M16 12h1"></path><path d="M21 12v.01"></path><path d="M12 21v-1"></path></svg>
+                    </div>
+                    <div style="font-size:0.6rem;opacity:0.6;margin-top:4px;">1Card QR</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Details -->
+        <div>
+          <!-- Contact & Personal Info -->
+          <div class="card mb-4">
+            <div class="card-header"><h3 class="card-title">Personal Information</h3></div>
+            <div class="card-body">
+              <div class="info-row">
+                <div class="info-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div>
+                <div><div class="info-label">Faculty ID</div><div class="info-value">FAC-1001</div></div>
+              </div>
+              <div class="info-row">
+                <div class="info-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></div>
+                <div><div class="info-label">Email</div><div class="info-value">hafizur@diu.edu.bd</div></div>
+              </div>
+              <div class="info-row">
+                <div class="info-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.28 2 2 0 0 1 3.58 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.81 6.81l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></div>
+                <div><div class="info-label">Phone</div><div class="info-value">+880 1712-345678</div></div>
+              </div>
+              <div class="info-row">
+                <div class="info-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg></div>
+                <div><div class="info-label">Office Room</div><div class="info-value">AB5-710</div></div>
+              </div>
+              <div class="info-row">
+                <div class="info-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 10"></polyline></svg></div>
+                <div><div class="info-label">Office Hours</div><div class="info-value">Sat–Mon, 10:00 AM – 12:00 PM</div></div>
+              </div>
+              <div class="info-row">
+                <div class="info-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></div>
+                <div><div class="info-label">Joined</div><div class="info-value">March 15, 2012</div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Academic Profile -->
+          <div class="card mb-4">
+            <div class="card-header"><h3 class="card-title">Academic Profile</h3></div>
+            <div class="card-body">
+              <div class="info-row">
+                <div class="info-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg></div>
+                <div><div class="info-label">Qualifications</div><div class="info-value">PhD in Computer Science (2010), M.Sc. CSE (2005), B.Sc. CSE (2003)</div></div>
+              </div>
+              <div class="info-row">
+                <div class="info-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></div>
+                <div>
+                  <div class="info-label">Research Interests</div>
+                  <div style="margin-top:6px;">
+                    <span class="tag">Database Systems</span>
+                    <span class="tag">Machine Learning</span>
+                    <span class="tag">Cloud Computing</span>
+                    <span class="tag">Big Data Analytics</span>
+                  </div>
+                </div>
+              </div>
+              <div class="info-row">
+                <div class="info-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg></div>
+                <div><div class="info-label">Faculty</div><div class="info-value">Faculty of Science & Information Technology</div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Change Password -->
+          <div class="card" id="edit-section" style="display:none;">
+            <div class="card-header"><h3 class="card-title">Change Password</h3></div>
+            <div class="card-body">
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+                <div class="form-group">
+                  <label class="form-label">Current Password</label>
+                  <input type="password" class="form-input" placeholder="••••••••">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">New Password</label>
+                  <input type="password" class="form-input" placeholder="••••••••">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Confirm New Password</label>
+                  <input type="password" class="form-input" placeholder="••••••••">
+                </div>
+              </div>
+              <button class="btn" style="background:#10b981;color:white;border-color:#10b981;" onclick="alert('Password updated successfully!')">Update Password</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="assets/data/faculty-data.js"></script>
+<script>
+  document.querySelector('.sidebar-overlay').addEventListener('click', function() {
+    document.querySelector('.sidebar').classList.remove('open');
+    this.classList.remove('active');
+  });
+  function toggleEdit() {
+    const s = document.getElementById('edit-section');
+    s.style.display = s.style.display === 'none' ? 'block' : 'none';
+  }
+</script>
+</body>
+</html>

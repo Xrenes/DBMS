@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Result Management | Faculty Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <style>
+    .marks-input { width: 70px; padding: 4px 8px; border: 1px solid var(--border); border-radius: 6px; font-size: 0.875rem; text-align: center; }
+    .marks-input:focus { outline: none; border-color: #10b981; box-shadow: 0 0 0 3px rgba(16,185,129,0.15); }
+    .marks-input.error { border-color: var(--danger); background: #fee2e2; }
+    .grade-badge { display: inline-block; padding: 2px 10px; border-radius: 9999px; font-size: 0.75rem; font-weight: 700; }
+    .grade-A { background: #d1fae5; color: #065f46; }
+    .grade-B { background: #dbeafe; color: #1e40af; }
+    .grade-C { background: #fef3c7; color: #92400e; }
+    .grade-D { background: #ffedd5; color: #c2410c; }
+    .grade-F { background: #fee2e2; color: #991b1b; }
+    .sticky-header th { position: sticky; top: 0; background: #f9fafb; z-index: 1; }
+    .alert-banner { padding: 12px 16px; border-radius: 8px; margin-bottom: 1rem; font-size: 0.875rem; }
+    .alert-warning { background: #fef3c7; color: #92400e; border-left: 4px solid #f59e0b; }
+    .alert-success { background: #d1fae5; color: #065f46; border-left: 4px solid #10b981; }
+  </style>
+</head>
+<body>
+<div class="app-container">
+  <div class="sidebar-overlay"></div>
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-logo" style="background:#10b981;">FP</div>
+      <div><div class="sidebar-title">Faculty Portal</div><div class="sidebar-subtitle">Teacher Dashboard</div></div>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-section">
+        <div class="nav-section-title">Main</div>
+        <a href="faculty-dashboard.html" class="nav-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+          <span>Dashboard</span>
+        </a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">Teaching</div>
+        <a href="faculty-courses.html" class="nav-item"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg><span>My Courses</span></a>
+        <a href="faculty-routine.html" class="nav-item"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg><span>Class Routine</span></a>
+        <a href="faculty-students.html" class="nav-item"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg><span>Student List</span></a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">Assessment</div>
+        <a href="faculty-result-management.html" class="nav-item active"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg><span>Result Management</span><span class="nav-badge">3 Due</span></a>
+        <a href="faculty-attendance.html" class="nav-item"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg><span>Attendance</span><span class="nav-badge">1 Due</span></a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">HR</div>
+        <a href="faculty-leave.html" class="nav-item"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg><span>Leave Management</span></a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">Account</div>
+        <a href="faculty-profile.html" class="nav-item"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg><span>Profile</span></a>
+        <a href="login.html" class="nav-item" onclick="localStorage.removeItem('portal_token');sessionStorage.removeItem('portal_token');"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg><span>Logout</span></a>
+      </div>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="sidebar-user">
+        <div class="sidebar-avatar" style="background:#10b981;">HR</div>
+        <div class="sidebar-user-info">
+          <div class="sidebar-user-name">Dr. Md. Hafizur Rahman</div>
+          <div class="sidebar-user-role">Associate Professor</div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <header class="header">
+      <div class="header-left">
+        <button class="menu-toggle" onclick="document.querySelector('.sidebar').classList.toggle('open');document.querySelector('.sidebar-overlay').classList.toggle('active');"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+        <div class="breadcrumb"><a href="faculty-dashboard.html">Dashboard</a><span class="breadcrumb-separator">/</span><span>Result Management</span></div>
+      </div>
+      <div class="header-right">
+        <div class="header-avatar" style="background:#10b981;">HR</div>
+      </div>
+    </header>
+
+    <div class="content">
+      <div class="section-header">
+        <div>
+          <h1 class="page-title">Result Management</h1>
+          <p class="text-secondary mt-1">Enter and submit student marks for your assigned courses</p>
+        </div>
+      </div>
+
+      <!-- Course Selector -->
+      <div class="card mb-4">
+        <div class="card-body">
+          <div style="display:flex;flex-wrap:wrap;gap:1rem;align-items:flex-end;">
+            <div style="flex:1;min-width:200px;">
+              <label class="form-label">Select Course</label>
+              <select class="form-input" id="course-select" onchange="loadCourse()">
+                <option value="">— Choose a course —</option>
+              </select>
+            </div>
+            <div style="flex:1;min-width:200px;">
+              <label class="form-label">Semester</label>
+              <input class="form-input" value="Spring 2025" disabled>
+            </div>
+            <div>
+              <button class="btn" style="background:#10b981;color:white;border-color:#10b981;" onclick="submitAllResults()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:6px;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Submit Results
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Grade scale info -->
+      <div class="card mb-4" id="grade-info" style="display:none;">
+        <div class="card-header">
+          <h3 class="card-title">Marks Distribution</h3>
+          <span class="badge badge-info">Total: 100 marks</span>
+        </div>
+        <div class="card-body">
+          <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+            <div style="background:#f9fafb;border-radius:8px;padding:12px 16px;min-width:130px;text-align:center;">
+              <div style="font-size:0.75rem;color:#6b7280;">Attendance</div>
+              <div style="font-size:1.5rem;font-weight:700;color:#10b981;">10</div>
+            </div>
+            <div style="background:#f9fafb;border-radius:8px;padding:12px 16px;min-width:130px;text-align:center;">
+              <div style="font-size:0.75rem;color:#6b7280;">Assignment/Quiz</div>
+              <div style="font-size:1.5rem;font-weight:700;color:#2563eb;">20</div>
+            </div>
+            <div style="background:#f9fafb;border-radius:8px;padding:12px 16px;min-width:130px;text-align:center;">
+              <div style="font-size:0.75rem;color:#6b7280;">Midterm</div>
+              <div style="font-size:1.5rem;font-weight:700;color:#8b5cf6;">40</div>
+            </div>
+            <div style="background:#f9fafb;border-radius:8px;padding:12px 16px;min-width:130px;text-align:center;">
+              <div style="font-size:0.75rem;color:#6b7280;">Final Exam</div>
+              <div style="font-size:1.5rem;font-weight:700;color:#f59e0b;">30</div>
+
+            </div>
+            <div style="background:#1e293b;border-radius:8px;padding:12px 16px;min-width:130px;text-align:center;">
+              <div style="font-size:0.75rem;color:#94a3b8;">Total</div>
+              <div style="font-size:1.5rem;font-weight:700;color:white;">100</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Status banner -->
+      <div id="status-banner" class="alert-banner alert-warning" style="display:none;"></div>
+
+      <!-- Marks Table -->
+      <div class="card" id="marks-card" style="display:none;">
+        <div class="card-header">
+          <h3 class="card-title" id="marks-title">Student Marks</h3>
+          <div style="display:flex;gap:8px;">
+            <button class="btn btn-secondary" onclick="saveLocal()" style="font-size:0.8rem;padding:4px 12px;">Save Draft</button>
+            <button class="btn" style="background:#10b981;color:white;border-color:#10b981;font-size:0.8rem;padding:4px 12px;" onclick="submitAllResults()">Submit</button>
+          </div>
+        </div>
+        <div class="card-body" style="padding:0;overflow-x:auto;">
+          <table class="table sticky-header">
+            <thead>
+              <tr>
+                <th style="min-width:120px;">Student ID</th>
+                <th style="min-width:160px;">Name</th>
+                <th style="text-align:center;">Attend.<br><small style="font-weight:400;color:#9ca3af;">/10</small></th>
+                <th style="text-align:center;">Assign.<br><small style="font-weight:400;color:#9ca3af;">/20</small></th>
+                <th style="text-align:center;">Midterm<br><small style="font-weight:400;color:#9ca3af;">/40</small></th>
+                <th style="text-align:center;">Final<br><small style="font-weight:400;color:#9ca3af;">/30</small></th>
+                <th style="text-align:center;">Total<br><small style="font-weight:400;color:#9ca3af;">/100</small></th>
+                <th style="text-align:center;">Grade</th>
+              </tr>
+            </thead>
+            <tbody id="marks-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Empty state -->
+      <div id="empty-state" class="card" style="text-align:center;padding:3rem;">
+        <div style="font-size:3rem;margin-bottom:1rem;">📋</div>
+        <h3 style="margin-bottom:0.5rem;">Select a Course</h3>
+        <p class="text-secondary">Choose a course from the dropdown above to enter or update student marks.</p>
+      </div>
+    </div>
+  </main>
+</div>
+
+<!-- Submit Confirmation Modal -->
+<div class="modal-overlay" id="submit-modal" style="display:none;">
+  <div class="modal" style="max-width:480px;">
+    <div class="modal-header">
+      <h3 class="modal-title">Confirm Submission</h3>
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+    </div>
+    <div class="modal-body">
+      <p style="margin-bottom:1rem;" id="submit-modal-msg">Are you sure you want to submit these results? Once submitted, marks cannot be changed without department approval.</p>
+      <div class="alert-banner alert-warning">
+        <strong>⚠ Note:</strong> Ensure all marks are correctly entered before submitting. This action will be logged.
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+      <button class="btn" style="background:#10b981;color:white;border-color:#10b981;" onclick="confirmSubmit()">Confirm & Submit</button>
+    </div>
+  </div>
+</div>
+
+<script src="assets/data/faculty-data.js"></script>
+<script>
+  document.querySelector('.sidebar-overlay').addEventListener('click', function() {
+    document.querySelector('.sidebar').classList.remove('open');
+    this.classList.remove('active');
+  });
+
+  const data = facultyData;
+  const select = document.getElementById('course-select');
+
+  // Populate courses
+  data.courses.forEach(c => {
+    const opt = document.createElement('option');
+    opt.value = c.id;
+    opt.textContent = `${c.code} — ${c.name} (Sec ${c.section})`;
+    select.appendChild(opt);
+  });
+
+  let currentStudents = [];
+  let currentCourse = null;
+
+  function loadCourse() {
+    const cid = select.value;
+    if (!cid) {
+      document.getElementById('empty-state').style.display = 'block';
+      document.getElementById('marks-card').style.display = 'none';
+      document.getElementById('grade-info').style.display = 'none';
+      document.getElementById('status-banner').style.display = 'none';
+      return;
+    }
+    currentCourse = data.courses.find(c => c.id === cid);
+    currentStudents = data.students[cid.replace('B','').replace('CSE401B','CSE401')] || data.students['CSE401'] || [];
+
+    // Determine key
+    let key = cid;
+    if (!data.students[key]) {
+      // Try base key
+      const baseKeys = Object.keys(data.students);
+      key = baseKeys.find(k => cid.startsWith(k)) || baseKeys[0];
+    }
+    currentStudents = data.students[key] ? [...data.students[key]] : [];
+
+    document.getElementById('empty-state').style.display = 'none';
+    document.getElementById('marks-card').style.display = 'block';
+    document.getElementById('grade-info').style.display = 'block';
+    document.getElementById('marks-title').textContent = `${currentCourse.code} — ${currentCourse.name} (Sec ${currentCourse.section}) — ${currentStudents.length} Students`;
+
+    // Status banner
+    const banner = document.getElementById('status-banner');
+    if (currentCourse.resultSubmitted) {
+      banner.className = 'alert-banner alert-success';
+      banner.textContent = '✓ Results for this course have already been submitted.';
+      banner.style.display = 'block';
+    } else {
+      banner.className = 'alert-banner alert-warning';
+      banner.textContent = '⚠ Results pending submission. Deadline: April 20, 2025.';
+      banner.style.display = 'block';
+    }
+
+    renderTable();
+  }
+
+  function calcTotal(s) {
+    const a = parseFloat(s.attendance) || 0;
+    const q = parseFloat(s.assign) || 0;
+    const m = parseFloat(s.midterm) || 0;
+    const f = parseFloat(s.final) || 0;
+    if (s.final === null) return null;
+    return a + q + m + f;
+  }
+
+  function gradeClass(letter) {
+    if (!letter) return '';
+    if (letter.startsWith('A')) return 'grade-A';
+    if (letter.startsWith('B')) return 'grade-B';
+    if (letter.startsWith('C')) return 'grade-C';
+    if (letter === 'D') return 'grade-D';
+    return 'grade-F';
+  }
+
+  function renderTable() {
+    const tbody = document.getElementById('marks-tbody');
+    tbody.innerHTML = currentStudents.map((s, i) => {
+      const total = calcTotal(s);
+      const grade = total !== null ? getLetterGrade(total) : null;
+      return `<tr>
+        <td style="font-size:0.8rem;color:#6b7280;">${s.id}</td>
+        <td style="font-weight:500;">${s.name}</td>
+        <td style="text-align:center;"><input type="number" class="marks-input" min="0" max="10" value="${s.attendance ?? ''}" oninput="updateMark(${i},'attendance',this)" onblur="validateInput(this,0,10)"></td>
+        <td style="text-align:center;"><input type="number" class="marks-input" min="0" max="20" value="${s.assign ?? ''}" oninput="updateMark(${i},'assign',this)" onblur="validateInput(this,0,20)"></td>
+        <td style="text-align:center;"><input type="number" class="marks-input" min="0" max="40" value="${s.midterm ?? ''}" oninput="updateMark(${i},'midterm',this)" onblur="validateInput(this,0,40)"></td>
+        <td style="text-align:center;"><input type="number" class="marks-input" min="0" max="30" value="${s.final ?? ''}" oninput="updateMark(${i},'final',this)" onblur="validateInput(this,0,30)"></td>
+        <td style="text-align:center;font-weight:700;color:${total!==null?(total>=60?'#059669':total>=40?'#f59e0b':'#ef4444'):'#9ca3af'}" id="total-${i}">${total !== null ? total : '—'}</td>
+        <td style="text-align:center;" id="grade-${i}">${grade ? `<span class="grade-badge ${gradeClass(grade.letter)}">${grade.letter}</span>` : '<span style="color:#9ca3af;">—</span>'}</td>
+      </tr>`;
+    }).join('');
+  }
+
+  function updateMark(idx, field, input) {
+    currentStudents[idx][field] = input.value === '' ? null : parseFloat(input.value);
+    const total = calcTotal(currentStudents[idx]);
+    const grade = total !== null ? getLetterGrade(total) : null;
+    const totalEl = document.getElementById('total-' + idx);
+    const gradeEl = document.getElementById('grade-' + idx);
+    totalEl.textContent = total !== null ? total : '—';
+    totalEl.style.color = total !== null ? (total >= 60 ? '#059669' : total >= 40 ? '#f59e0b' : '#ef4444') : '#9ca3af';
+    gradeEl.innerHTML = grade ? `<span class="grade-badge ${gradeClass(grade.letter)}">${grade.letter}</span>` : '<span style="color:#9ca3af;">—</span>';
+  }
+
+  function validateInput(input, min, max) {
+    const val = parseFloat(input.value);
+    if (input.value !== '' && (isNaN(val) || val < min || val > max)) {
+      input.classList.add('error');
+      input.title = `Value must be between ${min} and ${max}`;
+    } else {
+      input.classList.remove('error');
+      input.title = '';
+    }
+  }
+
+  function saveLocal() {
+    alert('Draft saved locally! (In production, this would auto-save to the server.)');
+  }
+
+  function submitAllResults() {
+    document.getElementById('submit-modal').style.display = 'flex';
+  }
+
+  function closeModal() {
+    document.getElementById('submit-modal').style.display = 'none';
+  }
+
+  function confirmSubmit() {
+    closeModal();
+    if (currentCourse) currentCourse.resultSubmitted = true;
+    const banner = document.getElementById('status-banner');
+    banner.className = 'alert-banner alert-success';
+    banner.textContent = '✓ Results submitted successfully! Students will be notified.';
+    banner.style.display = 'block';
+    // Update badge in sidebar
+    document.querySelectorAll('.nav-badge').forEach(b => { if (b.textContent.includes('Due')) b.textContent = '2 Due'; });
+  }
+
+  document.getElementById('submit-modal').addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+  });
+</script>
+</body>
+</html>

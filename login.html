@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Student Portal - Login">
+  <title>Login | Student Portal</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    :root {
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --primary-light: #dbeafe;
+      --bg-page: #f5f6f8;
+      --bg-card: #ffffff;
+      --text-primary: #1f2937;
+      --text-secondary: #6b7280;
+      --text-muted: #9ca3af;
+      --border: #e5e7eb;
+      --success: #10b981;
+      --success-light: #d1fae5;
+      --warning: #f59e0b;
+      --warning-light: #fef3c7;
+      --danger: #ef4444;
+      --info: #8b5cf6;
+      --info-light: #ede9fe;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --radius-xl: 16px;
+      --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+      --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+    }
+    
+    html { font-size: 16px; }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: 0.875rem;
+      line-height: 1.5;
+      color: var(--text-primary);
+      background: linear-gradient(135deg, #1e293b 0%, #0f172a 50%, #1e293b 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    
+    .login-container {
+      width: 100%;
+      max-width: 560px;
+    }
+    
+    .login-brand {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+    
+    .login-logo {
+      width: 72px;
+      height: 72px;
+      background: var(--primary);
+      border-radius: var(--radius-lg);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 2rem;
+      color: white;
+      margin-bottom: 16px;
+      box-shadow: 0 8px 32px rgba(37, 99, 235, 0.3);
+    }
+    
+    .login-brand h1 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 4px;
+    }
+    
+    .login-brand p {
+      color: var(--text-muted);
+      font-size: 0.9375rem;
+    }
+    
+    .role-heading {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    
+    .role-heading h2 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 4px;
+    }
+    
+    .role-heading p {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+    }
+    
+    .role-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    
+    .role-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-xl);
+      padding: 32px 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 250ms ease;
+      border: 2px solid transparent;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+    
+    .role-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-xl);
+    }
+    
+    .role-card:hover .role-icon { transform: scale(1.1); }
+    
+    .role-card.student:hover { border-color: var(--primary); }
+    .role-card.faculty:hover { border-color: var(--success); }
+    .role-card.admin:hover { border-color: var(--info); }
+    
+    .role-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      transition: transform 250ms ease;
+    }
+    
+    .role-card.student .role-icon { background: var(--primary-light); color: var(--primary); }
+    .role-card.faculty .role-icon { background: var(--success-light); color: var(--success); }
+    .role-card.admin .role-icon { background: var(--info-light); color: var(--info); }
+    
+    .role-card h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    
+    .role-card p {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      line-height: 1.4;
+    }
+    
+    .role-arrow {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 16px;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      transition: all 250ms ease;
+    }
+    
+    .role-card.student .role-arrow { background: var(--primary-light); color: var(--primary); }
+    .role-card.faculty .role-arrow { background: var(--success-light); color: var(--success); }
+    .role-card.admin .role-arrow { background: var(--info-light); color: var(--info); }
+    
+    .role-card:hover .role-arrow { transform: translateX(4px); }
+    
+    .login-footer {
+      text-align: center;
+      margin-top: 32px;
+      color: var(--text-muted);
+      font-size: 0.8125rem;
+    }
+    
+    @media (max-width: 560px) {
+      .role-grid { grid-template-columns: 1fr; max-width: 300px; margin: 0 auto; }
+      .role-card { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <div class="login-brand">
+      <div class="login-logo">SP</div>
+      <h1>Student Portal</h1>
+      <p>Daffodil International University</p>
+    </div>
+    
+    <div class="role-heading">
+      <h2>Choose Your Role</h2>
+      <p>Select your role to continue to the login page</p>
+    </div>
+    
+    <div class="role-grid">
+      <a href="login-student.html" class="role-card student">
+        <div class="role-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path></svg>
+        </div>
+        <h3>Student</h3>
+        <p>Access results, attendance, registration & more</p>
+        <div class="role-arrow">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </div>
+      </a>
+      
+      <a href="login-faculty.html" class="role-card faculty">
+        <div class="role-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+        </div>
+        <h3>Faculty</h3>
+        <p>Manage courses, grades, attendance & advising</p>
+        <div class="role-arrow">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </div>
+      </a>
+      
+      <a href="login-admin.html" class="role-card admin">
+        <div class="role-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+        </div>
+        <h3>Admin</h3>
+        <p>System management, reports & configuration</p>
+        <div class="role-arrow">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </div>
+      </a>
+    </div>
+    
+    <div class="login-footer">
+      <p>&copy; 2026 Daffodil International University. All rights reserved.</p>
+    </div>
+  </div>
+  
+  <script>
+    // If already logged in, redirect
+    (function() {
+      const token = localStorage.getItem('portal_token') || sessionStorage.getItem('portal_token');
+      if (token) {
+        const user = JSON.parse(localStorage.getItem('portal_user') || sessionStorage.getItem('portal_user') || '{}');
+        if (user.role === 'faculty') window.location.href = 'index.html';
+        else if (user.role === 'admin') window.location.href = 'admin-panel.html';
+        else window.location.href = 'index.html';
+      }
+    })();
+  </script>
+</body>
+</html>
