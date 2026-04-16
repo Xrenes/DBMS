@@ -6,8 +6,10 @@ A full-stack university student portal with a Metabase-style **Admin Query Build
 
 | Page | URL |
 |------|-----|
-| 🏠 **Student Portal** | [xrenes.github.io/DBMS](https://xrenes.github.io/DBMS/index.html) |
-| 🛠️ **Admin Query Builder** | [xrenes.github.io/DBMS/admin-panel.html](https://xrenes.github.io/DBMS/admin-panel.html) |
+| 🏠 **Login** | [xrenes.github.io/DBMS/login.html](https://xrenes.github.io/DBMS/login.html) |
+| 🎓 **Student Portal** | [xrenes.github.io/DBMS/index.html](https://xrenes.github.io/DBMS/index.html) |
+| 👨‍🏫 **Faculty Portal** | [xrenes.github.io/DBMS/faculty-dashboard.html](https://xrenes.github.io/DBMS/faculty-dashboard.html) |
+| 🛠️ **Admin Panel** | [xrenes.github.io/DBMS/admin-panel.html](https://xrenes.github.io/DBMS/admin-panel.html) |
 | 📊 Results | [xrenes.github.io/DBMS/results.html](https://xrenes.github.io/DBMS/results.html) |
 | 📅 Attendance | [xrenes.github.io/DBMS/attendance.html](https://xrenes.github.io/DBMS/attendance.html) |
 | 💰 Finance | [xrenes.github.io/DBMS/finance.html](https://xrenes.github.io/DBMS/finance.html) |
