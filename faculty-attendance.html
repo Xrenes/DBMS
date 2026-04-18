@@ -13,11 +13,9 @@
     .att-btn { width: 38px; height: 28px; border: 2px solid transparent; border-radius: 6px; font-size: 0.75rem; font-weight: 700; cursor: pointer; transition: all 0.15s; }
     .att-P { background: #d1fae5; color: #059669; border-color: #6ee7b7; }
     .att-A { background: #fee2e2; color: #991b1b; border-color: #fca5a5; }
-    .att-L { background: #fef3c7; color: #92400e; border-color: #fde68a; }
     .att-btn.selected { box-shadow: 0 0 0 3px rgba(16,185,129,0.3); transform: scale(1.1); }
     .att-btn.selected.att-P { box-shadow: 0 0 0 3px rgba(16,185,129,0.4); }
     .att-btn.selected.att-A { box-shadow: 0 0 0 3px rgba(239,68,68,0.4); }
-    .att-btn.selected.att-L { box-shadow: 0 0 0 3px rgba(245,158,11,0.4); }
     .att-pct { font-size: 0.8rem; font-weight: 600; }
     .att-pct.low { color: #ef4444; }
     .att-pct.warn { color: #f59e0b; }
@@ -117,7 +115,6 @@
       <div style="display:flex;gap:1rem;margin-bottom:1rem;flex-wrap:wrap;" id="legend" style="display:none;">
         <span><span class="legend-dot" style="background:#d1fae5;border:2px solid #6ee7b7;"></span>P = Present</span>
         <span><span class="legend-dot" style="background:#fee2e2;border:2px solid #fca5a5;"></span>A = Absent</span>
-        <span><span class="legend-dot" style="background:#fef3c7;border:2px solid #fde68a;"></span>L = Late</span>
         <span style="margin-left:auto;color:#ef4444;font-size:0.8rem;" id="shortage-count"></span>
       </div>
 
@@ -252,7 +249,6 @@
           <div style="display:flex;gap:4px;justify-content:center;">
             <button class="att-btn att-P ${s.status==='P'?'selected':''}" onclick="setStatus(${i},'P',this)">P</button>
             <button class="att-btn att-A ${s.status==='A'?'selected':''}" onclick="setStatus(${i},'A',this)">A</button>
-            <button class="att-btn att-L ${s.status==='L'?'selected':''}" onclick="setStatus(${i},'L',this)">L</button>
           </div>
         </td>
         <td style="text-align:center;" id="tp-${i}">${s.totalPresent} / ${tc}</td>
@@ -265,9 +261,9 @@
   function setStatus(idx, status, btn) {
     const prev = currentStudents[idx].status;
     currentStudents[idx].status = status;
-    // Update present count: if changing from P/L to A, decrement; if changing to P/L from A, increment
-    if ((prev === 'P' || prev === 'L') && status === 'A') currentStudents[idx].totalPresent = Math.max(0, currentStudents[idx].totalPresent - 1);
-    if (prev === 'A' && (status === 'P' || status === 'L')) currentStudents[idx].totalPresent++;
+    // Update present count
+    if (prev === 'P' && status === 'A') currentStudents[idx].totalPresent = Math.max(0, currentStudents[idx].totalPresent - 1);
+    if (prev === 'A' && status === 'P') currentStudents[idx].totalPresent++;
 
     // Update button states
     const row = btn.closest('tr');
@@ -291,8 +287,8 @@
       const prev = s.status;
       if (prev !== status) {
         s.status = status;
-        if ((prev === 'P' || prev === 'L') && status === 'A') s.totalPresent = Math.max(0, s.totalPresent - 1);
-        if (prev === 'A' && (status === 'P' || status === 'L')) s.totalPresent++;
+        if (prev === 'P' && status === 'A') s.totalPresent = Math.max(0, s.totalPresent - 1);
+        if (prev === 'A' && status === 'P') s.totalPresent++;
       }
     });
     renderTable();
@@ -300,7 +296,7 @@
   }
 
   function updateSummary() {
-    const present = currentStudents.filter(s => s.status === 'P' || s.status === 'L').length;
+    const present = currentStudents.filter(s => s.status === 'P').length;
     const absent = currentStudents.filter(s => s.status === 'A').length;
     const tc = parseInt(document.getElementById('class-no').value) || totalClasses;
     const shortage = currentStudents.filter(s => Math.round(s.totalPresent / tc * 100) < 75).length;
