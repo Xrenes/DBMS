@@ -193,7 +193,12 @@
 
     (function() {
       const token = localStorage.getItem('portal_token') || sessionStorage.getItem('portal_token');
-      if (token) { window.location.href = REDIRECT; }
+      if (token) {
+        try {
+          const user = JSON.parse(localStorage.getItem('portal_user') || sessionStorage.getItem('portal_user') || 'null');
+          if (user && user.role === ROLE) { window.location.href = REDIRECT; return; }
+        } catch(e) {}
+      }
     })();
 
     function togglePassword() {

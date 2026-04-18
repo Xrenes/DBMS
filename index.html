@@ -7,7 +7,13 @@
   <script>
     (function(){
       var token = localStorage.getItem('portal_token') || sessionStorage.getItem('portal_token');
-      if (!token) { window.location.replace('login.html'); }
+      if (!token) { window.location.replace('login.html'); return; }
+      try {
+        var user = JSON.parse(localStorage.getItem('portal_user') || sessionStorage.getItem('portal_user') || 'null');
+        if (!user || !user.role) { window.location.replace('login.html'); return; }
+        if (user.role === 'faculty') { window.location.replace('faculty-dashboard.html'); return; }
+        if (user.role === 'admin') { window.location.replace('admin-panel.html'); return; }
+      } catch(e) { window.location.replace('login.html'); }
     })();
   </script>
   <meta name="description" content="Student Portal Dashboard - View your academic progress, attendance, and more">
