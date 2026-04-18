@@ -6,6 +6,8 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
+const helmet = require('helmet');
+const rateLimit = require('express-rate-limit');
 const { pool, testConnection } = require('./config/db');
 
 // Import routes
@@ -25,12 +27,44 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middleware
+
+// Security headers (clickjacking, XSS, MIME-sniffing, etc.)
+app.use(helmet());
+
+// CORS — restrict to specific origins
+const allowedOrigins = (process.env.CORS_ORIGIN || 'http://localhost:5500,http://127.0.0.1:5500').split(',').map(o => o.trim());
 app.use(cors({
-  origin: process.env.CORS_ORIGIN || '*',
+  origin: function(origin, callback) {
+    // Allow requests with no origin (curl, Postman, server-to-server)
+    if (!origin || allowedOrigins.includes(origin)) return callback(null, true);
+    callback(new Error('Not allowed by CORS'));
+  },
   credentials: true
 }));
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+
+// Rate limiting — global: 100 req/15min per IP
+const globalLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 100,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { success: false, message: 'Too many requests, please try again later.' }
+});
+app.use(globalLimiter);
+
+// Strict rate limit on auth routes — 10 req/15min per IP
+const authLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 10,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { success: false, message: 'Too many login attempts, please try again after 15 minutes.' }
+});
+app.use('/api/auth/login', authLimiter);
+app.use('/api/auth/change-password', authLimiter);
+
+app.use(express.json({ limit: '1mb' }));
+app.use(express.urlencoded({ extended: true, limit: '1mb' }));
 
 // Request logging middleware
 app.use((req, res, next) => {
