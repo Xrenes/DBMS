@@ -1,23 +1,28 @@
-# How to push this project to GitHub
+# Pushing updates to GitHub
 
-Option A — You have a remote URL (simplest):
+## Repository
+- **GitHub Repo:** https://github.com/Xrenes/DBMS
+- **Live Site (GitHub Pages):** https://xrenes.github.io/DBMS/
+- **Branch:** `master`
 
-```powershell
-cd C:\Users\HomePC\Documents\DBMS-main
-git remote add origin https://github.com/USERNAME/REPO.git
-git push -u origin main
-```
-
-Option B — Use the helper script to create a repo via GitHub API (requires a PAT):
+## Push updates
 
 ```powershell
-# set token in environment for the session
-$env:GITHUB_TOKEN = "ghp_..."
-# create repo named DBMS-main (private) and push
-.
-\tools\push-to-github.ps1 -RepoName "DBMS-main" -Visibility private -Branch main
+cd C:\Users\ifti2\Documents\DBMS-main
+git add -A
+git commit -m "Your commit message"
+git push origin master
 ```
 
-Notes:
-- The token requires `repo` scope for private repos.
-- If you prefer SSH remotes, create the repo on GitHub and use Option A with SSH URL.
+## First-time setup (already done)
+```powershell
+# Remote is already configured:
+git remote -v
+# origin  https://github.com/Xrenes/DBMS.git (fetch)
+# origin  https://github.com/Xrenes/DBMS.git (push)
+```
+
+## GitHub Pages
+- Pages is enabled and served from the `master` branch root.
+- All HTML pages are live at: `https://xrenes.github.io/DBMS/<page>.html`
+- Changes pushed to `master` go live within ~2 minutes.

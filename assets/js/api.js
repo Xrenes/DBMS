@@ -3,8 +3,11 @@
  * Handles all HTTP requests to the backend
  */
 
+// Auto-detect environment: use local backend when running on localhost, demo mode on GitHub Pages
+const _isGitHubPages = window.location.hostname === 'xrenes.github.io';
+
 const API = {
-  baseURL: 'http://localhost:3000/api',
+  baseURL: _isGitHubPages ? null : 'http://localhost:3000/api',
   token: localStorage.getItem('portal_token') || sessionStorage.getItem('portal_token') || localStorage.getItem('authToken') || null,
   
   // Set auth token

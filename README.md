@@ -1,20 +1,55 @@
-# Student Portal — DBMS Project
+# University Academic Management System — DBMS Lab Project
 
-A full-stack university student portal with a Metabase-style **Admin Query Builder** panel.
+A full-stack university student portal with a Metabase-style **Admin Query Builder** panel.  
+**CSE 312: Database Management System Lab** — Group 1, Daffodil International University
 
-## 🔗 Live Links
+## 🔗 Live Links (GitHub Pages)
 
-| Page | URL |
-|------|-----|
+> All pages below are **live** at: **https://xrenes.github.io/DBMS/**  
+> GitHub Repo: **https://github.com/Xrenes/DBMS**
+
+### Student Pages
+| Page | Live URL |
+|------|----------|
 | 🏠 **Login** | [xrenes.github.io/DBMS/login.html](https://xrenes.github.io/DBMS/login.html) |
-| 🎓 **Student Portal** | [xrenes.github.io/DBMS/index.html](https://xrenes.github.io/DBMS/index.html) |
-| 👨‍🏫 **Faculty Portal** | [xrenes.github.io/DBMS/faculty-dashboard.html](https://xrenes.github.io/DBMS/faculty-dashboard.html) |
-| 🛠️ **Admin Panel** | [xrenes.github.io/DBMS/admin-panel.html](https://xrenes.github.io/DBMS/admin-panel.html) |
-| 📊 Results | [xrenes.github.io/DBMS/results.html](https://xrenes.github.io/DBMS/results.html) |
-| 📅 Attendance | [xrenes.github.io/DBMS/attendance.html](https://xrenes.github.io/DBMS/attendance.html) |
-| 💰 Finance | [xrenes.github.io/DBMS/finance.html](https://xrenes.github.io/DBMS/finance.html) |
+| 🎓 **Student Dashboard** | [xrenes.github.io/DBMS/index.html](https://xrenes.github.io/DBMS/index.html) |
+| 📊 **Results** | [xrenes.github.io/DBMS/results.html](https://xrenes.github.io/DBMS/results.html) |
+| 📈 **Live Results** | [xrenes.github.io/DBMS/live-results.html](https://xrenes.github.io/DBMS/live-results.html) |
+| 🎓 **CGPA Calculator** | [xrenes.github.io/DBMS/cgpa.html](https://xrenes.github.io/DBMS/cgpa.html) |
+| 📅 **Attendance** | [xrenes.github.io/DBMS/attendance.html](https://xrenes.github.io/DBMS/attendance.html) |
+| 📆 **Routine** | [xrenes.github.io/DBMS/routine.html](https://xrenes.github.io/DBMS/routine.html) |
+| 📝 **Exam Schedule** | [xrenes.github.io/DBMS/exam-schedule.html](https://xrenes.github.io/DBMS/exam-schedule.html) |
+| 📋 **Registration** | [xrenes.github.io/DBMS/registration.html](https://xrenes.github.io/DBMS/registration.html) |
+| 💰 **Finance** | [xrenes.github.io/DBMS/finance.html](https://xrenes.github.io/DBMS/finance.html) |
+| 🏠 **Hostel** | [xrenes.github.io/DBMS/hostel.html](https://xrenes.github.io/DBMS/hostel.html) |
+| 🚌 **Transport** | [xrenes.github.io/DBMS/transport.html](https://xrenes.github.io/DBMS/transport.html) |
+| ✅ **Clearance** | [xrenes.github.io/DBMS/clearance.html](https://xrenes.github.io/DBMS/clearance.html) |
+| ⭐ **Evaluation** | [xrenes.github.io/DBMS/evaluation.html](https://xrenes.github.io/DBMS/evaluation.html) |
+| 📢 **Notices** | [xrenes.github.io/DBMS/notices.html](https://xrenes.github.io/DBMS/notices.html) |
+| 👤 **Profile** | [xrenes.github.io/DBMS/profile.html](https://xrenes.github.io/DBMS/profile.html) |
 
-> **Note:** The Admin Query Builder requires the Node.js backend running locally (`http://localhost:3000`). See setup instructions below.
+### Faculty Pages
+| Page | Live URL |
+|------|----------|
+| 🔑 **Faculty Login** | [xrenes.github.io/DBMS/login-faculty.html](https://xrenes.github.io/DBMS/login-faculty.html) |
+| 📊 **Faculty Dashboard** | [xrenes.github.io/DBMS/faculty-dashboard.html](https://xrenes.github.io/DBMS/faculty-dashboard.html) |
+| 📚 **Faculty Courses** | [xrenes.github.io/DBMS/faculty-courses.html](https://xrenes.github.io/DBMS/faculty-courses.html) |
+| 📋 **Faculty Attendance** | [xrenes.github.io/DBMS/faculty-attendance.html](https://xrenes.github.io/DBMS/faculty-attendance.html) |
+| 📝 **Result Management** | [xrenes.github.io/DBMS/faculty-result-management.html](https://xrenes.github.io/DBMS/faculty-result-management.html) |
+| 👥 **Faculty Students** | [xrenes.github.io/DBMS/faculty-students.html](https://xrenes.github.io/DBMS/faculty-students.html) |
+| 📅 **Faculty Routine** | [xrenes.github.io/DBMS/faculty-routine.html](https://xrenes.github.io/DBMS/faculty-routine.html) |
+| 🏖️ **Faculty Leave** | [xrenes.github.io/DBMS/faculty-leave.html](https://xrenes.github.io/DBMS/faculty-leave.html) |
+| 👤 **Faculty Profile** | [xrenes.github.io/DBMS/faculty-profile.html](https://xrenes.github.io/DBMS/faculty-profile.html) |
+
+### Admin Pages
+| Page | Live URL |
+|------|----------|
+| 🔑 **Admin Login** | [xrenes.github.io/DBMS/login-admin.html](https://xrenes.github.io/DBMS/login-admin.html) |
+| 🛠️ **Admin Panel (Query Builder)** | [xrenes.github.io/DBMS/admin-panel.html](https://xrenes.github.io/DBMS/admin-panel.html) |
+| 🧪 **API Tester** | [xrenes.github.io/DBMS/api-tester.html](https://xrenes.github.io/DBMS/api-tester.html) |
+| 📄 **Project Report** | [xrenes.github.io/DBMS/Project_Report.html](https://xrenes.github.io/DBMS/Project_Report.html) |
+
+> **Note:** The Admin Query Builder and login authentication require the Node.js backend running locally (`http://localhost:3000`). On GitHub Pages, demo credentials work automatically.
 
 ---
 

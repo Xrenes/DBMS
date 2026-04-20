@@ -1,7 +1,10 @@
 // ==============================================================
 // STATE
 // ==============================================================
-const API = 'http://localhost:3000/api';
+// Auto-detect: GitHub Pages (no backend) vs local dev (backend on port 3000)
+const API = window.location.hostname === 'xrenes.github.io'
+  ? null
+  : 'http://localhost:3000/api';
 let token = localStorage.getItem('admin_token') || '';
 let allTables = [], allViews = [], allProcs = [], allTriggers = [];
 let fkMap = {};       // table -> [{column_name, referenced_table, referenced_column}]

@@ -232,7 +232,9 @@
 
       btn.classList.add('loading'); btn.disabled = true;
       try {
-        const res = await fetch('http://localhost:3000/api/auth/login', {
+        const apiBase = window.location.hostname === 'xrenes.github.io' ? null : 'http://localhost:3000/api';
+        if (!apiBase) throw new Error('GitHub Pages — demo mode only');
+        const res = await fetch(apiBase + '/auth/login', {
           method: 'POST', headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ studentId: userId, password, role: ROLE })
         });

@@ -165,9 +165,12 @@ You'll see the INSERT was automatically logged!
 
 | Component | URL |
 |-----------|-----|
-| **Frontend Dashboard** | http://localhost/student-portal/index.html |
-| **API Tester** | http://localhost/student-portal/api-tester.html |
-| **API Health** | http://localhost:3000/api/health |
+| **Live Site (GitHub Pages)** | https://xrenes.github.io/DBMS/index.html |
+| **Login Page** | https://xrenes.github.io/DBMS/login.html |
+| **Admin Panel** | https://xrenes.github.io/DBMS/admin-panel.html |
+| **Local Frontend** | http://localhost:8080/index.html *(when running locally)* |
+| **API Tester** | https://xrenes.github.io/DBMS/api-tester.html |
+| **API Health (local)** | http://localhost:3000/api/health |
 | **MySQL Workbench** | Connect to 127.0.0.1:3306 |
 
 ---
