@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leave Management | Faculty Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <style>
+    .leave-balance-card { background: white; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 20px; }
+    .balance-header { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 8px; }
+    .balance-days { font-size: 2rem; font-weight: 700; }
+    .balance-sub { font-size: 0.75rem; color: var(--text-muted); margin-top: 2px; }
+    .leave-progress { height: 6px; background: #e5e7eb; border-radius: 9999px; margin-top: 10px; overflow: hidden; }
+    .leave-progress-fill { height: 100%; border-radius: 9999px; transition: width 0.5s; }
+  </style>
+</head>
+<body>
+<div class="app-container">
+  <div class="sidebar-overlay"></div>
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-logo" style="background:#10b981;">FP</div>
+      <div><div class="sidebar-title">Faculty Portal</div><div class="sidebar-subtitle">Teacher Dashboard</div></div>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-section"><div class="nav-section-title">Main</div>
+        <a href="faculty-dashboard.html" class="nav-item"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg><span>Dashboard</span></a>
+      </div>
+      <div class="nav-section"><div class="nav-section-title">Teaching</div>
+        <a href="faculty-courses.html" class="nav-item"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg><span>My Courses</span></a>
+        <a href="faculty-routine.html" class="nav-item"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg><span>Class Routine</span></a>
+        <a href="faculty-students.html" class="nav-item"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg><span>Student List</span></a>
+      </div>
+      <div class="nav-section"><div class="nav-section-title">Assessment</div>
+        <a href="faculty-result-management.html" class="nav-item"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg><span>Result Management</span><span class="nav-badge">3 Due</span></a>
+        <a href="faculty-attendance.html" class="nav-item"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg><span>Attendance</span><span class="nav-badge">1 Due</span></a>
+      </div>
+      <div class="nav-section"><div class="nav-section-title">HR</div>
+        <a href="faculty-leave.html" class="nav-item active"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg><span>Leave Management</span></a>
+      </div>
+      <div class="nav-section"><div class="nav-section-title">Account</div>
+        <a href="faculty-profile.html" class="nav-item"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg><span>Profile</span></a>
+        <a href="login.html" class="nav-item" onclick="localStorage.removeItem('portal_token');localStorage.removeItem('portal_user');sessionStorage.removeItem('portal_token');sessionStorage.removeItem('portal_user');"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg><span>Logout</span></a>
+      </div>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="sidebar-user">
+        <div class="sidebar-avatar" style="background:#10b981;">HR</div>
+        <div class="sidebar-user-info"><div class="sidebar-user-name">Dr. Md. Hafizur Rahman</div><div class="sidebar-user-role">Associate Professor</div></div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <header class="header">
+      <div class="header-left">
+        <button class="menu-toggle" onclick="document.querySelector('.sidebar').classList.toggle('open');document.querySelector('.sidebar-overlay').classList.toggle('active');"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+        <div class="breadcrumb"><a href="faculty-dashboard.html">Dashboard</a><span class="breadcrumb-separator">/</span><span>Leave Management</span></div>
+      </div>
+      <div class="header-right"><div class="header-avatar" style="background:#10b981;">HR</div></div>
+    </header>
+
+    <div class="content">
+      <div class="section-header">
+        <div>
+          <h1 class="page-title">Leave Management</h1>
+          <p class="text-secondary mt-1">Apply for leave and track application status</p>
+        </div>
+        <button class="btn" style="background:#10b981;color:white;border-color:#10b981;" onclick="openModal()">
+          + Apply for Leave
+        </button>
+      </div>
+
+      <!-- Leave Balance Cards -->
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;margin-bottom:1.5rem;" id="balance-cards"></div>
+
+      <!-- Leave History -->
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Leave History</h3>
+          <span class="badge" style="background:#d1fae5;color:#065f46;" id="history-count">0 records</span>
+        </div>
+        <div class="card-body" style="padding:0;overflow-x:auto;">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Leave ID</th>
+                <th>Type</th>
+                <th>From</th>
+                <th>To</th>
+                <th style="text-align:center;">Days</th>
+                <th>Reason</th>
+                <th>Approved By</th>
+                <th style="text-align:center;">Status</th>
+              </tr>
+            </thead>
+            <tbody id="history-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<!-- Apply Leave Modal -->
+<div class="modal-overlay" id="leave-modal" style="display:none;">
+  <div class="modal" style="max-width:520px;">
+    <div class="modal-header">
+      <h3 class="modal-title">Apply for Leave</h3>
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+        <div class="form-group" style="grid-column:1/-1;">
+          <label class="form-label">Leave Type <span style="color:#ef4444;">*</span></label>
+          <select class="form-input" id="leave-type">
+            <option>Casual Leave</option>
+            <option>Medical Leave</option>
+            <option>Earned Leave</option>
+            <option>Special Leave</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">From Date <span style="color:#ef4444;">*</span></label>
+          <input type="date" class="form-input" id="leave-from" onchange="calcDays()">
+        </div>
+        <div class="form-group">
+          <label class="form-label">To Date <span style="color:#ef4444;">*</span></label>
+          <input type="date" class="form-input" id="leave-to" onchange="calcDays()">
+        </div>
+        <div class="form-group" style="grid-column:1/-1;">
+          <label class="form-label">Total Days</label>
+          <input class="form-input" id="leave-days" value="0" disabled style="background:#f9fafb;">
+        </div>
+        <div class="form-group" style="grid-column:1/-1;">
+          <label class="form-label">Reason <span style="color:#ef4444;">*</span></label>
+          <textarea class="form-input" id="leave-reason" rows="3" placeholder="Brief description of leave reason..."></textarea>
+        </div>
+        <div class="form-group" style="grid-column:1/-1;">
+          <label class="form-label">Attachment (Optional)</label>
+          <input type="file" class="form-input" accept=".pdf,.jpg,.png">
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+      <button class="btn" style="background:#10b981;color:white;border-color:#10b981;" onclick="submitLeave()">Submit Application</button>
+    </div>
+  </div>
+</div>
+
+<script src="assets/data/faculty-data.js"></script>
+<script src="assets/js/api.js"></script>
+<script src="assets/js/data-loader.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+  document.querySelector('.sidebar-overlay').addEventListener('click', function() {
+    document.querySelector('.sidebar').classList.remove('open');
+    this.classList.remove('active');
+  });
+
+  const data = facultyData;
+  const colors = {casual:'#10b981',medical:'#2563eb',earned:'#8b5cf6',special:'#f59e0b'};
+  const balanceKeys = ['casual','medical','earned','special'];
+  const balanceLabels = {casual:'Casual Leave',medical:'Medical Leave',earned:'Earned Leave',special:'Special Leave'};
+
+  // Balance cards
+  document.getElementById('balance-cards').innerHTML = balanceKeys.map(key => {
+    const b = data.leaveBalance[key];
+    const pct = Math.round((b.remaining / b.total) * 100);
+    return `
+      <div class="leave-balance-card">
+        <div class="balance-header" style="color:${colors[key]};">${balanceLabels[key]}</div>
+        <div class="balance-days" style="color:${colors[key]};">${b.remaining}</div>
+        <div class="balance-sub">of ${b.total} days remaining &nbsp;|&nbsp; ${b.used} used</div>
+        <div class="leave-progress"><div class="leave-progress-fill" style="width:${pct}%;background:${colors[key]};"></div></div>
+      </div>`;
+  }).join('');
+
+  // History
+  document.getElementById('history-count').textContent = data.leaveHistory.length + ' records';
+  renderHistory();
+
+  function renderHistory() {
+    const statusColors = {Approved:'badge-success', Pending:'badge-warning', Rejected:'badge-danger'};
+    document.getElementById('history-tbody').innerHTML = data.leaveHistory.map(l => `
+      <tr>
+        <td style="font-size:0.8rem;color:#6b7280;">${l.id}</td>
+        <td style="font-weight:500;">${l.type}</td>
+        <td>${l.from}</td>
+        <td>${l.to}</td>
+        <td style="text-align:center;">${l.days}</td>
+        <td style="max-width:180px;font-size:0.8rem;color:#6b7280;">${l.reason}</td>
+        <td style="font-size:0.8rem;">${l.approvedBy || '—'}</td>
+        <td style="text-align:center;"><span class="badge ${statusColors[l.status]}">${l.status}</span></td>
+      </tr>`).join('');
+  }
+
+  function openModal() {
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('leave-from').value = today;
+    document.getElementById('leave-to').value = today;
+    document.getElementById('leave-days').value = 1;
+    document.getElementById('leave-reason').value = '';
+    document.getElementById('leave-modal').style.display = 'flex';
+  }
+  function closeModal() { document.getElementById('leave-modal').style.display = 'none'; }
+
+  function calcDays() {
+    const from = new Date(document.getElementById('leave-from').value);
+    const to = new Date(document.getElementById('leave-to').value);
+    if (!isNaN(from) && !isNaN(to) && to >= from) {
+      const days = Math.ceil((to - from) / (1000*60*60*24)) + 1;
+      document.getElementById('leave-days').value = days;
+    }
+  }
+
+  const deptHREmail = 'hr.cse@daffodilvarsity.edu.bd';
+
+  function submitLeave() {
+    const type = document.getElementById('leave-type').value;
+    const from = document.getElementById('leave-from').value;
+    const to = document.getElementById('leave-to').value;
+    const days = parseInt(document.getElementById('leave-days').value);
+    const reason = document.getElementById('leave-reason').value.trim();
+    if (!from || !to || !reason) { alert('Please fill in all required fields.'); return; }
+
+    // Compose email to department HR
+    const subject = encodeURIComponent(`Leave Application - ${type} (${from} to ${to})`);
+    const body = encodeURIComponent(
+      `Dear HR,\n\nI would like to apply for leave with the following details:\n\n` +
+      `Faculty Name: ${data.profile?.name || 'Dr. Md. Hafizur Rahman'}\n` +
+      `Leave Type: ${type}\nFrom: ${from}\nTo: ${to}\nTotal Days: ${days}\n` +
+      `Reason: ${reason}\n\nPlease consider my application.\n\nRegards,\n${data.profile?.name || 'Dr. Md. Hafizur Rahman'}`
+    );
+    window.open(`mailto:${deptHREmail}?subject=${subject}&body=${body}`, '_self');
+
+    // Also record locally
+    const newLeave = {
+      id: 'L-2025-' + String(data.leaveHistory.length + 100).padStart(3,'0'),
+      type, from, to, days, reason, status: 'Pending', approvedBy: null
+    };
+    data.leaveHistory.unshift(newLeave);
+    document.getElementById('history-count').textContent = data.leaveHistory.length + ' records';
+    renderHistory();
+    closeModal();
+    alert('Leave application email composed to Department HR (' + deptHREmail + '). Please send the email from your mail client.');
+  }
+
+  document.getElementById('leave-modal').addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+  });
+</script>
+</body>
+</html>

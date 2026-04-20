@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Class Routine | Faculty Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <style>
+    .routine-cell { background: white; border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; }
+    .routine-cell.today { border-color: #10b981; box-shadow: 0 0 0 2px rgba(16,185,129,0.2); }
+    .rc-course { font-weight: 700; font-size: 0.875rem; color: #10b981; }
+    .rc-sec { font-size: 0.75rem; color: var(--text-muted); }
+    .rc-time { font-size: 0.75rem; color: var(--text-secondary); margin-top: 4px; }
+    .rc-room { font-size: 0.75rem; background: #f3f4f6; border-radius: 4px; padding: 1px 6px; display: inline-block; margin-top: 4px; }
+    .day-col { min-width: 120px; }
+    .routine-table th { text-align: center; background: #f9fafb; font-size: 0.8rem; padding: 10px; }
+    .routine-table td { vertical-align: top; padding: 8px; min-height: 60px; }
+    .today-badge { background: #10b981; color: white; border-radius: 9999px; font-size: 0.65rem; padding: 2px 8px; margin-left: 6px; vertical-align: middle; }
+    .empty-cell { color: #d1d5db; font-size: 0.8rem; text-align: center; padding: 8px 0; }
+  </style>
+</head>
+<body>
+<div class="app-container">
+  <div class="sidebar-overlay"></div>
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-logo" style="background:#10b981;">FP</div>
+      <div><div class="sidebar-title">Faculty Portal</div><div class="sidebar-subtitle">Teacher Dashboard</div></div>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-section"><div class="nav-section-title">Main</div>
+        <a href="faculty-dashboard.html" class="nav-item"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg><span>Dashboard</span></a>
+      </div>
+      <div class="nav-section"><div class="nav-section-title">Teaching</div>
+        <a href="faculty-courses.html" class="nav-item"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg><span>My Courses</span></a>
+        <a href="faculty-routine.html" class="nav-item active"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg><span>Class Routine</span></a>
+        <a href="faculty-students.html" class="nav-item"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg><span>Student List</span></a>
+      </div>
+      <div class="nav-section"><div class="nav-section-title">Assessment</div>
+        <a href="faculty-result-management.html" class="nav-item"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg><span>Result Management</span><span class="nav-badge">3 Due</span></a>
+        <a href="faculty-attendance.html" class="nav-item"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg><span>Attendance</span><span class="nav-badge">1 Due</span></a>
+      </div>
+      <div class="nav-section"><div class="nav-section-title">HR</div>
+        <a href="faculty-leave.html" class="nav-item"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg><span>Leave Management</span></a>
+      </div>
+      <div class="nav-section"><div class="nav-section-title">Account</div>
+        <a href="faculty-profile.html" class="nav-item"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg><span>Profile</span></a>
+        <a href="login.html" class="nav-item" onclick="localStorage.removeItem('portal_token');localStorage.removeItem('portal_user');sessionStorage.removeItem('portal_token');sessionStorage.removeItem('portal_user');"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg><span>Logout</span></a>
+      </div>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="sidebar-user">
+        <div class="sidebar-avatar" style="background:#10b981;">HR</div>
+        <div class="sidebar-user-info"><div class="sidebar-user-name">Dr. Md. Hafizur Rahman</div><div class="sidebar-user-role">Associate Professor</div></div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <header class="header">
+      <div class="header-left">
+        <button class="menu-toggle" onclick="document.querySelector('.sidebar').classList.toggle('open');document.querySelector('.sidebar-overlay').classList.toggle('active');"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+        <div class="breadcrumb"><a href="faculty-dashboard.html">Dashboard</a><span class="breadcrumb-separator">/</span><span>Class Routine</span></div>
+      </div>
+      <div class="header-right"><div class="header-avatar" style="background:#10b981;">HR</div></div>
+    </header>
+
+    <div class="content">
+      <div class="section-header">
+        <div>
+          <h1 class="page-title">Class Routine</h1>
+          <p class="text-secondary mt-1">Weekly teaching schedule — Spring 2025</p>
+        </div>
+        <span id="today-label" class="badge" style="background:#d1fae5;color:#065f46;padding:6px 14px;"></span>
+      </div>
+
+      <!-- Today's highlight -->
+      <div class="card mb-4" style="background:linear-gradient(135deg,#059669,#10b981);color:white;">
+        <div class="card-body">
+          <div style="font-size:0.875rem;opacity:0.8;margin-bottom:8px;">Today's Classes</div>
+          <div id="today-classes-list" style="display:flex;flex-wrap:wrap;gap:12px;"></div>
+        </div>
+      </div>
+
+      <!-- Routine Table -->
+      <div class="card">
+        <div class="card-header"><h3 class="card-title">Weekly Timetable</h3></div>
+        <div class="card-body" style="padding:0;overflow-x:auto;">
+          <table class="table routine-table" style="min-width:600px;">
+            <thead>
+              <tr>
+                <th class="day-col">Day</th>
+                <th>Classes</th>
+              </tr>
+            </thead>
+            <tbody id="routine-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="assets/data/faculty-data.js"></script>
+<script src="assets/js/api.js"></script>
+<script src="assets/js/data-loader.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+  document.querySelector('.sidebar-overlay').addEventListener('click', function() {
+    document.querySelector('.sidebar').classList.remove('open');
+    this.classList.remove('active');
+  });
+
+  const today = getTodayDay();
+  document.getElementById('today-label').textContent = today;
+
+  const days = ['Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday'];
+  const data = facultyData;
+  const colors = {'CSE-401':'#10b981','CSE-405':'#2563eb','CSE-301':'#8b5cf6'};
+
+  // Today's classes
+  const todayClasses = data.schedule.filter(s => s.day === today);
+  if (todayClasses.length === 0) {
+    document.getElementById('today-classes-list').innerHTML = '<div style="opacity:0.7;">No classes today</div>';
+  } else {
+    document.getElementById('today-classes-list').innerHTML = todayClasses.map(c => `
+      <div style="background:rgba(255,255,255,0.15);border-radius:8px;padding:10px 14px;min-width:180px;">
+        <div style="font-weight:700;">${c.course} Sec ${c.section}</div>
+        <div style="font-size:0.8rem;opacity:0.85;margin-top:2px;">${c.time}</div>
+        <div style="font-size:0.8rem;opacity:0.75;">${c.room} &nbsp;|&nbsp; ${c.students} students</div>
+      </div>`).join('');
+  }
+
+  // Weekly table
+  document.getElementById('routine-tbody').innerHTML = days.map(day => {
+    const classes = data.schedule.filter(s => s.day === day);
+    const isToday = day === today;
+    return `
+      <tr style="${isToday?'background:#f0fdf4;':''}">
+        <td style="font-weight:600;vertical-align:middle;">
+          ${day}${isToday?'<span class="today-badge">Today</span>':''}
+        </td>
+        <td>
+          ${classes.length === 0
+            ? '<div class="empty-cell">No classes</div>'
+            : `<div style="display:flex;flex-wrap:wrap;gap:8px;">${classes.map(c => `
+                <div class="routine-cell ${isToday?'today':''}">
+                  <div class="rc-course" style="color:${colors[c.course]||'#10b981'};">${c.course}</div>
+                  <div class="rc-sec">Section ${c.section}</div>
+                  <div class="rc-time">${c.time}</div>
+                  <div class="rc-room">${c.room}</div>
+                  <div style="font-size:0.72rem;color:#9ca3af;margin-top:4px;">${c.students} students</div>
+                </div>`).join('')}</div>`}
+        </td>
+      </tr>`;
+  }).join('');
+</script>
+</body>
+</html>

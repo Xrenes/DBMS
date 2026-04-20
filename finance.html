@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Student Portal - Manage your fees and payments">
+  <title>Finance | Student Portal</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <div class="app-container">
+    <div class="sidebar-overlay"></div>
+    
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">SP</div>
+        <div>
+          <div class="sidebar-title">Student Portal</div>
+          <div class="sidebar-subtitle">University ERP</div>
+        </div>
+      </div>
+      
+      <nav class="sidebar-nav">
+        <div class="nav-section">
+          <div class="nav-section-title">Main</div>
+          <a href="index.html" class="nav-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+            <span>Dashboard</span>
+          </a>
+        </div>
+        
+        <div class="nav-section">
+          <div class="nav-section-title">Academic</div>
+          <a href="results.html" class="nav-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+            <span>Results &amp; Transcript</span>
+          </a>
+          <a href="live-results.html" class="nav-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 10"></polyline></svg>
+            <span>Live Result</span>
+          </a>
+          <a href="cgpa.html" class="nav-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line></svg>
+            <span>CGPA Calculator</span>
+          </a>
+          <a href="attendance.html" class="nav-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+            <span>Attendance</span>
+          </a>
+          <a href="routine.html" class="nav-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line><path d="M8 14h.01"></path><path d="M12 14h.01"></path><path d="M16 14h.01"></path><path d="M8 18h.01"></path><path d="M12 18h.01"></path></svg>
+            <span>Class Routine</span>
+          </a>
+          <a href="registration.html" class="nav-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
+            <span>Course Registration</span>
+          </a>
+          <a href="exam-schedule.html" class="nav-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+            <span>Exam Schedule</span>
+          </a>
+        </div>
+        
+        <div class="nav-section">
+          <div class="nav-section-title">Services</div>
+          <a href="finance.html" class="nav-item active">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+            <span>Finance</span>
+            <span class="nav-badge">Due</span>
+          </a>
+          <a href="evaluation.html" class="nav-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            <span>Evaluation</span>
+          </a>
+          <a href="clearance.html" class="nav-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            <span>Clearance</span>
+          </a>
+        </div>
+
+        
+        <div class="nav-section">
+          <div class="nav-section-title">Account</div>
+          <a href="profile.html" class="nav-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            <span>Profile</span>
+          </a>
+          <a href="#" class="nav-item" onclick="handleLogout()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+            <span>Logout</span>
+          </a>
+        </div>
+      </nav>
+      
+      <div class="sidebar-footer">
+        <div class="sidebar-user">
+          <div class="sidebar-avatar">IH</div>
+          <div class="sidebar-user-info">
+            <div class="sidebar-user-name">Iftekhar Hossain</div>
+            <div class="sidebar-user-role">B.Sc. CSE</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+    
+    <!-- Main Content -->
+    <main class="main-content">
+      <header class="header">
+        <div class="header-left">
+          <button class="menu-toggle" aria-label="Toggle menu">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+          </button>
+          <div class="breadcrumb">
+            <a href="index.html">Dashboard</a>
+            <span class="breadcrumb-separator">/</span>
+            <span>Finance</span>
+          </div>
+        </div>
+        <div class="header-right">
+          <div class="header-avatar">IH</div>
+        </div>
+      </header>
+      
+      <div class="content">
+        <!-- Page Header -->
+        <div class="section-header">
+          <div>
+            <h1 class="page-title">Finance & Fees</h1>
+            <p class="text-secondary mt-1">Manage your fee payments and view transaction history</p>
+          </div>
+          <div class="section-actions">
+            <button class="btn btn-primary" onclick="openPaymentModal()">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+              Pay Now
+            </button>
+          </div>
+        </div>
+        
+        <!-- Balance Cards -->
+        <div class="metrics-grid mb-4">
+          <div class="metric-card" style="background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%); color: white;">
+            <div class="metric-content">
+              <div class="metric-label" style="color: rgba(255,255,255,0.8);">Outstanding Balance</div>
+              <div class="metric-value" id="outstanding-balance">৳25,000</div>
+              <div class="metric-change" style="color: rgba(255,255,255,0.8);">Due by Apr 01, 2026</div>
+            </div>
+            <div class="metric-icon" style="background: rgba(255,255,255,0.2);">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+            </div>
+          </div>
+          
+          <div class="metric-card">
+            <div class="metric-content">
+              <div class="metric-label">Total Fees (Semester)</div>
+              <div class="metric-value" id="total-fees">৳85,000</div>
+              <div class="metric-change">For Semester 6</div>
+            </div>
+            <div class="metric-icon" style="background: var(--primary-light);">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+            </div>
+          </div>
+          
+          <div class="metric-card">
+            <div class="metric-content">
+              <div class="metric-label">Total Paid</div>
+              <div class="metric-value text-success" id="total-paid">৳60,000</div>
+              <div class="metric-change positive">70% completed</div>
+            </div>
+            <div class="metric-icon" style="background: #dcfce7;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            </div>
+          </div>
+          
+          <div class="metric-card">
+            <div class="metric-content">
+              <div class="metric-label">Scholarship</div>
+              <div class="metric-value text-primary" id="scholarship">৳15,000</div>
+              <div class="metric-change">Merit-based scholarship</div>
+            </div>
+            <div class="metric-icon" style="background: #f3e8ff;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#9333ea" stroke-width="2"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Fee Breakdown & Registration Clearance -->
+        <div class="charts-grid mb-4">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Fee Breakdown</h3>
+            </div>
+            <div class="card-body">
+              <div class="chart-container" style="height: 250px;">
+                <canvas id="fee-breakdown-chart"></canvas>
+              </div>
+              <!-- Legend -->
+              <div class="fee-legend" style="margin-top: 1rem; display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                  <span style="width: 12px; height: 12px; background: #2563eb; border-radius: 2px;"></span>
+                  <span style="font-size: 0.85rem;">Tuition Fee</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                  <span style="width: 12px; height: 12px; background: #16a34a; border-radius: 2px;"></span>
+                  <span style="font-size: 0.85rem;">Lab Fee</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                  <span style="width: 12px; height: 12px; background: #d97706; border-radius: 2px;"></span>
+                  <span style="font-size: 0.85rem;">Exam Fee</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                  <span style="width: 12px; height: 12px; background: #9333ea; border-radius: 2px;"></span>
+                  <span style="font-size: 0.85rem;">Library Fee</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                  <span style="width: 12px; height: 12px; background: #dc2626; border-radius: 2px;"></span>
+                  <span style="font-size: 0.85rem;">Other</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Registration and Exam Clearance</h3>
+            </div>
+            <div class="table-container">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>SL</th>
+                    <th>Semester</th>
+                    <th>Registration</th>
+                    <th>Mid-Term Exam</th>
+                    <th>Final Exam</th>
+                  </tr>
+                </thead>
+                <tbody id="clearance-tbody">
+                  <!-- Populated by JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  
+  <!-- Payment Modal -->
+  <div class="modal-overlay" id="payment-modal">
+    <div class="modal" style="max-width: 450px;">
+      <div class="modal-header">
+        <h3 class="modal-title">Make Payment</h3>
+        <button class="modal-close" onclick="closePaymentModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label class="form-label">Fee Type</label>
+          <select class="form-select" id="payment-fee-type">
+            <option value="tuition">Tuition Fee</option>
+            <option value="exam">Exam Fee</option>
+            <option value="lab">Lab Fee</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">Amount (৳)</label>
+          <input type="number" class="form-input" id="payment-amount" placeholder="Enter amount" value="25000">
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">Payment Method</label>
+          <div class="grid" style="grid-template-columns: repeat(3, 1fr); gap: 0.75rem;">
+            <div class="payment-method" data-method="bkash">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+              <span>bKash</span>
+            </div>
+            <div class="payment-method" data-method="nagad">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+              <span>Nagad</span>
+            </div>
+            <div class="payment-method" data-method="bank">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+              <span>Bank Transfer</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closePaymentModal()">Cancel</button>
+        <button class="btn btn-primary" id="pay-btn" onclick="processPayment()">Pay</button>
+      </div>
+    </div>
+  </div>
+  
+  <script src="assets/data/student-data.js"></script>
+  <script src="assets/js/api.js"></script>
+  <script src="assets/js/data-loader.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/charts.js"></script>
+  <script src="assets/js/ai-assistant.js"></script>
+  
+  <script>
+    // Initialize page
+    document.addEventListener('DOMContentLoaded', async function() {
+      await DataLoader.init();
+      loadFinanceData();
+      loadClearanceTable();
+      initCharts();
+      initPaymentMethods();
+    });
+    
+    function loadClearanceTable() {
+      const tbody = document.getElementById('clearance-tbody');
+      const semesters = studentData.semesters || [];
+      
+      if (semesters.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="5" class="text-center text-secondary">No semesters completed yet</td></tr>';
+        return;
+      }
+      
+      tbody.innerHTML = semesters.map((sem, i) => {
+        return '<tr><td>' + (i+1) + '</td><td>' + sem.session + '</td>' +
+          '<td><span class="badge badge-success">Cleared</span></td>' +
+          '<td><span class="badge badge-success">Cleared</span></td>' +
+          '<td><span class="badge badge-success">Cleared</span></td></tr>';
+      }).join('');
+      
+      // Add current semester row if student has live results
+      if (studentData.liveResults && studentData.liveResults.semester && studentData.liveResults.semester !== 'Completed') {
+        tbody.innerHTML += '<tr><td>' + (semesters.length + 1) + '</td><td>' + studentData.liveResults.semester + '</td>' +
+          '<td><span class="badge badge-success">Cleared</span></td>' +
+          '<td><span class="badge badge-warning">Pending</span></td>' +
+          '<td><span class="badge badge-secondary">Upcoming</span></td></tr>';
+      }
+    }
+    
+    // Load finance data
+    function loadFinanceData() {
+      const finance = studentData.finance;
+      
+      // Update summary cards
+      document.getElementById('outstanding-balance').textContent = StudentPortal.formatCurrency(finance.balance);
+      document.getElementById('total-fees').textContent = StudentPortal.formatCurrency(finance.totalFees);
+      document.getElementById('total-paid').textContent = StudentPortal.formatCurrency(finance.paid);
+      document.getElementById('scholarship').textContent = StudentPortal.formatCurrency(finance.scholarship);
+    }
+    
+    // Initialize charts
+    function initCharts() {
+      const finance = studentData.finance;
+      const feeItems = finance.feeStructure || [];
+      
+      const labels = feeItems.length > 0 ? feeItems.map(f => f.type) : ['No Data'];
+      const data = feeItems.length > 0 ? feeItems.map(f => f.amount) : [1];
+      const colors = ['#2563eb', '#16a34a', '#d97706', '#9333ea', '#dc2626', '#0891b2'];
+      
+      // Fee breakdown pie chart
+      const breakdownCtx = document.getElementById('fee-breakdown-chart').getContext('2d');
+      new Chart(breakdownCtx, {
+        type: 'doughnut',
+        data: {
+          labels: labels,
+          datasets: [{
+            data: data,
+            backgroundColor: feeItems.length > 0 ? colors.slice(0, data.length) : ['#e5e7eb'],
+            borderWidth: 0
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false }
+          }
+        }
+      });
+    }
+    
+    // Payment methods
+    function initPaymentMethods() {
+      document.querySelectorAll('.payment-method').forEach(method => {
+        method.addEventListener('click', function() {
+          document.querySelectorAll('.payment-method').forEach(m => m.classList.remove('active'));
+          this.classList.add('active');
+        });
+      });
+    }
+    
+    // Payment modal
+    function openPaymentModal() {
+      document.getElementById('payment-modal').classList.add('active');
+      const bal = studentData.finance.balance || 0;
+      document.getElementById('pay-btn').textContent = bal > 0 ? 'Pay ৳' + bal.toLocaleString() : 'Pay';
+    }
+    
+    function closePaymentModal() {
+      document.getElementById('payment-modal').classList.remove('active');
+    }
+    
+    function processPayment() {
+      const amount = document.getElementById('payment-amount').value;
+      closePaymentModal();
+      PortalUtils.showToast(`Processing payment of ৳${amount}...`, 'info');
+      
+      setTimeout(() => {
+        PortalUtils.showToast('Payment initiated! Redirecting to bKash/Nagad...', 'success');
+      }, 1500);
+    }
+  </script>
+  
+  <style>
+    .payment-method {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      border: 2px solid var(--border-color);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s;
+      gap: 0.5rem;
+    }
+    
+    .payment-method:hover {
+      border-color: var(--primary);
+    }
+    
+    .payment-method.active {
+      border-color: var(--primary);
+      background: var(--primary-light);
+    }
+    
+    .payment-method span {
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+  </style>
+</body>
+</html>

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Course Registration | Student Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+</head>
+<body>
+  <div class="app-container">
+    <div class="sidebar-overlay"></div>
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">SP</div>
+        <div><div class="sidebar-title">Student Portal</div><div class="sidebar-subtitle">University ERP</div></div>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="nav-section"><div class="nav-section-title">Main</div>
+          <a href="index.html" class="nav-item" data-page="index.html"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg><span>Dashboard</span></a>
+        </div>
+        <div class="nav-section"><div class="nav-section-title">Academic</div>
+          <a href="results.html" class="nav-item" data-page="results.html"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg><span>Results & Transcript</span></a>
+          <a href="live-results.html" class="nav-item" data-page="live-results.html"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 10"></polyline></svg><span>Live Result</span></a>
+          <a href="cgpa.html" class="nav-item" data-page="cgpa.html"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line></svg><span>CGPA Calculator</span></a>
+          <a href="attendance.html" class="nav-item" data-page="attendance.html"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg><span>Attendance</span></a>
+          <a href="routine.html" class="nav-item" data-page="routine.html"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line><path d="M8 14h.01"></path><path d="M12 14h.01"></path><path d="M16 14h.01"></path><path d="M8 18h.01"></path><path d="M12 18h.01"></path></svg><span>Class Routine</span></a>
+          <a href="registration.html" class="nav-item active" data-page="registration.html"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><span>Course Registration</span></a>
+          <a href="exam-schedule.html" class="nav-item" data-page="exam-schedule.html"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg><span>Exam Schedule</span></a>
+        </div>
+        <div class="nav-section"><div class="nav-section-title">Services</div>
+          <a href="finance.html" class="nav-item" data-page="finance.html"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg><span>Finance</span><span class="nav-badge">Due</span></a>
+          <a href="evaluation.html" class="nav-item" data-page="evaluation.html"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><span>Evaluation</span></a>
+          <a href="clearance.html" class="nav-item" data-page="clearance.html"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg><span>Clearance</span></a>
+        </div>
+        <div class="nav-section"><div class="nav-section-title">Account</div>
+          <a href="profile.html" class="nav-item" data-page="profile.html"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg><span>Profile</span></a>
+          <a href="#" class="nav-item" onclick="handleLogout()"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg><span>Logout</span></a>
+        </div>
+      </nav>
+      <div class="sidebar-footer"><div class="sidebar-user"><div class="sidebar-avatar">IH</div><div class="sidebar-user-info"><div class="sidebar-user-name">Iftekhar Hossain</div><div class="sidebar-user-role">B.Sc. CSE</div></div></div></div>
+    </aside>
+
+    <main class="main-content">
+      <header class="header">
+        <div class="header-left">
+          <button class="menu-toggle" aria-label="Toggle menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+          <h1 class="page-title">Course Registration</h1>
+        </div>
+        <div class="header-right">
+          <div class="dropdown"><div class="header-user dropdown-toggle"><div class="header-avatar">IH</div><div class="header-user-info"><div class="header-user-name">Iftekhar Hossain</div><div class="header-user-role">Semester 7</div></div></div><div class="dropdown-menu right"><a href="profile.html" class="dropdown-item">View Profile</a><div class="dropdown-divider"></div><a href="#" class="dropdown-item" onclick="handleLogout()">Logout</a></div></div>
+        </div>
+      </header>
+
+      <div class="content">
+        <!-- Registration Status Banner -->
+        <div class="alert alert-info mb-4" style="display: flex;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+          <div class="alert-content">
+            <div class="alert-title" id="reg-banner-title">Registration Open</div>
+            <div id="reg-banner-desc">Maximum 21 credit hours allowed.</div>
+          </div>
+        </div>
+
+        <!-- Summary Cards -->
+        <div class="metrics-grid mb-4">
+          <div class="metric-card">
+            <div class="metric-header">
+              <div><div class="metric-label">Registered Credits</div><div class="metric-value" id="reg-credits">21</div></div>
+              <div class="metric-icon primary"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg></div>
+            </div>
+            <div class="metric-footer"><span class="text-sm text-secondary">Max: 21 Credits</span></div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-header">
+              <div><div class="metric-label">Courses Selected</div><div class="metric-value" id="reg-courses">6</div></div>
+              <div class="metric-icon success"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg></div>
+            </div>
+            <div class="metric-footer"><span class="badge badge-success">Confirmed</span></div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-header">
+              <div><div class="metric-label">Advisor Status</div><div class="metric-value" style="font-size: 1.1rem;" id="reg-advisor-status">Approved</div></div>
+              <div class="metric-icon" style="background: #d1fae5; color: #10b981;"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div>
+            </div>
+            <div class="metric-footer"><span class="text-sm text-secondary" id="reg-advisor-name"></span></div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-header">
+              <div><div class="metric-label">Registration Fee</div><div class="metric-value" id="reg-fee">—</div></div>
+              <div class="metric-icon warning"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg></div>
+            </div>
+            <div class="metric-footer"><span class="badge badge-warning">Partially Paid</span></div>
+          </div>
+        </div>
+
+        <!-- Registered Courses -->
+        <div class="card mb-4">
+          <div class="card-header">
+            <div><h3 class="card-title" id="reg-courses-title">Registered Courses</h3><p class="card-subtitle" id="reg-courses-subtitle">Your confirmed course registration</p></div>
+          </div>
+          <div class="card-body" style="padding: 0;">
+            <div class="table-container">
+              <table class="table" id="reg-table">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Course Code</th>
+                    <th>Course Title</th>
+                    <th>Credits</th>
+                    <th>Section</th>
+                    <th>Faculty</th>
+                    <th>Type</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody id="reg-tbody"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Available Courses for Add/Drop -->
+        <div class="card">
+          <div class="card-header">
+            <div><h3 class="card-title">Available Courses</h3><p class="card-subtitle">Courses eligible for add/drop this semester</p></div>
+            <div class="flex gap-2">
+              <select class="form-select" id="dept-filter" style="width: auto; padding: 6px 32px 6px 12px; font-size: 0.8125rem;">
+                <option value="all">All Departments</option>
+                <option value="CSE" selected>CSE</option>
+                <option value="MGT">MGT</option>
+                <option value="GED">GED</option>
+              </select>
+            </div>
+          </div>
+          <div class="card-body" style="padding: 0;">
+            <div class="table-container">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Course Code</th>
+                    <th>Course Title</th>
+                    <th>Credits</th>
+                    <th>Section</th>
+                    <th>Seats</th>
+                    <th>Pre-requisite</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="avail-tbody"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="assets/data/student-data.js"></script>
+  <script src="assets/js/api.js"></script>
+  <script src="assets/js/data-loader.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>
+    // Build registeredCourses from studentData.liveResults (current semester courses)
+    let registeredCourses = (typeof studentData !== 'undefined' && studentData.liveResults && studentData.liveResults.courses.length > 0)
+      ? studentData.liveResults.courses.map(c => ({
+          code: c.code, name: c.name, credits: c.credits,
+          section: c.section || studentData.profile.section || 'A',
+          faculty: c.teacher || '—', type: 'Major', status: 'Confirmed'
+        }))
+      : [];
+
+    const availableCourses = [
+      { code: 'CSE706', name: 'Machine Learning', credits: 3, section: 'A', seats: '5/45', prereq: 'CSE701', dept: 'CSE' },
+      { code: 'CSE707', name: 'Cyber Security', credits: 3, section: 'B', seats: '12/40', prereq: 'CSE301', dept: 'CSE' },
+      { code: 'CSE708', name: 'Cloud Computing', credits: 3, section: 'A', seats: '8/40', prereq: 'CSE401', dept: 'CSE' },
+      { code: 'MGT702', name: 'Entrepreneurship', credits: 3, section: 'A', seats: '20/50', prereq: 'None', dept: 'MGT' },
+      { code: 'GED301', name: 'Ethics & Society', credits: 3, section: 'C', seats: '25/60', prereq: 'None', dept: 'GED' }
+    ];
+
+    document.addEventListener('DOMContentLoaded', async function() {
+      // Populate dynamic fields from studentData
+      if (typeof studentData !== 'undefined') {
+        const sem = studentData.liveResults ? studentData.liveResults.semester : '';
+        const semNum = studentData.profile.currentSemester || 0;
+        
+        document.getElementById('reg-banner-title').textContent = sem ? 'Registration Open — ' + sem : 'Registration';
+        document.getElementById('reg-courses-title').textContent = sem ? 'Registered Courses — ' + sem : 'Registered Courses';
+        document.getElementById('reg-courses-subtitle').textContent = semNum > 0 ? 'Your confirmed course registration for Semester ' + semNum : 'Your confirmed course registration';
+        
+        const totalCr = registeredCourses.reduce((sum, c) => sum + c.credits, 0);
+        document.getElementById('reg-credits').textContent = totalCr || 0;
+        document.getElementById('reg-courses').textContent = registeredCourses.length;
+        document.getElementById('reg-advisor-name').textContent = studentData.profile.advisor || '—';
+        
+        const fee = studentData.finance;
+        const semFee = fee.totalFees || (fee.feeStructure && fee.feeStructure.length > 0 ? fee.feeStructure.reduce((s,f) => s + f.amount, 0) : 0);
+        document.getElementById('reg-fee').textContent = semFee > 0 ? '৳' + semFee.toLocaleString() : '—';
+        
+        if (registeredCourses.length === 0) {
+          document.getElementById('reg-advisor-status').textContent = 'Pending';
+          document.getElementById('reg-banner-desc').textContent = 'No courses registered yet. Contact your advisor.';
+        }
+      }
+      
+      if (typeof DataLoader !== 'undefined') {
+        await DataLoader.init();
+        try {
+          const reqs = await DataLoader.getRegistrationRequests();
+          if (reqs && reqs.length > 0) {
+            const latest = reqs.find(r => r.status === 'approved') || reqs[0];
+            if (latest) {
+              const items = await DataLoader.getRegistrationItems(latest.request_id);
+              if (items && items.length > 0) {
+                registeredCourses = items.map(it => ({
+                  code: it.course_code, name: it.course_title, credits: it.credits,
+                  section: it.section, faculty: it.teacher_name, type: 'Major', status: 'Confirmed'
+                }));
+              }
+            }
+          }
+        } catch(e) { console.warn('Using fallback registration data:', e); }
+      }
+      renderRegistered();
+      renderAvailable();
+    });
+
+    function renderRegistered() {
+      const tbody = document.getElementById('reg-tbody');
+      tbody.innerHTML = registeredCourses.map((c, i) =>
+        '<tr>' +
+          '<td>' + (i + 1) + '</td>' +
+          '<td><strong>' + c.code + '</strong></td>' +
+          '<td>' + c.name + '</td>' +
+          '<td>' + c.credits + '</td>' +
+          '<td>' + c.section + '</td>' +
+          '<td>' + c.faculty + '</td>' +
+          '<td><span class="badge badge-' + (c.type === 'Major' ? 'primary' : 'info') + '">' + c.type + '</span></td>' +
+          '<td><span class="badge badge-success">' + c.status + '</span></td>' +
+        '</tr>'
+      ).join('');
+    }
+
+    function renderAvailable(filter) {
+      const dept = filter || document.getElementById('dept-filter').value;
+      const tbody = document.getElementById('avail-tbody');
+      const filtered = dept === 'all' ? availableCourses : availableCourses.filter(c => c.dept === dept);
+
+      tbody.innerHTML = filtered.map(c =>
+        '<tr>' +
+          '<td><strong>' + c.code + '</strong></td>' +
+          '<td>' + c.name + '</td>' +
+          '<td>' + c.credits + '</td>' +
+          '<td>' + c.section + '</td>' +
+          '<td>' + c.seats + '</td>' +
+          '<td>' + c.prereq + '</td>' +
+          '<td><button class="btn btn-primary btn-sm" onclick="requestAdd(\'' + c.code + '\')">Add</button></td>' +
+        '</tr>'
+      ).join('');
+
+      if (filtered.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="7" style="text-align: center; padding: 24px; color: var(--text-muted);">No courses available for this department</td></tr>';
+      }
+    }
+
+    document.getElementById('dept-filter').addEventListener('change', function() {
+      renderAvailable(this.value);
+    });
+
+    function requestAdd(code) {
+      if (typeof PortalUtils !== 'undefined' && PortalUtils.showToast) {
+        PortalUtils.showToast('Course ' + code + ' add request submitted. Pending advisor approval.', 'info');
+      } else {
+        alert('Course ' + code + ' add request submitted. Pending advisor approval.');
+      }
+    }
+  </script>
+</body>
+</html>

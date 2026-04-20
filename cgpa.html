@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Student Portal - Calculate your CGPA using UGC Grading System">
+  <title>CGPA Calculator | Student Portal</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+</head>
+<body>
+  <div class="app-container">
+    <div class="sidebar-overlay"></div>
+    
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">SP</div>
+        <div>
+          <div class="sidebar-title">Student Portal</div>
+          <div class="sidebar-subtitle">University ERP</div>
+        </div>
+      </div>
+      
+      <nav class="sidebar-nav">
+        <div class="nav-section">
+          <div class="nav-section-title">Main</div>
+          <a href="index.html" class="nav-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+            <span>Dashboard</span>
+          </a>
+        </div>
+        
+        <div class="nav-section">
+          <div class="nav-section-title">Academic</div>
+          <a href="results.html" class="nav-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+            <span>Results &amp; Transcript</span>
+          </a>
+          <a href="live-results.html" class="nav-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 10"></polyline></svg>
+            <span>Live Result</span>
+          </a>
+          <a href="cgpa.html" class="nav-item active">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line></svg>
+            <span>CGPA Calculator</span>
+          </a>
+          <a href="attendance.html" class="nav-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+            <span>Attendance</span>
+          </a>
+          <a href="routine.html" class="nav-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line><path d="M8 14h.01"></path><path d="M12 14h.01"></path><path d="M16 14h.01"></path><path d="M8 18h.01"></path><path d="M12 18h.01"></path></svg>
+            <span>Class Routine</span>
+          </a>
+          <a href="registration.html" class="nav-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
+            <span>Course Registration</span>
+          </a>
+          <a href="exam-schedule.html" class="nav-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+            <span>Exam Schedule</span>
+          </a>
+        </div>
+        
+        <div class="nav-section">
+          <div class="nav-section-title">Services</div>
+          <a href="finance.html" class="nav-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+            <span>Finance</span>
+            <span class="nav-badge">Due</span>
+          </a>
+          <a href="evaluation.html" class="nav-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            <span>Evaluation</span>
+          </a>
+          <a href="clearance.html" class="nav-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            <span>Clearance</span>
+          </a>
+        </div>
+
+        
+        <div class="nav-section">
+          <div class="nav-section-title">Account</div>
+          <a href="profile.html" class="nav-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            <span>Profile</span>
+          </a>
+          <a href="#" class="nav-item" onclick="handleLogout()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+            <span>Logout</span>
+          </a>
+        </div>
+      </nav>
+      
+      <div class="sidebar-footer">
+        <div class="sidebar-user">
+          <div class="sidebar-avatar">IH</div>
+          <div class="sidebar-user-info">
+            <div class="sidebar-user-name">Iftekhar Hossain</div>
+            <div class="sidebar-user-role">B.Sc. CSE</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+    
+    <!-- Main Content -->
+    <main class="main-content">
+      <header class="header">
+        <div class="header-left">
+          <button class="menu-toggle" aria-label="Toggle menu">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+          </button>
+          <div class="breadcrumb">
+            <a href="index.html">Dashboard</a>
+            <span class="breadcrumb-separator">/</span>
+            <span>CGPA Calculator</span>
+          </div>
+        </div>
+        <div class="header-right">
+          <div class="header-avatar">IH</div>
+        </div>
+      </header>
+      
+      <div class="content">
+        <!-- Page Header -->
+        <div class="section-header">
+          <div>
+            <h1 class="page-title">CGPA Calculator</h1>
+            <p class="text-secondary mt-1">Calculate your CGPA using UGC Uniform Grading System</p>
+          </div>
+        </div>
+        
+        <!-- Summary Cards - Exactly 4 -->
+        <div class="metrics-grid mb-4">
+          <div class="metric-card">
+            <div class="metric-content">
+              <div class="metric-label">Total CGPA</div>
+              <div class="metric-value text-primary" id="total-cgpa">0.00</div>
+              <div class="metric-change">Based on all courses</div>
+            </div>
+            <div class="metric-icon" style="background: var(--primary-light);">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            </div>
+          </div>
+          
+          <div class="metric-card">
+            <div class="metric-content">
+              <div class="metric-label">Major CGPA</div>
+              <div class="metric-value text-success" id="major-cgpa">0.00</div>
+              <div class="metric-change">From major courses</div>
+            </div>
+            <div class="metric-icon" style="background: #dcfce7;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+            </div>
+          </div>
+          
+          <div class="metric-card">
+            <div class="metric-content">
+              <div class="metric-label">Minor CGPA</div>
+              <div class="metric-value text-warning" id="minor-cgpa">0.00</div>
+              <div class="metric-change">From minor courses</div>
+            </div>
+            <div class="metric-icon" style="background: #fef3c7;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+            </div>
+          </div>
+          
+          <div class="metric-card">
+            <div class="metric-content">
+              <div class="metric-label">Total Credits</div>
+              <div class="metric-value" id="total-credits">0</div>
+              <div class="metric-change">Completed credits</div>
+            </div>
+            <div class="metric-icon" style="background: #f3e8ff;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#9333ea" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Two-column layout: Grade Input (left) + UGC Table (right) -->
+        <div class="charts-grid">
+          <!-- Grade Input Table (Left - wider) -->
+          <div class="card" style="flex: 2;">
+            <div class="card-header">
+              <h3 class="card-title">Grade Input</h3>
+              <button class="btn btn-success btn-sm" onclick="addCourse()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                Add Course
+              </button>
+            </div>
+            <div class="table-container">
+              <table class="table" id="calculator-table">
+                <thead>
+                  <tr>
+                    <th>Credits</th>
+                    <th>Grade</th>
+                    <th>Category</th>
+                    <th>Course Type</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="calculator-tbody">
+                  <!-- Populated by JS -->
+                </tbody>
+              </table>
+            </div>
+            <div class="card-footer">
+              <div class="flex items-center justify-between">
+                <span class="text-secondary">Grades auto-recalculate on change</span>
+                <button class="btn btn-primary" onclick="recalculateCGPA()">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>
+                  Recalculate
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- UGC Grading System Table (Right - narrower) -->
+          <div class="card" style="flex: 1;">
+            <div class="card-header">
+              <h3 class="card-title">UGC Grading System</h3>
+            </div>
+            <div class="table-container">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Marks (%)</th>
+                    <th>Grade</th>
+                    <th>GP</th>
+                    <th>Remarks</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>80-100</td><td><strong>A+</strong></td><td>4.00</td><td>Outstanding</td></tr>
+                  <tr><td>75-79</td><td><strong>A</strong></td><td>3.75</td><td>Excellent</td></tr>
+                  <tr><td>70-74</td><td><strong>A-</strong></td><td>3.50</td><td>Very Good</td></tr>
+                  <tr><td>65-69</td><td><strong>B+</strong></td><td>3.25</td><td>Good</td></tr>
+                  <tr><td>60-64</td><td><strong>B</strong></td><td>3.00</td><td>Satisfactory</td></tr>
+                  <tr><td>55-59</td><td><strong>B-</strong></td><td>2.75</td><td>Above Average</td></tr>
+                  <tr><td>50-54</td><td><strong>C+</strong></td><td>2.50</td><td>Average</td></tr>
+                  <tr><td>45-49</td><td><strong>C</strong></td><td>2.25</td><td>Below Average</td></tr>
+                  <tr><td>40-44</td><td><strong>D</strong></td><td>2.00</td><td>Pass</td></tr>
+                  <tr><td>0-39</td><td><strong>F</strong></td><td>0.00</td><td>Fail</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  
+  <script src="assets/data/student-data.js"></script>
+  <script src="assets/js/api.js"></script>
+  <script src="assets/js/data-loader.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/ai-assistant.js"></script>
+  
+  <script>
+    // UGC Grade to Point mapping
+    const UGC_GRADE_TO_POINT = {
+      'A+': 4.00, 'A': 3.75, 'A-': 3.50,
+      'B+': 3.25, 'B': 3.00, 'B-': 2.75,
+      'C+': 2.50, 'C': 2.25, 'D': 2.00, 'F': 0.00
+    };
+    
+    let calculatorData = [];
+    
+    // Initialize
+    document.addEventListener('DOMContentLoaded', async function() {
+      await DataLoader.init();
+      loadInitialData();
+      recalculateCGPA();
+    });
+    
+    function loadInitialData() {
+      calculatorData = [];
+      // Load from student data
+      if (typeof studentData !== 'undefined') {
+        studentData.semesters.forEach(sem => {
+          sem.courses.forEach(course => {
+            calculatorData.push({
+              credits: course.credits,
+              grade: course.grade,
+              category: course.category,
+              courseType: course.name.toLowerCase().includes('lab') ? 'Lab' : 'Theory'
+            });
+          });
+        });
+      }
+      renderTable();
+    }
+    
+    function renderTable() {
+      const tbody = document.getElementById('calculator-tbody');
+      tbody.innerHTML = calculatorData.map((row, index) => {
+        const creditOptions = [1,2,3,4,5,6].map(c => 
+          `<option value="${c}" ${row.credits === c ? 'selected' : ''}>${c}</option>`
+        ).join('');
+        
+        const gradeOptions = ['A+', 'A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'D', 'F'].map(g => 
+          `<option value="${g}" ${row.grade === g ? 'selected' : ''}>${g}</option>`
+        ).join('');
+        
+        return `
+          <tr data-index="${index}">
+            <td>
+              <select class="form-select" onchange="updateRow(${index}, 'credits', parseInt(this.value))" style="width: 80px;">
+                ${creditOptions}
+              </select>
+            </td>
+            <td>
+              <select class="form-select" onchange="updateRow(${index}, 'grade', this.value)" style="width: 80px;">
+                ${gradeOptions}
+              </select>
+            </td>
+            <td>
+              <select class="form-select" onchange="updateRow(${index}, 'category', this.value)" style="width: 100px;">
+                <option value="Major" ${row.category === 'Major' ? 'selected' : ''}>Major</option>
+                <option value="Minor" ${row.category === 'Minor' ? 'selected' : ''}>Minor</option>
+              </select>
+            </td>
+            <td>
+              <select class="form-select" onchange="updateRow(${index}, 'courseType', this.value)" style="width: 100px;">
+                <option value="Theory" ${row.courseType === 'Theory' ? 'selected' : ''}>Theory</option>
+                <option value="Lab" ${row.courseType === 'Lab' ? 'selected' : ''}>Lab</option>
+              </select>
+            </td>
+            <td>
+              <button class="btn btn-ghost btn-icon" onclick="removeRow(${index})" title="Remove">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+              </button>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+    
+    function updateRow(index, field, value) {
+      calculatorData[index][field] = value;
+      recalculateCGPA();
+    }
+    
+    function addCourse() {
+      calculatorData.push({
+        credits: 3,
+        grade: 'A',
+        category: 'Major',
+        courseType: 'Theory'
+      });
+      renderTable();
+      recalculateCGPA();
+    }
+    
+    function removeRow(index) {
+      calculatorData.splice(index, 1);
+      renderTable();
+      recalculateCGPA();
+    }
+    
+    function recalculateCGPA() {
+      let totalCredits = 0;
+      let totalQualityPoints = 0;
+      let majorCredits = 0;
+      let majorQualityPoints = 0;
+      let minorCredits = 0;
+      let minorQualityPoints = 0;
+      
+      calculatorData.forEach(row => {
+        const gp = UGC_GRADE_TO_POINT[row.grade] || 0;
+        const qp = row.credits * gp;
+        
+        totalCredits += row.credits;
+        totalQualityPoints += qp;
+        
+        if (row.category === 'Major') {
+          majorCredits += row.credits;
+          majorQualityPoints += qp;
+        } else {
+          minorCredits += row.credits;
+          minorQualityPoints += qp;
+        }
+      });
+      
+      const totalCGPA = totalCredits > 0 ? (totalQualityPoints / totalCredits).toFixed(2) : '0.00';
+      const majorCGPA = majorCredits > 0 ? (majorQualityPoints / majorCredits).toFixed(2) : '0.00';
+      const minorCGPA = minorCredits > 0 ? (minorQualityPoints / minorCredits).toFixed(2) : '0.00';
+      
+      document.getElementById('total-cgpa').textContent = totalCGPA;
+      document.getElementById('major-cgpa').textContent = majorCGPA;
+      document.getElementById('minor-cgpa').textContent = minorCGPA;
+      document.getElementById('total-credits').textContent = totalCredits;
+    }
+  </script>
+</body>
+</html>

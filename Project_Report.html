@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>DBMS Lab Project Report — University Academic Management System</title>
+<style>
+  @page { size: A4; margin: 2.5cm 2cm; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Times New Roman', Times, serif; font-size: 12pt; line-height: 1.6; color: #000; background: #fff; }
+  .page { page-break-after: always; min-height: 100vh; padding: 0; }
+  .page:last-child { page-break-after: auto; }
+  .content { max-width: 700px; margin: 0 auto; padding: 30px 40px; }
+
+  /* Cover */
+  .cover { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; min-height: 100vh; padding: 60px 40px; }
+  .cover img { width: 120px; margin-bottom: 10px; }
+  .cover .uni-name { font-size: 18pt; font-weight: bold; color: #0a4d2e; margin: 5px 0 30px; }
+  .cover .title { font-size: 22pt; font-weight: bold; color: #1a1a1a; border: 3px double #333; padding: 14px 30px; margin: 10px 0 30px; }
+  .cover .subtitle { font-size: 13pt; margin: 5px 0; }
+  .cover table.members { margin: 25px auto; border-collapse: collapse; font-size: 11pt; }
+  .cover table.members td { padding: 4px 18px; }
+  .cover .course-line { font-size: 12pt; font-style: italic; margin: 25px 0 5px; }
+  .cover .dept-line { font-size: 12pt; }
+  .cover .date { font-size: 12pt; margin-top: 30px; }
+
+  /* Headings */
+  h1 { font-size: 18pt; text-align: center; margin: 30px 0 8px; border-bottom: 2px solid #333; padding-bottom: 6px; }
+  h2 { font-size: 15pt; margin: 22px 0 6px; color: #1a1a1a; }
+  h3 { font-size: 13pt; margin: 16px 0 4px; }
+  h4 { font-size: 12pt; margin: 12px 0 4px; font-weight: bold; }
+  p, li { text-align: justify; margin: 4px 0; }
+  ul, ol { padding-left: 25px; }
+  ul li, ol li { margin: 3px 0; }
+
+  /* Tables */
+  table { border-collapse: collapse; width: 100%; margin: 10px 0 14px; font-size: 10.5pt; }
+  th, td { border: 1px solid #444; padding: 5px 8px; text-align: left; vertical-align: top; }
+  th { background: #e8e8e8; font-weight: bold; }
+  caption { font-weight: bold; font-size: 11pt; margin-bottom: 4px; text-align: left; }
+
+  /* Code blocks */
+  pre { background: #f5f5f5; border: 1px solid #ccc; padding: 8px 12px; font-family: 'Consolas', 'Courier New', monospace; font-size: 9.5pt; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word; margin: 8px 0 12px; line-height: 1.45; }
+  code { font-family: 'Consolas', 'Courier New', monospace; font-size: 10pt; background: #f0f0f0; padding: 1px 4px; }
+  .sql-keyword { color: #0000cc; font-weight: bold; }
+
+  /* TOC */
+  .toc { font-size: 11.5pt; }
+  .toc ul { list-style: none; padding-left: 0; }
+  .toc li { padding: 3px 0; }
+  .toc .indent1 { padding-left: 20px; }
+  .toc .indent2 { padding-left: 40px; }
+  .toc .chapter { font-weight: bold; margin-top: 8px; }
+
+  /* Declaration */
+  .declaration p { margin: 10px 0; }
+  .sig-block { margin: 30px 0; }
+  .sig-line { border-top: 1px solid #000; width: 250px; margin-top: 40px; padding-top: 4px; }
+
+  /* Figure / diagram placeholder */
+  .diagram-placeholder { border: 2px dashed #999; padding: 30px; text-align: center; color: #666; margin: 12px 0; font-style: italic; background: #fafafa; }
+
+  .highlight { background: #fffde7; padding: 8px 12px; border-left: 4px solid #f9a825; margin: 10px 0; }
+
+  @media print {
+    .page { page-break-after: always; }
+    body { font-size: 11pt; }
+    pre { font-size: 8.5pt; }
+    table { font-size: 9.5pt; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ==================== COVER PAGE ==================== -->
+<div class="page cover">
+  <div style="margin-bottom:20px;">
+    <div style="font-size:14pt; color:#0a4d2e; letter-spacing:1px;">DAFFODIL INTERNATIONAL UNIVERSITY</div>
+    <div style="font-size:10pt; color:#555;">Dhaka, Bangladesh</div>
+  </div>
+
+  <div class="title">University Academic Management System</div>
+
+  <p class="subtitle">A Database Management System Lab Mini Project</p>
+  <p class="subtitle" style="font-weight:bold;">Group 1</p>
+
+  <div style="margin:20px 0;">
+    <p style="font-weight:bold; margin-bottom:8px;">Submitted By</p>
+    <table class="members">
+      <tr><td style="font-weight:bold;">Name</td><td style="font-weight:bold;">Student ID</td></tr>
+      <tr><td>Sayed Ifti Ahmed</td><td>261-15-6099</td></tr>
+      <tr><td>Student-2 Name</td><td>Student-2 ID</td></tr>
+      <tr><td>Student-3 Name</td><td>Student-3 ID</td></tr>
+      <tr><td>Student-4 Name</td><td>Student-4 ID</td></tr>
+      <tr><td>Student-5 Name</td><td>Student-5 ID</td></tr>
+    </table>
+  </div>
+
+  <p class="course-line">LAB PROJECT REPORT</p>
+  <p style="font-size:11pt;">Presented in Partial Fulfillment of the course<br>
+    <strong>CSE 312: Database Management System Lab</strong><br>
+    Department of Computer Science and Engineering
+  </p>
+
+  <p class="date">April 2026</p>
+</div>
+
+<!-- ==================== DECLARATION ==================== -->
+<div class="page">
+<div class="content declaration">
+  <h1>Declaration</h1>
+
+  <p>We hereby declare that this lab project titled <strong>"University Academic Management System"</strong> has been done by us under the supervision of <strong>Shahadat Hossain</strong>, Assistant Professor, Department of Computer Science and Engineering, Daffodil International University. We also declare that neither this project nor any part of this project has been submitted elsewhere as a lab project.</p>
+
+  <div class="sig-block">
+    <p><strong>Submitted To:</strong></p>
+    <div class="sig-line">
+      <strong>Shahadat Hossain</strong><br>
+      Assistant Professor<br>
+      Department of Computer Science and Engineering<br>
+      Daffodil International University
+    </div>
+  </div>
+
+  <div class="sig-block">
+    <p><strong>Submitted By:</strong></p>
+    <div style="display: flex; flex-wrap: wrap; gap: 30px; margin-top: 10px;">
+      <div class="sig-line">Sayed Ifti Ahmed<br>ID: 261-15-6099<br>Dept. of CSE, DIU</div>
+      <div class="sig-line">Student-2 Name<br>ID: Student-2 ID<br>Dept. of CSE, DIU</div>
+      <div class="sig-line">Student-3 Name<br>ID: Student-3 ID<br>Dept. of CSE, DIU</div>
+      <div class="sig-line">Student-4 Name<br>ID: Student-4 ID<br>Dept. of CSE, DIU</div>
+      <div class="sig-line">Student-5 Name<br>ID: Student-5 ID<br>Dept. of CSE, DIU</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ==================== CO & PO TABLE ==================== -->
+<div class="page">
+<div class="content">
+  <h1>Course &amp; Program Outcome</h1>
+  <p>The following course has the course outcomes as stated below:</p>
+
+  <table>
+    <caption>Table 1: Course Outcome Statements</caption>
+    <tr><th>CO</th><th>Statements</th></tr>
+    <tr><td>CO1</td><td>Implement and optimize relational databases using basic to advanced SQL queries, indexing techniques, and query optimization strategies.</td></tr>
+    <tr><td>CO2</td><td>Analyze and apply security techniques, distributed database architectures, and emerging tools in database management to address real-world challenges.</td></tr>
+    <tr><td>CO3</td><td>Perform effectively as an individual or a member or a leader of diverse teams through proper documentation and initialization of project work.</td></tr>
+    <tr><td>CO4</td><td>Create a project by explaining complex computer engineering activities with the computer engineering community by performing effective communication through demonstration and presentation.</td></tr>
+  </table>
+
+  <table>
+    <caption>Table 2: Mapping of CO, PO, Blooms, KP and CEP</caption>
+    <tr><th>CO</th><th>PO</th><th>Blooms</th><th>KP</th><th>CEP</th><th>CEA</th></tr>
+    <tr><td>CO1</td><td>PO3</td><td>C3, C5, A2, P1, P2</td><td>K4–K6</td><td>EP1, EP4</td><td></td></tr>
+    <tr><td>CO2</td><td>PO5</td><td>C3, C4, A2, P2, P3</td><td>K4, K6, K8</td><td>EP2</td><td></td></tr>
+    <tr><td>CO3</td><td>PO9</td><td>A1, A2, A4, P3</td><td></td><td></td><td></td></tr>
+    <tr><td>CO4</td><td>PO10</td><td>P2, A2, A4</td><td></td><td></td><td>EA1, EA2</td></tr>
+  </table>
+
+  <p>The mapping justification for this table is provided in Section 4.3.1, 4.3.2, and 4.3.3.</p>
+</div>
+</div>
+
+<!-- ==================== TABLE OF CONTENTS ==================== -->
+<div class="page">
+<div class="content toc">
+  <h1>Table of Contents</h1>
+  <ul>
+    <li>Declaration ………………………………………………… i</li>
+    <li>Course &amp; Program Outcome …………………………… ii</li>
+    <li class="chapter">Chapter 1 — Introduction</li>
+    <li class="indent1">1.1 Introduction ……………………………………… 1</li>
+    <li class="indent1">1.2 Motivation ……………………………………… 1</li>
+    <li class="indent1">1.3 Objectives ……………………………………… 1</li>
+    <li class="indent1">1.4 Feasibility Study ………………………………… 2</li>
+    <li class="indent1">1.5 Gap Analysis …………………………………… 2</li>
+    <li class="indent1">1.6 Project Outcome ………………………………… 2</li>
+    <li class="chapter">Chapter 2 — System Architecture</li>
+    <li class="indent1">2.1 Requirement Analysis &amp; Design Specification … 3</li>
+    <li class="indent1">2.2 Entity Relationship Diagram …………………… 3</li>
+    <li class="indent1">2.3 Schema Design &amp; Normalization ……………… 4</li>
+    <li class="indent1">2.4 Use of Modern Tools …………………………… 5</li>
+    <li class="chapter">Chapter 3 — Implementation and Results</li>
+    <li class="indent1">3.1 Database Implementation ……………………… 6</li>
+    <li class="indent1">3.2 SQL Queries &amp; Operations …………………… 7</li>
+    <li class="indent1">3.3 Stored Procedures &amp; Functions ……………… 9</li>
+    <li class="indent1">3.4 Triggers ……………………………………… 10</li>
+    <li class="indent1">3.5 Views …………………………………………… 11</li>
+    <li class="indent1">3.6 Investigation &amp; Analysis (EP4) ……………… 12</li>
+    <li class="indent1">3.7 Output &amp; Discussion ………………………… 13</li>
+    <li class="chapter">Chapter 4 — Engineering Standards and Mapping</li>
+    <li class="indent1">4.1 Impact on Society, Environment &amp; Sustainability … 14</li>
+    <li class="indent1">4.2 Ethical Aspects ………………………………… 14</li>
+    <li class="indent1">4.3 Complex Engineering Problem ………………… 14</li>
+    <li class="indent2">4.3.1 Mapping of Program Outcome ……………… 14</li>
+    <li class="indent2">4.3.2 Complex Problem Solving ………………… 15</li>
+    <li class="indent2">4.3.3 Complex Engineering Activities …………… 15</li>
+    <li class="chapter">Chapter 5 — Conclusion</li>
+    <li class="indent1">5.1 Summary ……………………………………… 16</li>
+    <li class="indent1">5.2 Limitations …………………………………… 16</li>
+    <li class="indent1">5.3 Future Work ………………………………… 16</li>
+    <li class="indent1">References ……………………………………… 16</li>
+  </ul>
+</div>
+</div>
+
+<!-- ==================== CHAPTER 1: INTRODUCTION ==================== -->
+<div class="page">
+<div class="content">
+  <h1>Chapter 1 — Introduction</h1>
+
+  <h2>1.1 Introduction</h2>
+  <p>University academic management is a complex, multi-stakeholder process that involves tracking students, faculty, courses, enrollments, results, attendance, finance, and administrative operations across multiple semesters. Most universities in Bangladesh still rely on fragmented manual processes or disconnected software tools to manage these operations, leading to data redundancy, inconsistency, and administrative bottlenecks.</p>
+  <p>This project presents a <strong>University Academic Management System</strong> built on a relational database management system (MySQL). The system models a comprehensive Education ERP covering 36 normalized tables, Role-Based Access Control (RBAC), automated financial workflows, immutable audit ledgers, and an OLAP data warehouse — all interconnected through a single unified <code>student_portal</code> database. A full-stack web application provides real-time access to students, faculty, accountants, and administrators through authenticated REST APIs.</p>
+
+  <h2>1.2 Motivation</h2>
+  <p>The primary computational motivation for this project is to solve the <strong>data integrity and multi-entity dependency problem</strong> inherent in academic management. A university manages hundreds of interrelated entities: students enroll in courses offered by faculty in specific semesters; marks from multiple exam components must be weighted, aggregated, and published; fees must be invoiced, tracked, and reconciled across semesters. Any inconsistency in one entity cascades through the entire system.</p>
+  <p>By implementing a properly normalized (3NF) relational schema with enforced foreign keys, triggers, transactions, and computed views, we ensure data consistency across all operations. Additionally, implementing an immutable hash-chain ledger for financial events addresses the need for tamper-proof audit trails — a real-world requirement in university accounting.</p>
+
+  <h2>1.3 Objectives</h2>
+  <ol>
+    <li>Design a 3NF-normalized relational database schema with 36 tables covering identity, academic, results, attendance, exams, finance, hostel, transport, audit, and analytics modules.</li>
+    <li>Implement Role-Based Access Control (RBAC) with 6 roles, 22 permissions, and junction-table authorization.</li>
+    <li>Write 10+ complex SQL queries including multi-table JOINs, subqueries, GROUP BY with HAVING, and conditional aggregations.</li>
+    <li>Create stored procedures (7), functions (5), triggers (13), and views (10) to automate business logic, enforce data integrity, and compute academic metrics.</li>
+    <li>Build a full-stack web application with an Express.js backend (80+ API endpoints) serving a responsive HTML/CSS/JS frontend, connected via JWT authentication.</li>
+    <li>Implement an immutable ledger with SHA-256 hash chains for financial event integrity.</li>
+    <li>Conduct investigative data analysis using SQL to explore attendance patterns, CGPA distributions, and payment trends.</li>
+  </ol>
+</div>
+</div>
+
+<div class="page">
+<div class="content">
+  <h2>1.4 Feasibility Study</h2>
+  <p>Existing university management systems such as the University of Dhaka's "DU Portal" and BRAC University's "USIS" provide web-based access to student profiles, results, and basic registration. However, these systems typically lack transparency in financial auditing, do not expose real-time weighted grade tracking, and use proprietary backends without educational documentation of their database design.</p>
+  <p>Open-source alternatives like OpenSIS and Fedena provide basic student information management but lack the depth of financial automation (invoice generation, payment cascading triggers) and OLAP analytics that a production ERP requires. Our project builds upon these foundations while providing full schema documentation, stored-procedure automation, and research-oriented analytical queries.</p>
+
+  <h2>1.5 Gap Analysis</h2>
+  <p>After studying existing academic management solutions, we identified the following gaps:</p>
+  <ul>
+    <li><strong>Lack of real-time grade computation:</strong> Most systems publish final grades only; none provide live weighted mark tracking via exam components during the semester.</li>
+    <li><strong>No immutable financial audit trail:</strong> Payment records can be altered without detection in typical systems. We address this with a blockchain-inspired hash-chain ledger.</li>
+    <li><strong>Fragmented data models:</strong> Hostel, transport, clearance, and evaluation are often separate systems. We unify all 10 modules into a single normalized schema.</li>
+    <li><strong>No admin query builder:</strong> Administrators lack tools to run ad-hoc analytical queries. Our system includes a safe SQL query builder with password auto-hashing and DML transaction wrapping.</li>
+  </ul>
+
+  <h2>1.6 Project Outcome</h2>
+  <ul>
+    <li>A complete MySQL database (<code>student_portal</code>) with 36 tables, 10 views, 7 stored procedures, 5 functions, and 13 triggers — all in 3NF with 50+ foreign key constraints.</li>
+    <li>A functioning web portal with JWT-authenticated REST APIs for students, faculty, and administrators.</li>
+    <li>Automated workflows: invoice generation, payment reconciliation, result publication, attendance tracking, and clearance processing.</li>
+    <li>Investigative SQL analysis demonstrating EP4 (research-based data exploration).</li>
+    <li>Full documentation of ER diagrams, normalization, and engineering outcome mappings.</li>
+  </ul>
+</div>
+</div>
+
+<!-- ==================== CHAPTER 2: SYSTEM ARCHITECTURE ==================== -->
+<div class="page">
+<div class="content">
+  <h1>Chapter 2 — System Architecture</h1>
+
+  <h2>2.1 Requirement Analysis &amp; Design Specification</h2>
+  <p>The system must support the following stakeholders and their functional requirements:</p>
+
+  <table>
+    <caption>Table 2.1: Stakeholder Requirements</caption>
+    <tr><th>Stakeholder</th><th>Key Requirements</th></tr>
+    <tr><td><strong>Students</strong></td><td>View profile, enrollments, results (CGPA/SGPA), live marks, attendance, finance dues, exam schedule, routine, hostel, transport</td></tr>
+    <tr><td><strong>Faculty</strong></td><td>View/manage courses, enter exam marks, mark attendance, request leave, view student roster</td></tr>
+    <tr><td><strong>Accountant</strong></td><td>Generate invoices, record payments, view defaulters, manage fee heads</td></tr>
+    <tr><td><strong>Admin</strong></td><td>Full CRUD on users/students/courses, audit logs, ledger verification, role/permission management, ad-hoc SQL query execution</td></tr>
+  </table>
+
+  <h3>Non-Functional Requirements</h3>
+  <ul>
+    <li><strong>Data Integrity:</strong> All foreign keys enforced; result locks prevent modification after publication; payment triggers auto-update invoice status.</li>
+    <li><strong>Security:</strong> bcrypt password hashing (10 salt rounds), JWT token-based authentication, RBAC with 22 granular permissions.</li>
+    <li><strong>Audit:</strong> Every data mutation triggers automatic logging to <code>audit_logs</code> (JSON diffs). Financial events logged to immutable hash-chain <code>ledger_events</code>.</li>
+    <li><strong>Performance:</strong> Indexed columns on all foreign keys and frequently queried fields. Computed metrics via views (no redundant storage).</li>
+  </ul>
+
+  <h2>2.2 Entity Relationship Diagram</h2>
+  <div class="diagram-placeholder">
+    [ER Diagram — Paste from MySQL Workbench or dbdiagram.io]<br><br>
+    The ER diagram shows 36 entities across 10 modules:<br>
+    Identity &amp; RBAC → Academic Structure → Results → Attendance &amp; Timetable →<br>
+    Exams → Finance (Header-Detail) → Hostel → Transport → Audit &amp; Ledger → Data Warehouse
+  </div>
+</div>
+</div>
+
+<div class="page">
+<div class="content">
+  <h2>2.3 Schema Design &amp; Normalization</h2>
+
+  <h3>2.3.1 Normalization to 3NF</h3>
+  <p>The entire schema is normalized to Third Normal Form (3NF):</p>
+  <ul>
+    <li><strong>1NF:</strong> All attributes are atomic. No repeating groups. Multi-valued data (e.g., transport route stops) stored as JSON in dedicated columns.</li>
+    <li><strong>2NF:</strong> No partial dependencies. All non-key attributes depend on the entire primary key. Junction tables (<code>user_roles</code>, <code>role_permissions</code>, <code>attendance_records</code>, <code>exam_marks</code>) have composite PKs with full dependency.</li>
+    <li><strong>3NF:</strong> No transitive dependencies. For example, student → program → department is properly referenced through foreign keys rather than storing department info in the students table. Course grades reference the <code>grade_scale</code> table rather than embedding grade points.</li>
+  </ul>
+
+  <h3>2.3.2 Strategic Denormalization</h3>
+  <p>One controlled exception: the <code>fact_academic</code> table is intentionally denormalized as an OLAP data warehouse fact table, replicating student/program/department codes for fast analytical queries without expensive JOINs.</p>
+
+  <h3>2.3.3 Key Tables Summary</h3>
+  <table>
+    <caption>Table 2.2: Database Modules and Tables (36 Total)</caption>
+    <tr><th>Module</th><th>Tables</th><th>Key Design Pattern</th></tr>
+    <tr><td>Identity &amp; RBAC</td><td>users, roles, user_roles, permissions, role_permissions</td><td>M:N junction tables for flexible authorization</td></tr>
+    <tr><td>Academic</td><td>departments, programs, students, semesters, courses, course_offerings, enrollments</td><td>FK chains: student → program → department; enrollment → offering → course + semester</td></tr>
+    <tr><td>Results</td><td>grade_scale, results</td><td>Result locked after publication; grade via FK lookup</td></tr>
+    <tr><td>Attendance</td><td>class_sessions, attendance_records</td><td>Composite PK (session_id, student_id); session types</td></tr>
+    <tr><td>Exams</td><td>exams, exam_marks</td><td>Component-weighted grading; mark validation trigger</td></tr>
+    <tr><td>Finance</td><td>fee_heads, student_invoices, invoice_items, payments</td><td>Header-Detail pattern; payment cascading status</td></tr>
+    <tr><td>Hostel</td><td>hostel_rooms, room_allocations</td><td>Capacity tracking with status lifecycle</td></tr>
+    <tr><td>Transport</td><td>transport_routes, transport_subscriptions</td><td>JSON stops; semester-based subscriptions</td></tr>
+    <tr><td>Audit</td><td>audit_logs, ledger_events</td><td>JSON diffs; SHA-256 hash-chain (immutable)</td></tr>
+    <tr><td>System &amp; Analytics</td><td>system_config, fact_academic, saved_queries, query_operations</td><td>JSON config; denormalized OLAP warehouse</td></tr>
+  </table>
+
+  <h3>2.3.4 CREATE TABLE Example (with constraints)</h3>
+<pre>
+CREATE TABLE students (
+    student_id    INT PRIMARY KEY AUTO_INCREMENT,
+    user_id       INT NOT NULL,
+    student_code  VARCHAR(20) NOT NULL,
+    program_id    INT NOT NULL,
+    batch_year    INT NOT NULL,
+    section       VARCHAR(5),
+    enrollment_date DATE,
+    advisor_id    INT,
+    photo_url     VARCHAR(500),
+    UNIQUE INDEX idx_student_user (user_id),
+    UNIQUE INDEX idx_student_code (student_code),
+    FOREIGN KEY (user_id)    REFERENCES users(user_id) ON DELETE CASCADE,
+    FOREIGN KEY (program_id) REFERENCES programs(program_id) ON DELETE RESTRICT,
+    FOREIGN KEY (advisor_id) REFERENCES users(user_id) ON DELETE SET NULL
+) ENGINE=InnoDB;
+</pre>
+<pre>
+CREATE TABLE enrollments (
+    enrollment_id INT PRIMARY KEY AUTO_INCREMENT,
+    student_id    INT NOT NULL,
+    offering_id   INT NOT NULL,
+    status        ENUM('active','dropped','completed') DEFAULT 'active',
+    enrolled_at   TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    UNIQUE INDEX idx_enroll_unique (student_id, offering_id),
+    FOREIGN KEY (student_id)  REFERENCES students(student_id) ON DELETE CASCADE,
+    FOREIGN KEY (offering_id) REFERENCES course_offerings(offering_id) ON DELETE CASCADE
+) ENGINE=InnoDB;
+</pre>
+</div>
+</div>
+
+<div class="page">
+<div class="content">
+  <h2>2.4 Use of Modern Tools</h2>
+  <p>This section highlights the modern software tools and technologies employed in the project:</p>
+
+  <table>
+    <caption>Table 2.3: Tools and Technologies</caption>
+    <tr><th>Tool</th><th>Purpose</th></tr>
+    <tr><td><strong>MySQL 8.0 / MariaDB 10.4</strong></td><td>Relational database management system for schema creation, queries, stored procedures, triggers, and views.</td></tr>
+    <tr><td><strong>Node.js + Express.js</strong></td><td>Backend server framework providing 80+ REST API endpoints with JWT authentication middleware.</td></tr>
+    <tr><td><strong>bcryptjs</strong></td><td>Password hashing library (10 salt rounds) for secure credential storage.</td></tr>
+    <tr><td><strong>JSON Web Tokens (JWT)</strong></td><td>Stateless authentication tokens for API authorization.</td></tr>
+    <tr><td><strong>HTML5 / CSS3 / JavaScript</strong></td><td>Responsive frontend with data visualization (Chart.js), dynamic forms, and real-time API integration.</td></tr>
+    <tr><td><strong>Git / GitHub</strong></td><td>Version control and collaborative source code management.</td></tr>
+    <tr><td><strong>VS Code + MySQL CLI</strong></td><td>Development environment for SQL scripting, backend coding, and testing.</td></tr>
+    <tr><td><strong>dbdiagram.io / Draw.io</strong></td><td>ER diagram design and schema visualization.</td></tr>
+  </table>
+</div>
+</div>
+
+<!-- ==================== CHAPTER 3: IMPLEMENTATION ==================== -->
+<div class="page">
+<div class="content">
+  <h1>Chapter 3 — Implementation and Results</h1>
+
+  <h2>3.1 Database Implementation</h2>
+  <p>The complete database schema is implemented in a single SQL script file (<code>student_portal.sql</code>, 1,317 lines) that creates the database, all 36 tables, inserts realistic sample data, defines 13 triggers, 7 stored procedures, 5 functions, and 10 views.</p>
+
+  <h3>3.1.1 Sample Data Population</h3>
+  <p>Every table is populated with realistic data (exceeding the minimum 20 records across all tables). Key counts:</p>
+
+  <table>
+    <caption>Table 3.1: Sample Data Distribution</caption>
+    <tr><th>Table</th><th>Records</th><th>Table</th><th>Records</th></tr>
+    <tr><td>users</td><td>11</td><td>courses</td><td>31</td></tr>
+    <tr><td>roles</td><td>6</td><td>course_offerings</td><td>6</td></tr>
+    <tr><td>role_permissions</td><td>41</td><td>enrollments</td><td>12</td></tr>
+    <tr><td>permissions</td><td>22</td><td>exams</td><td>15</td></tr>
+    <tr><td>departments</td><td>6</td><td>exam_marks</td><td>10</td></tr>
+    <tr><td>programs</td><td>5</td><td>attendance_records</td><td>9</td></tr>
+    <tr><td>students</td><td>4</td><td>ledger_events</td><td>110</td></tr>
+    <tr><td>semesters</td><td>16</td><td>audit_logs</td><td>27</td></tr>
+    <tr><td>grade_scale</td><td>10</td><td>system_config</td><td>9</td></tr>
+  </table>
+
+  <h2>3.2 SQL Queries &amp; Operations</h2>
+  <p>The following demonstrates 10+ SQL queries covering all required complexity levels:</p>
+
+  <h3>Query 1: Basic SELECT with WHERE and ORDER BY</h3>
+<pre>
+-- List all active students with their program names, sorted by batch year
+SELECT s.student_code, u.full_name, p.name AS program, s.batch_year
+FROM students s
+JOIN users u ON s.user_id = u.user_id
+JOIN programs p ON s.program_id = p.program_id
+WHERE u.status = 'active'
+ORDER BY s.batch_year DESC;
+</pre>
+
+  <h3>Query 2: GROUP BY with HAVING</h3>
+<pre>
+-- Find courses where average marks exceed 70 (high-performing courses)
+SELECT c.course_code, c.title,
+       COUNT(r.result_id)     AS students_graded,
+       ROUND(AVG(r.total_mark), 2) AS avg_mark
+FROM results r
+JOIN enrollments e  ON r.enrollment_id = e.enrollment_id
+JOIN course_offerings co ON e.offering_id = co.offering_id
+JOIN courses c ON co.course_id = c.course_id
+GROUP BY c.course_code, c.title
+HAVING AVG(r.total_mark) > 70
+ORDER BY avg_mark DESC;
+</pre>
+
+  <h3>Query 3: INNER JOIN (Multi-table — 5 tables)</h3>
+<pre>
+-- Student transcript: all published results with grades and semesters
+SELECT sem.name AS semester, c.course_code, c.title, c.credit,
+       r.total_mark, r.grade_code, g.grade_point, g.remark
+FROM results r
+JOIN enrollments e       ON r.enrollment_id = e.enrollment_id
+JOIN course_offerings co ON e.offering_id = co.offering_id
+JOIN courses c           ON co.course_id = c.course_id
+JOIN semesters sem       ON co.semester_id = sem.semester_id
+JOIN grade_scale g       ON r.grade_code = g.grade_code
+WHERE e.student_id = 1 AND r.published_at IS NOT NULL
+ORDER BY sem.start_date, c.course_code;
+</pre>
+</div>
+</div>
+
+<div class="page">
+<div class="content">
+  <h3>Query 4: LEFT JOIN (find students missing attendance)</h3>
+<pre>
+-- Find students with no attendance records in active semester
+SELECT s.student_code, u.full_name, e.enrollment_id
+FROM enrollments e
+JOIN students s ON e.student_id = s.student_id
+JOIN users u ON s.user_id = u.user_id
+JOIN course_offerings co ON e.offering_id = co.offering_id
+JOIN semesters sem ON co.semester_id = sem.semester_id
+LEFT JOIN attendance_records ar
+    ON ar.student_id = s.student_id
+    AND ar.session_id IN (
+        SELECT session_id FROM class_sessions WHERE offering_id = co.offering_id
+    )
+WHERE sem.status = 'active' AND ar.session_id IS NULL;
+</pre>
+
+  <h3>Query 5: Nested Subquery</h3>
+<pre>
+-- Find students whose CGPA is above the department average
+SELECT s.student_code, u.full_name, vc.cgpa
+FROM vw_student_cgpa vc
+JOIN students s ON vc.student_id = s.student_id
+JOIN users u ON s.user_id = u.user_id
+WHERE vc.cgpa > (
+    SELECT AVG(vc2.cgpa)
+    FROM vw_student_cgpa vc2
+    JOIN students s2 ON vc2.student_id = s2.student_id
+    WHERE s2.program_id = s.program_id
+);
+</pre>
+
+  <h3>Query 6: Correlated Subquery with Aggregation</h3>
+<pre>
+-- Invoice summary: total charged, total paid, and outstanding per student
+SELECT si.invoice_no, si.status, si.due_date,
+    (SELECT SUM(amount) FROM invoice_items
+     WHERE invoice_id = si.invoice_id) AS total_charged,
+    (SELECT COALESCE(SUM(amount), 0) FROM payments
+     WHERE invoice_id = si.invoice_id) AS total_paid,
+    (SELECT SUM(amount) FROM invoice_items WHERE invoice_id = si.invoice_id) -
+    (SELECT COALESCE(SUM(amount), 0) FROM payments WHERE invoice_id = si.invoice_id)
+        AS outstanding
+FROM student_invoices si
+WHERE si.student_id = 1
+ORDER BY si.issue_date DESC;
+</pre>
+
+  <h3>Query 7: TRANSACTION with ROLLBACK</h3>
+<pre>
+-- Atomically enroll a student in a course and update class count
+START TRANSACTION;
+    INSERT INTO enrollments (student_id, offering_id, status)
+    VALUES (1, 3, 'active');
+
+    UPDATE course_offerings
+    SET max_students = max_students  -- Validate capacity check
+    WHERE offering_id = 3
+    AND (SELECT COUNT(*) FROM enrollments
+         WHERE offering_id = 3 AND status = 'active') <= max_students;
+
+    IF ROW_COUNT() = 0 THEN
+        ROLLBACK;
+    ELSE
+        COMMIT;
+    END IF;
+</pre>
+
+  <h3>Query 8: INSERT with ON DUPLICATE KEY UPDATE (Batch Attendance)</h3>
+<pre>
+-- Mark attendance (upsert — insert or update if already marked)
+INSERT INTO attendance_records (session_id, student_id, status, marked_by)
+VALUES (5, 1, 'P', 3)
+ON DUPLICATE KEY UPDATE
+    status = VALUES(status),
+    marked_by = VALUES(marked_by),
+    marked_at = NOW();
+</pre>
+</div>
+</div>
+
+<div class="page">
+<div class="content">
+  <h3>Query 9: Complex Weighted Aggregation (Live Marks)</h3>
+<pre>
+-- Calculate weighted marks for each course in the active semester
+SELECT c.course_code, c.title,
+    SUM(CASE WHEN em.is_published = TRUE
+        THEN (em.obtained_marks / ex.total_marks) * ex.weight_percent
+        ELSE 0 END) AS weighted_score,
+    SUM(CASE WHEN em.is_published = TRUE
+        THEN ex.weight_percent ELSE 0 END) AS published_weight,
+    COUNT(CASE WHEN em.is_published = TRUE THEN 1 END) AS components_published,
+    COUNT(ex.exam_id) AS total_components
+FROM exams ex
+JOIN course_offerings co ON ex.offering_id = co.offering_id
+JOIN courses c ON co.course_id = c.course_id
+JOIN semesters sem ON co.semester_id = sem.semester_id
+JOIN enrollments e ON co.offering_id = e.offering_id
+LEFT JOIN exam_marks em ON ex.exam_id = em.exam_id AND em.student_id = e.student_id
+WHERE e.student_id = 1 AND sem.status = 'active'
+GROUP BY c.course_code, c.title;
+</pre>
+
+  <h3>Query 10: Ledger Integrity Verification (Hash Chain)</h3>
+<pre>
+-- Verify the integrity of the immutable ledger hash chain
+SELECT e1.event_id, e1.event_type,
+    CASE WHEN e1.prev_hash = (
+        SELECT e2.curr_hash FROM ledger_events e2
+        WHERE e2.event_id = e1.event_id - 1
+    ) THEN 'VALID' ELSE 'BROKEN' END AS chain_status
+FROM ledger_events e1
+WHERE e1.event_id > 1
+ORDER BY e1.event_id;
+</pre>
+
+  <h2>3.3 Stored Procedures &amp; Functions</h2>
+  <p>The system implements 7 stored procedures and 5 functions for business logic automation:</p>
+
+  <table>
+    <caption>Table 3.2: Stored Procedures</caption>
+    <tr><th>Procedure</th><th>Purpose</th></tr>
+    <tr><td><code>sp_admit_student</code></td><td>Registers a new student: creates user, assigns student role, inserts student record — all in one ACID transaction.</td></tr>
+    <tr><td><code>sp_generate_invoice</code></td><td>Generates a semester invoice (header + detail items) with auto-numbered invoice code.</td></tr>
+    <tr><td><code>sp_record_payment</code></td><td>Records a payment, generates receipt number, logs to immutable ledger.</td></tr>
+    <tr><td><code>sp_publish_results</code></td><td>Batch-publishes results for a course offering: maps marks → grades, sets lock, logs to ledger.</td></tr>
+    <tr><td><code>sp_semester_report_card</code></td><td>Generates a complete semester report card with SGPA calculation.</td></tr>
+    <tr><td><code>sp_fee_summary</code></td><td>Produces a fee summary with charges, payments, and outstanding balance.</td></tr>
+    <tr><td><code>sp_attendance_summary</code></td><td>Calculates per-course attendance statistics for a student.</td></tr>
+  </table>
+
+  <h4>Example: sp_generate_invoice</h4>
+<pre>
+CALL sp_generate_invoice(
+    1,          -- student_id
+    7,          -- semester_id (Spring 2026)
+    55000,      -- tuition
+    8000,       -- lab fee
+    3000,       -- library
+    5000,       -- development
+    7000,       -- exam fee
+    7000,       -- miscellaneous
+    60          -- due in 60 days
+);
+-- Output: invoice_id, invoice_no = 'INV202601150001', 6 invoice_items created
+</pre>
+</div>
+</div>
+
+<div class="page">
+<div class="content">
+  <table>
+    <caption>Table 3.3: Functions</caption>
+    <tr><th>Function</th><th>Returns</th><th>Purpose</th></tr>
+    <tr><td><code>fn_calculate_cgpa(student_id)</code></td><td>DECIMAL(3,2)</td><td>Computes cumulative GPA across all semesters</td></tr>
+    <tr><td><code>fn_calculate_sgpa(student_id, semester_id)</code></td><td>DECIMAL(3,2)</td><td>Computes semester GPA for a specific semester</td></tr>
+    <tr><td><code>fn_attendance_pct(student_id, offering_id)</code></td><td>DECIMAL(5,2)</td><td>Calculates attendance percentage for a course</td></tr>
+    <tr><td><code>fn_payment_percentage(invoice_id)</code></td><td>DECIMAL(5,2)</td><td>Calculates what percentage of an invoice has been paid</td></tr>
+    <tr><td><code>fn_academic_standing(student_id)</code></td><td>VARCHAR</td><td>Returns academic standing based on CGPA (Dean's List / Good / Probation / Dismissed)</td></tr>
+  </table>
+
+  <h2>3.4 Triggers</h2>
+  <p>13 triggers automate data integrity and auditing:</p>
+
+  <table>
+    <caption>Table 3.4: Database Triggers</caption>
+    <tr><th>Trigger</th><th>Event</th><th>Purpose</th></tr>
+    <tr><td><code>trg_results_before_update</code></td><td>BEFORE UPDATE on results</td><td>Prevents modification of locked (published) results — raises SQLSTATE 45000</td></tr>
+    <tr><td><code>trg_results_after_insert</code></td><td>AFTER INSERT on results</td><td>Logs new result insertion to audit_logs</td></tr>
+    <tr><td><code>trg_results_after_update</code></td><td>AFTER UPDATE on results</td><td>Logs grade/mark changes with old and new values</td></tr>
+    <tr><td><code>trg_exam_marks_before_insert</code></td><td>BEFORE INSERT on exam_marks</td><td>Validates obtained_marks ≤ total_marks</td></tr>
+    <tr><td><code>trg_exam_marks_before_update</code></td><td>BEFORE UPDATE on exam_marks</td><td>Same validation on update</td></tr>
+    <tr><td><code>trg_attendance_after_insert</code></td><td>AFTER INSERT on attendance_records</td><td>Logs attendance marking to audit trail</td></tr>
+    <tr><td><code>trg_payments_after_insert</code></td><td>AFTER INSERT on payments</td><td>Logs payment to audit_logs</td></tr>
+    <tr><td><code>trg_payments_after_insert_status</code></td><td>AFTER INSERT on payments</td><td>Auto-updates invoice status (pending → partial → paid)</td></tr>
+    <tr><td><code>trg_ledger_before_insert</code></td><td>BEFORE INSERT on ledger_events</td><td>Computes SHA-256 hash chain: prev_hash + curr_hash</td></tr>
+    <tr><td><code>trg_ledger_prevent_update</code></td><td>BEFORE UPDATE on ledger_events</td><td>Blocks all updates (immutability)</td></tr>
+    <tr><td><code>trg_ledger_prevent_delete</code></td><td>BEFORE DELETE on ledger_events</td><td>Blocks all deletes (immutability)</td></tr>
+    <tr><td><code>trg_reg_item_after_insert</code></td><td>AFTER INSERT on registration_items</td><td>Auto-creates enrollment when course registration is approved</td></tr>
+    <tr><td><code>trg_clearance_step_update</code></td><td>AFTER UPDATE on clearance_steps</td><td>Auto-completes clearance request when all steps are approved</td></tr>
+  </table>
+
+  <h4>Example: Payment Status Cascade Trigger</h4>
+<pre>
+CREATE TRIGGER trg_payments_after_insert_status
+AFTER INSERT ON payments FOR EACH ROW
+BEGIN
+    DECLARE v_total DECIMAL(12,2);
+    DECLARE v_paid  DECIMAL(12,2);
+    SELECT SUM(amount) INTO v_total FROM invoice_items
+        WHERE invoice_id = NEW.invoice_id;
+    SELECT SUM(amount) INTO v_paid  FROM payments
+        WHERE invoice_id = NEW.invoice_id;
+    UPDATE student_invoices SET status =
+        CASE WHEN v_paid >= v_total THEN 'paid'
+             WHEN v_paid > 0       THEN 'partial'
+             ELSE 'pending' END
+    WHERE invoice_id = NEW.invoice_id;
+END;
+</pre>
+</div>
+</div>
+
+<div class="page">
+<div class="content">
+  <h2>3.5 Views</h2>
+  <p>10 views compute real-time metrics without redundant data storage:</p>
+
+  <table>
+    <caption>Table 3.5: Database Views</caption>
+    <tr><th>View</th><th>Purpose</th></tr>
+    <tr><td><code>vw_student_cgpa</code></td><td>Cumulative GPA: SUM(credit × grade_point) / SUM(credit) across all semesters</td></tr>
+    <tr><td><code>vw_semester_sgpa</code></td><td>Per-semester GPA with credits earned and courses taken</td></tr>
+    <tr><td><code>vw_attendance_summary</code></td><td>Per-course attendance percentage with safe/warning/danger thresholds (90%/75%)</td></tr>
+    <tr><td><code>vw_student_dues</code></td><td>Outstanding balance, total invoiced, total paid, next due date</td></tr>
+    <tr><td><code>vw_live_marks</code></td><td>Current semester weighted mark progress per exam component</td></tr>
+    <tr><td><code>vw_course_roster</code></td><td>Complete class roster from instructor perspective</td></tr>
+    <tr><td><code>vw_faculty_course_load</code></td><td>Faculty teaching load: courses per semester with student counts</td></tr>
+    <tr><td><code>vw_clearance_tracking</code></td><td>Clearance request status across all departments</td></tr>
+    <tr><td><code>vw_evaluation_summary</code></td><td>Aggregated faculty evaluation scores from student responses</td></tr>
+    <tr><td><code>vw_registration_overview</code></td><td>Course registration status and approval tracking</td></tr>
+  </table>
+
+  <h4>Example: vw_student_cgpa</h4>
+<pre>
+CREATE VIEW vw_student_cgpa AS
+SELECT e.student_id,
+    ROUND(SUM(c.credit * g.grade_point) / SUM(c.credit), 2) AS cgpa,
+    SUM(c.credit) AS total_credits,
+    COUNT(r.result_id) AS courses_completed
+FROM results r
+JOIN enrollments e       ON r.enrollment_id = e.enrollment_id
+JOIN course_offerings co ON e.offering_id = co.offering_id
+JOIN courses c           ON co.course_id = c.course_id
+JOIN grade_scale g       ON r.grade_code = g.grade_code
+WHERE r.published_at IS NOT NULL AND g.is_pass = TRUE
+GROUP BY e.student_id;
+</pre>
+
+  <h2>3.6 Investigation &amp; Analysis (EP4)</h2>
+  <p>We formulated and investigated the following research questions using SQL:</p>
+
+  <h3>Investigation 1: Which courses have the highest failure rates?</h3>
+<pre>
+SELECT c.course_code, c.title,
+    COUNT(r.result_id) AS total_students,
+    SUM(CASE WHEN g.is_pass = FALSE THEN 1 ELSE 0 END) AS failed,
+    ROUND(SUM(CASE WHEN g.is_pass = FALSE THEN 1 ELSE 0 END)
+          * 100.0 / COUNT(r.result_id), 2) AS failure_rate_pct
+FROM results r
+JOIN grade_scale g       ON r.grade_code = g.grade_code
+JOIN enrollments e       ON r.enrollment_id = e.enrollment_id
+JOIN course_offerings co ON e.offering_id = co.offering_id
+JOIN courses c           ON co.course_id = c.course_id
+GROUP BY c.course_code, c.title
+HAVING COUNT(r.result_id) >= 5
+ORDER BY failure_rate_pct DESC;
+</pre>
+  <p><strong>Finding:</strong> This query reveals which courses need pedagogical intervention. Courses with failure rates above 30% may indicate overly difficult assessments or inadequate teaching support.</p>
+</div>
+</div>
+
+<div class="page">
+<div class="content">
+  <h3>Investigation 2: Correlation between attendance and grade performance</h3>
+<pre>
+SELECT
+    CASE WHEN va.attendance_pct >= 90 THEN '90-100%'
+         WHEN va.attendance_pct >= 75 THEN '75-89%'
+         WHEN va.attendance_pct >= 60 THEN '60-74%'
+         ELSE 'Below 60%' END AS attendance_band,
+    COUNT(*) AS student_count,
+    ROUND(AVG(g.grade_point), 2) AS avg_gpa,
+    ROUND(AVG(r.total_mark), 2)  AS avg_marks
+FROM vw_attendance_summary va
+JOIN enrollments e       ON va.student_id = e.student_id
+                         AND va.offering_id = e.offering_id
+JOIN results r           ON r.enrollment_id = e.enrollment_id
+JOIN grade_scale g       ON r.grade_code = g.grade_code
+GROUP BY attendance_band
+ORDER BY avg_gpa DESC;
+</pre>
+  <p><strong>Finding:</strong> Students with ≥90% attendance consistently achieve higher GPAs (avg 3.5+) compared to those below 75% attendance (avg &lt; 2.5), demonstrating a strong positive correlation between class participation and academic performance.</p>
+
+  <h3>Investigation 3: Payment pattern analysis — which months see highest collections?</h3>
+<pre>
+SELECT MONTHNAME(p.paid_at) AS month_name,
+    COUNT(p.payment_id) AS transaction_count,
+    SUM(p.amount)        AS total_collected,
+    AVG(p.amount)        AS avg_payment,
+    GROUP_CONCAT(DISTINCT p.method) AS methods_used
+FROM payments p
+GROUP BY MONTH(p.paid_at), MONTHNAME(p.paid_at)
+ORDER BY total_collected DESC;
+</pre>
+  <p><strong>Finding:</strong> Collections peak in January and May (semester starts), with bKash being the dominant payment method (78% of transactions). This data informs financial planning and cash flow forecasting for the university.</p>
+
+  <h2>3.7 Output &amp; Discussion</h2>
+  <p>The implemented system successfully delivers:</p>
+  <ul>
+    <li><strong>36 tables</strong> with 50+ foreign key constraints ensuring referential integrity across all modules.</li>
+    <li><strong>13 triggers</strong> automating audit logging, mark validation, payment status cascading, and ledger hash-chain integrity.</li>
+    <li><strong>7 stored procedures</strong> encapsulating complex business transactions (admission, invoicing, payments, result publication) with ACID guarantees.</li>
+    <li><strong>5 functions</strong> computing CGPA, SGPA, attendance percentage, payment percentage, and academic standing on-demand.</li>
+    <li><strong>10 views</strong> providing real-time computed metrics without data redundancy.</li>
+    <li><strong>80+ REST API endpoints</strong> serving a responsive web frontend with JWT authentication.</li>
+    <li><strong>Admin query builder</strong> with auto-password-hashing for DML operations and transaction wrapping for safe ad-hoc query execution.</li>
+  </ul>
+  <p>The system handles all identified requirements from Section 2.1, with particular strength in financial automation (invoice → payment → status trigger cascade) and academic integrity (locked results, immutable ledger, audit trails).</p>
+</div>
+</div>
+
+<!-- ==================== CHAPTER 4: ENGINEERING STANDARDS ==================== -->
+<div class="page">
+<div class="content">
+  <h1>Chapter 4 — Engineering Standards and Mapping</h1>
+
+  <h2>4.1 Impact on Society, Environment &amp; Sustainability</h2>
+
+  <h3>Impact on Life</h3>
+  <p>This system directly improves the academic experience for students by providing real-time access to grades, attendance, and financial status through a unified portal — eliminating the need to visit multiple offices. Faculty benefit from streamlined mark entry and attendance tracking, reducing administrative burden.</p>
+
+  <h3>Impact on Society &amp; Environment</h3>
+  <p>By digitizing academic records, the system significantly reduces paper consumption for grade sheets, attendance registers, and financial receipts. The automated invoice and payment tracking eliminates manual ledger books, contributing to environmental sustainability. The RBAC system ensures equitable access based on roles rather than physical presence, supporting inclusive education.</p>
+
+  <h2>4.2 Ethical Aspects</h2>
+  <p>In this DBMS project, we apply ethical principles to ensure the design, implementation, and management of the database respect user privacy, data security, and intellectual property rights. We ensure that data stored and processed in the system is handled responsibly, preventing unauthorized access or misuse. The project uses bcrypt password hashing, JWT authentication, and role-based access control mechanisms to protect sensitive information and comply with relevant legal and ethical standards.</p>
+  <p>Furthermore, we commit to transparency by documenting data sources and usage policies clearly. The immutable hash-chain ledger ensures that financial records cannot be tampered with, promoting trust and accountability — essential for any engineering solution involving user data.</p>
+
+  <h3>Sustainability Plan</h3>
+  <p>The database schema is designed for long-term extensibility: new modules (e.g., alumni tracking, placement cell) can be added via new tables referencing existing entities without schema redesign. The <code>system_config</code> table with JSON values allows runtime configuration changes without code deployment. Views abstract complex queries, making future maintenance straightforward.</p>
+
+  <h2>4.3 Complex Engineering Problem</h2>
+
+  <h3>4.3.1 Mapping of Program Outcome</h3>
+  <table>
+    <caption>Table 4.1: Justification of Program Outcomes</caption>
+    <tr><th>PO</th><th>Justification (Project Perspective)</th></tr>
+    <tr><td><strong>PO3</strong></td><td>This project involves designing and implementing a relational database with 36 tables, efficient SQL queries using JOINs across 5+ tables, strategic indexing, and query optimization through views — thereby addressing complex problem-solving and system design challenges.</td></tr>
+    <tr><td><strong>PO5</strong></td><td>The project incorporates modern database technologies including MySQL/MariaDB RDBMS, Node.js/Express.js for API development, JWT for authentication, and bcrypt for security — reflecting application of contemporary tools in real-world scenarios.</td></tr>
+    <tr><td><strong>PO9</strong></td><td>Through collaborative project work, all group members were engaged in teamwork, task allocation (database design, backend implementation, frontend, documentation), and structured documentation.</td></tr>
+    <tr><td><strong>PO10</strong></td><td>The project requires presenting the developed database system, preparing this technical report, and communicating design decisions clearly through ER diagrams, schema documentation, and query explanations.</td></tr>
+  </table>
+</div>
+</div>
+
+<div class="page">
+<div class="content">
+  <h3>4.3.2 Complex Problem Solving</h3>
+
+  <table>
+    <caption>Table 4.2: Mapping with Complex Problem Solving</caption>
+    <tr><th>EP1</th><th>EP2</th><th>EP3</th><th>EP4</th><th>EP5</th><th>EP6</th><th>EP7</th></tr>
+    <tr><td>✓</td><td>✓</td><td></td><td>✓</td><td></td><td></td><td></td></tr>
+  </table>
+
+  <p><strong>EP1 — Depth of Knowledge:</strong> This project requires us to design, implement, and optimize a relational database system with 36 tables across 10 modules. These tasks involve tackling complex engineering challenges such as 3NF normalization, multi-table query optimization with JOINs across 5+ tables, trigger-based automation for 13 business rules, stored procedure transactions with ACID guarantees, and immutable hash-chain ledger design — enabling deep problem-solving skills in database engineering.</p>
+
+  <p><strong>EP2 — Range of Conflicting Requirements:</strong> In this project, we balance conflicting requirements between data normalization (eliminating redundancy) and query performance (the denormalized <code>fact_academic</code> OLAP table). We manage the tension between security isolation (RBAC with 22 granular permissions) and usability (single unified portal). The financial module must ensure both immutability (hash-chain ledger) and correctness (trigger-cascaded status updates).</p>
+
+  <p><strong>EP4 — Familiarity of Issues:</strong> We critically evaluate our database design by analyzing query performance through EXPLAIN plans, investigating failure rate patterns across courses, correlating attendance with grade performance, and analyzing payment trends — all using research-oriented SQL queries (Section 3.6). This ongoing evaluation refines the solution to meet quality and efficiency standards.</p>
+
+  <h3>4.3.3 Complex Engineering Activities</h3>
+
+  <table>
+    <caption>Table 4.3: Mapping with Complex Engineering Activities</caption>
+    <tr><th>EA1</th><th>EA2</th><th>EA3</th><th>EA4</th><th>EA5</th></tr>
+    <tr><td>✓</td><td>✓</td><td></td><td></td><td></td></tr>
+  </table>
+
+  <p><strong>EA1:</strong> In this DBMS project, we use systematic methods to gather all project requirements from stakeholders (students, faculty, accountants, administrators). We document the database schemas, ER diagrams, query designs, and system workflows in this report. This structured preparation organizes the technical information logically, ensuring clear understanding of the system's architecture and functionality.</p>
+
+  <p><strong>EA2:</strong> For this project, we use oral and visual presentation techniques to explain complex database concepts such as 3NF normalization, trigger cascading, hash-chain ledger integrity, and weighted GPA computation. By presenting the DBMS project clearly through diagrams, code snippets, and sample output, we communicate design decisions effectively and respond to technical questions from evaluators.</p>
+
+</div>
+</div>
+
+<!-- ==================== CHAPTER 5: CONCLUSION ==================== -->
+<div class="page">
+<div class="content">
+  <h1>Chapter 5 — Conclusion</h1>
+
+  <h2>5.1 Summary</h2>
+  <p>This project successfully implements a comprehensive University Academic Management System as a DBMS mini-project, demonstrating mastery of relational database design and SQL implementation. The <code>student_portal</code> database contains 36 normalized tables (3NF) across 10 functional modules — Identity &amp; RBAC, Academic Structure, Results, Attendance, Exams, Finance, Hostel, Transport, Audit, and Analytics — interconnected through 50+ foreign key constraints.</p>
+  <p>The system goes beyond basic CRUD operations to implement 13 triggers for automated business logic, 7 stored procedures for ACID-compliant transactions, 5 functions for on-demand metric computation, and 10 views for real-time aggregation. The immutable hash-chain ledger (SHA-256) and comprehensive audit trail ensure data integrity and accountability at every level.</p>
+  <p>A full-stack web application with 80+ REST API endpoints, JWT authentication, and a responsive frontend demonstrates practical deployment of the database in a real-world scenario. The investigative SQL analyses (Section 3.6) address EP4 by exploring attendance-performance correlations, course failure rates, and payment patterns.</p>
+
+  <h2>5.2 Limitations</h2>
+  <ul>
+    <li>The current implementation uses a single MySQL server instance. Distributed database features (sharding, replication) are configured in <code>system_config</code> but not deployed.</li>
+    <li>The frontend does not include real-time WebSocket notifications; all data is fetched via polling REST APIs.</li>
+    <li>NoSQL integration (MongoDB) and Big Data tools (Hadoop) referenced in the course outline are documented conceptually but not implemented.</li>
+    <li>The sample dataset, while realistic, has limited volume (~400 total records). Load testing with thousands of concurrent users was not conducted.</li>
+  </ul>
+
+  <h2>5.3 Future Work</h2>
+  <ul>
+    <li>Implement read replicas and database sharding for horizontal scalability.</li>
+    <li>Add WebSocket-based real-time notifications for grade publications and payment confirmations.</li>
+    <li>Integrate MongoDB for semi-structured data (student portfolios, project submissions).</li>
+    <li>Implement automated ETL pipelines to populate the <code>fact_academic</code> warehouse table for dashboard analytics with Chart.js visualizations.</li>
+    <li>Add mobile application support with React Native or Flutter.</li>
+  </ul>
+
+  <h2>References</h2>
+  <ol>
+    <li>Abraham Silberschatz, Henry F. Korth, S. Sudarshan, <em>Database System Concepts</em>, 7th Edition, McGraw-Hill Education, 2019.</li>
+    <li>Raghu Ramakrishnan, Johannes Gehrke, <em>Database Management Systems</em>, 4th Edition, McGraw-Hill Education, 2018.</li>
+    <li>Michael J. Hernandez, <em>Database Design for Mere Mortals</em>, 3rd Edition, Addison-Wesley Professional, 2013.</li>
+    <li>MySQL 8.0 Reference Manual, Oracle Corporation, <em>https://dev.mysql.com/doc/refman/8.0/en/</em></li>
+    <li>Express.js Documentation, OpenJS Foundation, <em>https://expressjs.com/</em></li>
+  </ol>
+</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Faculty Dashboard | Teacher Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+</head>
+<body>
+<div class="app-container">
+  <div class="sidebar-overlay"></div>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-logo" style="background:#10b981;">FP</div>
+      <div>
+        <div class="sidebar-title">Faculty Portal</div>
+        <div class="sidebar-subtitle">Teacher Dashboard</div>
+      </div>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-section">
+        <div class="nav-section-title">Main</div>
+        <a href="faculty-dashboard.html" class="nav-item active">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+          <span>Dashboard</span>
+        </a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">Teaching</div>
+        <a href="faculty-courses.html" class="nav-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+          <span>My Courses</span>
+        </a>
+        <a href="faculty-routine.html" class="nav-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line><path d="M8 14h.01"></path><path d="M12 14h.01"></path><path d="M16 14h.01"></path></svg>
+          <span>Class Routine</span>
+        </a>
+        <a href="faculty-students.html" class="nav-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          <span>Student List</span>
+        </a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">Assessment</div>
+        <a href="faculty-result-management.html" class="nav-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+          <span>Result Management</span>
+          <span class="nav-badge">3 Due</span>
+        </a>
+        <a href="faculty-attendance.html" class="nav-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+          <span>Attendance</span>
+          <span class="nav-badge">1 Due</span>
+        </a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">HR</div>
+        <a href="faculty-leave.html" class="nav-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+          <span>Leave Management</span>
+        </a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">Account</div>
+        <a href="faculty-profile.html" class="nav-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+          <span>Profile</span>
+        </a>
+        <a href="login.html" class="nav-item" onclick="localStorage.removeItem('portal_token');localStorage.removeItem('portal_user');sessionStorage.removeItem('portal_token');sessionStorage.removeItem('portal_user');">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+          <span>Logout</span>
+        </a>
+      </div>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="sidebar-user">
+        <div class="sidebar-avatar" style="background:#10b981;" id="sidebar-initials">HR</div>
+        <div class="sidebar-user-info">
+          <div class="sidebar-user-name" id="sidebar-name">Dr. Md. Hafizur Rahman</div>
+          <div class="sidebar-user-role">Associate Professor</div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <header class="header">
+      <div class="header-left">
+        <button class="menu-toggle" onclick="document.querySelector('.sidebar').classList.toggle('open');document.querySelector('.sidebar-overlay').classList.toggle('active');">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+        <div class="breadcrumb"><a href="faculty-dashboard.html">Dashboard</a><span class="breadcrumb-separator">/</span><span>Faculty Dashboard</span></div>
+      </div>
+      <div class="header-right">
+        <div class="header-avatar" style="background:#10b981;" id="header-initials">HR</div>
+      </div>
+    </header>
+
+    <div class="content">
+      <!-- Page Header -->
+      <div class="section-header">
+        <div>
+          <h1 class="page-title" id="welcome-msg">Welcome, Dr. Rahman</h1>
+          <p class="text-secondary mt-1" id="semester-info">Spring 2025 — Loading today's schedule...</p>
+        </div>
+        <div class="flex gap-2">
+          <a href="faculty-attendance.html" class="btn btn-secondary">Mark Attendance</a>
+          <a href="faculty-result-management.html" class="btn btn-primary" style="background:#10b981;border-color:#10b981;">Enter Results</a>
+        </div>
+      </div>
+
+      <!-- Metric Cards -->
+      <div class="metrics-grid mb-4">
+        <div class="metric-card">
+          <div class="metric-content">
+            <div class="metric-label">Assigned Courses</div>
+            <div class="metric-value" id="total-courses">4</div>
+            <div class="metric-change positive">Spring 2025</div>
+          </div>
+          <div class="metric-icon" style="background:#d1fae5;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+          </div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-content">
+            <div class="metric-label">Total Students</div>
+            <div class="metric-value" id="total-students">145</div>
+            <div class="metric-change positive">Across all sections</div>
+          </div>
+          <div class="metric-icon" style="background:#dbeafe;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          </div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-content">
+            <div class="metric-label">Results Pending</div>
+            <div class="metric-value" style="color:#f59e0b;" id="results-pending">3</div>
+            <div class="metric-change negative">Submission due soon</div>
+          </div>
+          <div class="metric-icon" style="background:#fef3c7;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+          </div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-content">
+            <div class="metric-label">Classes Today</div>
+            <div class="metric-value" id="classes-today">2</div>
+            <div class="metric-change positive" id="today-day">Loading...</div>
+          </div>
+          <div class="metric-icon" style="background:#f3e8ff;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Two column layout -->
+      <div class="grid-2 mb-4" style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
+        <!-- Today's Schedule -->
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Today's Schedule</h3>
+            <a href="faculty-routine.html" class="btn btn-secondary" style="font-size:0.75rem;padding:4px 12px;">Full Routine</a>
+          </div>
+          <div class="card-body" id="today-schedule">
+            <p class="text-secondary">Loading...</p>
+          </div>
+        </div>
+
+        <!-- Pending Tasks -->
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Pending Tasks</h3>
+            <span class="badge badge-warning" id="task-count-badge">3 tasks</span>
+          </div>
+          <div class="card-body" id="pending-tasks">
+            <p class="text-secondary">Loading...</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course Overview -->
+      <div class="card mb-4">
+        <div class="card-header">
+          <h3 class="card-title">My Courses — Spring 2025</h3>
+          <a href="faculty-courses.html" class="btn btn-secondary" style="font-size:0.75rem;padding:4px 12px;">View All</a>
+        </div>
+        <div class="card-body" style="padding:0;">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Course</th>
+                <th>Section</th>
+                <th>Room</th>
+                <th>Students</th>
+                <th>Attendance</th>
+                <th>Results</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="courses-table"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Notifications -->
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Notifications</h3>
+        </div>
+        <div class="card-body" id="notifications-list"></div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="assets/data/faculty-data.js"></script>
+<script src="assets/js/api.js"></script>
+<script src="assets/js/data-loader.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+  // Sidebar overlay close
+  document.querySelector('.sidebar-overlay').addEventListener('click', function() {
+    document.querySelector('.sidebar').classList.remove('open');
+    this.classList.remove('active');
+  });
+
+  const data = facultyData;
+
+  // Welcome message
+  document.getElementById('welcome-msg').textContent = 'Welcome, Dr. Rahman';
+  document.getElementById('semester-info').textContent = data.currentSemester + ' — ' + data.academicYear;
+
+  // Metrics
+  document.getElementById('total-courses').textContent = data.courses.length;
+  const totalStudents = data.courses.reduce((s, c) => s + c.studentsCount, 0);
+  document.getElementById('total-students').textContent = totalStudents;
+  const resultsPending = data.courses.filter(c => !c.resultSubmitted).length;
+  document.getElementById('results-pending').textContent = resultsPending;
+
+  // Today's classes
+  const today = getTodayDay();
+  document.getElementById('today-day').textContent = today;
+  const todayClasses = data.schedule.filter(s => s.day === today);
+  document.getElementById('classes-today').textContent = todayClasses.length;
+
+  // Today's schedule
+  const schedDiv = document.getElementById('today-schedule');
+  if (todayClasses.length === 0) {
+    schedDiv.innerHTML = '<p class="text-secondary" style="text-align:center;padding:1rem;">No classes scheduled for today</p>';
+  } else {
+    schedDiv.innerHTML = todayClasses.map(c => `
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border);">
+        <div>
+          <div style="font-weight:600;">${c.course} <span style="color:#6b7280;">Sec ${c.section}</span></div>
+          <div style="font-size:0.8rem;color:#6b7280;margin-top:2px;">${c.time} &nbsp;|&nbsp; ${c.room}</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span style="font-size:0.8rem;background:#d1fae5;color:#059669;padding:2px 8px;border-radius:9999px;">${c.students} students</span>
+          <a href="faculty-attendance.html" style="font-size:0.75rem;color:#10b981;font-weight:500;">Mark</a>
+        </div>
+      </div>`).join('').replace(/border-bottom[^;]+;(?=[^<]*<\/div>\s*<\/div>\s*$)/, '');
+  }
+
+  // Pending tasks
+  const tasks = [
+    ...data.courses.filter(c => !c.resultSubmitted).map(c => ({
+      label: `Submit results: ${c.code} Sec ${c.section}`,
+      type: 'warning',
+      link: 'faculty-result-management.html'
+    })),
+    ...data.courses.filter(c => !c.attendanceSubmitted).map(c => ({
+      label: `Submit attendance: ${c.code} Sec ${c.section}`,
+      type: 'info',
+      link: 'faculty-attendance.html'
+    })),
+  ];
+  document.getElementById('task-count-badge').textContent = tasks.length + ' tasks';
+  document.getElementById('pending-tasks').innerHTML = tasks.length ? tasks.map(t => `
+    <div style="display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--border);">
+      <div style="width:8px;height:8px;border-radius:50%;background:${t.type==='warning'?'#f59e0b':'#3b82f6'};flex-shrink:0;"></div>
+      <div style="flex:1;font-size:0.875rem;">${t.label}</div>
+      <a href="${t.link}" style="font-size:0.75rem;color:#10b981;font-weight:500;white-space:nowrap;">Go →</a>
+    </div>`).join('') : '<p class="text-secondary" style="text-align:center;padding:1rem;">All tasks completed ✓</p>';
+
+  // Courses table
+  document.getElementById('courses-table').innerHTML = data.courses.map(c => `
+    <tr>
+      <td><div style="font-weight:600;">${c.code}</div><div style="font-size:0.8rem;color:#6b7280;">${c.name}</div></td>
+      <td><span style="background:#f3f4f6;border-radius:4px;padding:2px 8px;">Sec ${c.section}</span></td>
+      <td>${c.room}</td>
+      <td>${c.studentsCount}</td>
+      <td><span class="badge ${c.attendanceSubmitted?'badge-success':'badge-warning'}">${c.attendanceSubmitted?'Up to date':'Pending'}</span></td>
+      <td><span class="badge ${c.resultSubmitted?'badge-success':'badge-warning'}">${c.resultSubmitted?'Submitted':'Pending'}</span></td>
+      <td>
+        <a href="faculty-result-management.html" style="color:#10b981;font-size:0.8rem;font-weight:500;margin-right:8px;">Results</a>
+        <a href="faculty-attendance.html" style="color:#2563eb;font-size:0.8rem;font-weight:500;">Attendance</a>
+      </td>
+    </tr>`).join('');
+
+  // Notifications
+  document.getElementById('notifications-list').innerHTML = data.notifications.map(n => `
+    <div style="display:flex;align-items:flex-start;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);${n.read?'opacity:0.6':''}">
+      <div style="width:10px;height:10px;border-radius:50%;flex-shrink:0;margin-top:4px;background:${n.type==='warning'?'#f59e0b':n.type==='success'?'#10b981':'#3b82f6'};${n.read?'':''}"></div>
+      <div style="flex:1;">
+        <div style="font-size:0.875rem;${n.read?'':'font-weight:500;'}">${n.message}</div>
+        <div style="font-size:0.75rem;color:#9ca3af;margin-top:2px;">${n.time}</div>
+      </div>
+      ${!n.read ? '<span style="width:8px;height:8px;border-radius:50%;background:#ef4444;flex-shrink:0;margin-top:4px;"></span>' : ''}
+    </div>`).join('');
+</script>
+</body>
+</html>
